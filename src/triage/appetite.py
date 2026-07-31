@@ -48,6 +48,7 @@ def evaluate(
     state: Optional[str] = None,
     lines_of_business: Optional[List[str]] = None,
     total_insured_value_usd: Optional[float] = None,
+    tiv_is_estimated: Optional[bool] = None,
     annual_revenue_usd: Optional[float] = None,
     total_incurred_5yr_usd: Optional[float] = None,
     open_claims: Optional[int] = None,
@@ -81,6 +82,13 @@ def evaluate(
             needed.append(field)
     if completeness.get("loss_runs_required") and not loss_runs_provided:
         needed.append("carrier loss runs")
+
+    # An owner's estimate is not a value we can commit capacity against. The
+    # capacity rules below still run on the figure - a number far above gross
+    # capacity is disqualifying however soft it is - but the account cannot
+    # clear completeness until confirmed values arrive.
+    if completeness.get("confirmed_values_required") and tiv_is_estimated:
+        needed.append("confirmed statement of values (TIV supplied is an estimate)")
 
     if needed:
         fired.append(

@@ -15,7 +15,12 @@ extract_submission:
        "Manufacturing", do not normalise "Pkwy" to "Parkway". A later step
        depends on the raw form.
 
-    2. Record the coverages requested, with limits and deductibles.
+    2. Record the broker's name as they write it, from the signature block or
+       letterhead. Never take it from the email address: "tonya.b" is a
+       mailbox, not a person. If the packet is signed "tonya", that is the
+       name. If no name appears anywhere, leave it null.
+
+    3. Record the coverages requested, with limits and deductibles.
 
     3. Record every location with its values and physical characteristics.
        For sprinklered, set true or false only when the documents state it.
@@ -70,10 +75,16 @@ triage_submission:
 
     Step 2 - evaluate appetite.
     Call check_appetite once, passing the extracted facts. Pass null for
-    anything the documents did not state. Do not substitute an estimate, a
-    midpoint of a range, or a figure the broker described as approximate -
+    anything the documents did not state. Never invent a value, and never
+    substitute the midpoint of a range for a figure nobody has confirmed -
     a missing value must reach the tool as missing, because the tool decides
     differently when a fact is absent than when it is unfavourable.
+
+    Where a value is present but approximate - an owner's estimate, a pending
+    appraisal, a figure the broker called "about" or "around" - pass the
+    figure and set tiv_is_estimated to true. The guide treats a soft number
+    differently from a confirmed one, and it cannot do that if you present
+    the two the same way.
 
     Step 3 - report the result.
     The outcome, fired_rules, queue and priority in your answer must be copied
@@ -89,7 +100,9 @@ triage_submission:
 
     Step 5 - write the broker message.
     A short, professional reply the underwriter could send with minimal
-    editing. Address the broker by name where known.
+    editing. Open with the broker's name if the extract recorded one. If it
+    did not, open with "Dear Sir or Madam". Never build a greeting out of an
+    email address or a mailbox handle.
       - pending_info: state what is needed and why it blocks evaluation. Be
         specific, list the items.
       - decline: be courteous and clear about the reason. Do not invite a

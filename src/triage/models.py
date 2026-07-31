@@ -83,7 +83,12 @@ class CoverageRequest(BaseModel):
 
 
 class BrokerInfo(BaseModel):
-    producer_name: Optional[str] = Field(None, description="The individual broker")
+    producer_name: Optional[str] = Field(
+        None,
+        description="The individual broker's name as they write it, from the "
+        "signature block or letterhead. Never derived from an email address: "
+        "'tonya.b@agency.net' is not a name. Null if only an address is given.",
+    )
     agency_name: Optional[str] = None
     email: Optional[str] = None
     phone: Optional[str] = None

@@ -84,6 +84,7 @@ def check_appetite(
     state: Optional[str] = None,
     lines_of_business: Optional[List[str]] = None,
     total_insured_value_usd: Optional[float] = None,
+    tiv_is_estimated: Optional[bool] = None,
     annual_revenue_usd: Optional[float] = None,
     total_incurred_5yr_usd: Optional[float] = None,
     open_claims: Optional[int] = None,
@@ -96,8 +97,11 @@ def check_appetite(
 
     This is the only source of an appetite outcome. Pass the facts exactly as
     extracted, leaving anything the documents did not state as null - do not
-    substitute estimates. The returned outcome, fired rules, queue and priority
-    are authoritative and must be reported unchanged.
+    substitute estimates. Where a figure is present but approximate, pass it
+    and set tiv_is_estimated so the guide can weigh it accordingly.
+
+    The returned outcome, fired rules, queue and priority are authoritative and
+    must be reported unchanged.
 
     Dates are YYYY-MM-DD. State is a two letter code.
     """
@@ -107,6 +111,7 @@ def check_appetite(
         state=state,
         lines_of_business=lines_of_business,
         total_insured_value_usd=total_insured_value_usd,
+        tiv_is_estimated=tiv_is_estimated,
         annual_revenue_usd=annual_revenue_usd,
         total_incurred_5yr_usd=total_incurred_5yr_usd,
         open_claims=open_claims,

@@ -122,6 +122,11 @@ is absent than when it is unfavourable.
 - **Broker framing is recorded, not applied.** A request to disregard prior
   losses lands in `ambiguities`; the losses are still extracted and still
   evaluated.
+- **An estimated value is not a confirmed one.** A TIV the client called
+  approximate is passed with `tiv_is_estimated`, and does not clear
+  completeness — capacity is not committed against an owner's guess. The
+  capacity rules still evaluate the figure, so a soft number far above gross
+  capacity is still disqualifying.
 - **The broker reply never quotes terms.** No premium, rate or capacity figure.
 
 ## Configuration

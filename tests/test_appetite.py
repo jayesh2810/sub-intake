@@ -96,6 +96,31 @@ def test_missing_data_yields_pending_info():
 # --- individual rules -------------------------------------------------------
 
 
+def test_estimated_tiv_does_not_clear_completeness():
+    """An owner's estimate is not a value we can commit capacity against."""
+    firm = evaluate(
+        naics_code="531110", state="NC", total_insured_value_usd=9_000_000,
+        tiv_is_estimated=False, loss_runs_provided=True, as_of=AS_OF,
+    )
+    soft = evaluate(
+        naics_code="531110", state="NC", total_insured_value_usd=9_000_000,
+        tiv_is_estimated=True, loss_runs_provided=True, as_of=AS_OF,
+    )
+    assert firm.outcome is Outcome.ACCEPT
+    assert soft.outcome is Outcome.PENDING_INFO
+    assert any("estimate" in item for item in soft.information_required)
+
+
+def test_estimated_tiv_still_evaluated_against_capacity():
+    """A soft number far above gross capacity is still disqualifying."""
+    r = evaluate(
+        naics_code="531110", state="NC", total_insured_value_usd=40_000_000,
+        tiv_is_estimated=True, loss_runs_provided=True, as_of=AS_OF,
+    )
+    assert "TIV_OVER_GROSS_CAPACITY" in fired(r)
+    assert r.outcome is Outcome.DECLINE
+
+
 def test_decline_does_not_request_information():
     r = evaluate(
         naics_code="238160",              # prohibited

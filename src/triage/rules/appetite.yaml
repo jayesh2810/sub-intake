@@ -43,6 +43,7 @@ submission_completeness:
     - state
     - total_insured_value_usd
   loss_runs_required: true
+  confirmed_values_required: true   # an estimated TIV does not clear completeness
   max_days_to_effective: 15  # tighter than this, refer for handling
 
 routing:
