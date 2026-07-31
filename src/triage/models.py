@@ -8,6 +8,7 @@ The schema records what the documents state. It carries no underwriting
 decision - appetite, pricing and routing are evaluated downstream.
 """
 
+from enum import Enum
 from typing import List, Optional
 
 from pydantic import BaseModel, Field
@@ -171,3 +172,86 @@ class SubmissionExtract(BaseModel):
         "A tidy ACORD plus carrier loss runs is high. An email with round "
         "numbers and no attachments is low.",
     )
+
+
+# ---------------------------------------------------------------------------
+# Appetite evaluation
+#
+# Everything below the SubmissionExtract is produced by the rules engine in
+# appetite.py, not by the model. The agent reports these values; it does not
+# author them.
+# ---------------------------------------------------------------------------
+
+
+class Outcome(str, Enum):
+    ACCEPT = "accept"
+    REFER = "refer"
+    DECLINE = "decline"
+    PENDING_INFO = "pending_info"
+
+
+class NaicsInfo(BaseModel):
+    """A class code resolved against the reference table."""
+
+    code: str
+    title: str
+    hazard_grade: int = Field(..., ge=1, le=5)
+    notes: Optional[str] = None
+    matched_on: Optional[str] = Field(
+        None, description="'code' for an exact lookup, or the keyword that matched"
+    )
+
+
+class FiredRule(BaseModel):
+    """One appetite rule that triggered, and why."""
+
+    rule_id: str = Field(..., description="Stable identifier, e.g. PROHIBITED_CLASS")
+    outcome: Outcome
+    detail: str = Field(..., description="The evaluated values that triggered it")
+
+
+class AppetiteResult(BaseModel):
+    """Deterministic output of the appetite rules engine."""
+
+    outcome: Outcome
+    fired_rules: List[FiredRule] = Field(default_factory=list)
+    blocking: List[str] = Field(
+        default_factory=list, description="Reasons the risk cannot be bound as presented"
+    )
+    information_required: List[str] = Field(
+        default_factory=list,
+        description="What must be supplied before appetite can be evaluated",
+    )
+    queue: Optional[str] = None
+    priority: Optional[int] = Field(None, ge=1, le=5, description="1 highest, 5 lowest")
+    guide_version: Optional[str] = None
+
+
+class TriageDecision(BaseModel):
+    """Final triage output for one submission."""
+
+    submission_id: str
+    named_insured: Optional[str] = None
+
+    # Copied verbatim from the appetite tool. Not the model's opinion.
+    outcome: Outcome
+    fired_rules: List[FiredRule] = Field(default_factory=list)
+    queue: Optional[str] = None
+    priority: Optional[int] = Field(None, ge=1, le=5)
+
+    naics: Optional[NaicsInfo] = None
+
+    # Authored by the model from the rule output.
+    rationale: str = Field(
+        ...,
+        description="Two or three sentences explaining the outcome, citing the "
+        "rules that fired. No new reasoning beyond what the rules established.",
+    )
+    information_required: List[str] = Field(
+        default_factory=list,
+        description="Specific items to request, phrased for the broker",
+    )
+    broker_message: Optional[str] = Field(
+        None, description="Draft reply to the broker. Professional, brief, no pricing."
+    )
+    extraction_confidence: Optional[float] = Field(None, ge=0.0, le=1.0)

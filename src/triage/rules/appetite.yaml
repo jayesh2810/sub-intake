@@ -1,0 +1,69 @@
+carrier: Meridian Casualty
+guide_version: "2026.07"
+
+# Outcome precedence when several rules fire:
+#   decline > pending_info > refer > accept
+
+licensed_states: [OH, IN, MI, PA, KY, TN, NC, SC, GA, CO, TX, AZ, MO, IA, WI]
+
+prohibited_classes:
+  - code: "238160"
+    reason: Roofing contractors are outside appetite on all lines.
+  - code: "236116"
+    reason: New multifamily construction - construction defect exposure.
+
+hazard_grade:
+  refer_at_or_above: 4
+  decline_at_or_above: 5
+
+capacity:
+  property_tiv:
+    max_net: 10000000        # above this needs facultative support
+    max_gross: 25000000      # above this we cannot participate
+
+loss_experience:
+  # 5 year incurred as a share of annual revenue. Cheap proxy that works
+  # without a full premium history.
+  incurred_to_revenue:
+    refer_above: 0.010
+    decline_above: 0.030
+  open_claims:
+    refer_above: 3
+  prior_non_renewal:
+    action: refer
+    reason: Prior carrier non-renewal requires underwriter review.
+
+operations:
+  min_years_in_business: 3   # below this, refer
+
+submission_completeness:
+  # Absent any of these we cannot evaluate appetite at all.
+  required_for_evaluation:
+    - naics_code
+    - state
+    - total_insured_value_usd
+  loss_runs_required: true
+  max_days_to_effective: 15  # tighter than this, refer for handling
+
+routing:
+  # First match wins.
+  - queue: specialty_casualty
+    when: {hazard_grade_min: 4}
+  - queue: middle_market_property
+    when: {tiv_min: 10000000}
+  - queue: habitational
+    when: {naics_prefix: "5311"}
+  - queue: middle_market
+    when: {revenue_min: 10000000}
+  - queue: small_commercial
+    when: {}
+
+priority:
+  # 1 highest, 5 lowest.
+  days_to_effective:
+    within_21_days: 1
+    within_45_days: 2
+    beyond: 3
+  adjustments:
+    large_account_revenue_min: 20000000   # -1 (more urgent)
+    incomplete_submission: 1              # +1 (less urgent, blocked anyway)

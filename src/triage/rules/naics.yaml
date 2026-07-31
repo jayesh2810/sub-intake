@@ -1,0 +1,72 @@
+# NAICS reference extract. Hazard grade is this carrier's own 1-5 scale for
+# casualty severity potential, not an NAICS attribute.
+#
+# 1 clerical / low  2 light  3 moderate  4 heavy  5 severe
+
+classes:
+  - code: "332119"
+    title: Metal Crown, Closure, and Other Metal Stamping (except Automotive)
+    hazard_grade: 3
+    keywords: [metal stamping, sheet metal, fabrication, stamping, metal forming]
+    notes: Products liability exposure driven by end use of component.
+
+  - code: "332312"
+    title: Fabricated Structural Metal Manufacturing
+    hazard_grade: 4
+    keywords: [structural metal, structural steel, girder, joist]
+    notes: Erection operations, if any, are rated separately.
+
+  - code: "238160"
+    title: Roofing Contractors
+    hazard_grade: 5
+    keywords: [roofing, roofer, re-roof, reroof, shingle, roof replacement]
+    notes: Height exposure and interior water damage from open roofs.
+
+  - code: "238220"
+    title: Plumbing, Heating, and Air-Conditioning Contractors
+    hazard_grade: 3
+    keywords: [plumbing, hvac, heating, air conditioning, mechanical contractor]
+
+  - code: "236116"
+    title: New Multifamily Housing Construction
+    hazard_grade: 5
+    keywords: [multifamily construction, apartment construction, condo construction]
+    notes: Construction defect exposure.
+
+  - code: "531110"
+    title: Lessors of Residential Buildings and Dwellings
+    hazard_grade: 3
+    keywords: [apartment, apartments, multifamily, residential rental, habitational, lessor]
+    notes: Habitational. Amenity exposures rated separately.
+
+  - code: "531120"
+    title: Lessors of Nonresidential Buildings
+    hazard_grade: 2
+    keywords: [office building, retail center, strip mall, commercial landlord]
+
+  - code: "493110"
+    title: General Warehousing and Storage
+    hazard_grade: 2
+    keywords: [warehouse, warehousing, distribution, storage, fulfillment]
+
+  - code: "722511"
+    title: Full-Service Restaurants
+    hazard_grade: 3
+    keywords: [restaurant, dining, food service, bar and grill]
+
+  - code: "423830"
+    title: Industrial Machinery and Equipment Merchant Wholesalers
+    hazard_grade: 2
+    keywords: [machinery wholesale, equipment distributor, industrial supply]
+
+  - code: "621111"
+    title: Offices of Physicians
+    hazard_grade: 4
+    keywords: [physician, medical office, clinic, healthcare practice]
+    notes: Professional liability written separately, not on this paper.
+
+  - code: "541330"
+    title: Engineering Services
+    hazard_grade: 4
+    keywords: [engineering, engineer, design services]
+    notes: Professional liability written separately, not on this paper.

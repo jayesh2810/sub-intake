@@ -1,10 +1,48 @@
 # Submission Triage
 
-Automated intake for commercial insurance submissions. Reads a broker
-submission packet — email, ACORD application, statement of values, loss runs —
-and returns validated structured data for downstream underwriting.
+Automated intake and triage for commercial insurance submissions. Reads a
+broker submission packet — email, ACORD application, statement of values, loss
+runs — extracts the underwriting facts, evaluates them against the appetite
+guide, and returns a routed decision with a drafted broker reply.
 
 Built on CrewAI with Google Gemini.
+
+## How it works
+
+An intake agent works the packet with four tools:
+
+| Tool | Purpose |
+|---|---|
+| `list_documents` | See what arrived in the packet |
+| `read_document` | Open one document at a time |
+| `lookup_naics` | Resolve a class code, or match one from the description of operations |
+| `check_appetite` | Evaluate the risk against the appetite guide |
+
+The agent chooses what to open and in what order, so the tool sequence differs
+per submission. A packet with a NAICS code on the ACORD resolves the class
+directly; a packet without one is matched on the description of operations.
+
+**Appetite is decided in Python, not by the model.** `check_appetite` runs the
+rules engine in `appetite.py` against `rules/appetite.yaml` and returns an
+outcome with every rule that fired. The agent reports that result verbatim and
+is instructed it may not alter it. The model's judgement is confined to reading
+messy documents and writing to the broker.
+
+This keeps the decision reproducible, auditable against a named rule, and
+testable without spending a token.
+
+## Outcomes
+
+| Outcome | Meaning |
+|---|---|
+| `accept` | In appetite, proceed to quote |
+| `refer` | Requires underwriter review before terms |
+| `decline` | Outside appetite as presented |
+| `pending_info` | Cannot be evaluated until the broker supplies more |
+
+Precedence when several rules fire: `decline` > `pending_info` > `refer` >
+`accept`. A declined risk returns no information request — the file records the
+gap for audit, but there is nothing to ask for.
 
 ## Requirements
 
@@ -15,8 +53,8 @@ Built on CrewAI with Google Gemini.
 
 ```bash
 uv venv
-uv pip install "crewai[google-genai]" pydantic python-dotenv
-cp .env.example .env    # add your key
+uv pip install -e ".[dev]"
+cp .env.example .env    # add your key, or export it in your shell
 ```
 
 The key is read from `GEMINI_API_KEY`, `GOOGLE_GENERATIVE_AI_API_KEY` or
@@ -25,52 +63,45 @@ The key is read from `GEMINI_API_KEY`, `GOOGLE_GENERATIVE_AI_API_KEY` or
 ## Usage
 
 ```bash
-PYTHONPATH=src .venv/bin/python -m triage.main --list
-PYTHONPATH=src .venv/bin/python -m triage.main SUB-1001
-PYTHONPATH=src .venv/bin/python -m triage.main --all
+.venv/bin/python -m triage.main --list
+.venv/bin/python -m triage.main SUB-1001
+.venv/bin/python -m triage.main --all
 ```
 
-Each run prints an underwriter summary and writes the full extraction to
-`output/<submission_id>.json`.
+Each run prints a triage report and writes the decision plus the full
+extraction to `output/<submission_id>.json`.
 
-```
-----------------------------------------------------------------------
-  SUB-1001: Bluewater Manufacturing Co.
-----------------------------------------------------------------------
-  Broker         Harborline Insurance Brokers / Devanshi Patel
-  Operations     Precision metal stamping and sheet metal fabrication
-  NAICS          332119
-  Revenue        $22,400,000
-  Employees      140
-  TIV            $14,235,000
-  Locations      2
-  Effective      2026-09-01
-  Coverages      COMMERCIAL PROPERTY, COMMERCIAL GENERAL LIABILITY
-  Losses         $144,650 over 10 entries (carrier loss runs attached)
+## Tests
 
-  Confidence     0.90
+```bash
+.venv/bin/python -m pytest tests/ -q
 ```
+
+The rules engine is covered end to end without any model calls: class
+resolution, outcome precedence, each individual rule, routing, priority
+banding, and determinism.
 
 ## Structure
 
 ```
 src/triage/
-  models.py              output schema (SubmissionExtract)
-  crew.py                agent, task and crew wiring
-  main.py                CLI, document loading, reporting
+  models.py              output schemas (SubmissionExtract, TriageDecision)
+  appetite.py            rules engine - deterministic, no model
+  naics.py               class code resolution
+  tools.py               the four agent tools
+  crew.py                agent, tasks and crew wiring
+  main.py                CLI and reporting
   config/agents.yaml     agent definition
-  config/tasks.yaml      extraction instructions
+  config/tasks.yaml      extraction and triage instructions
+  rules/appetite.yaml    the appetite guide
+  rules/naics.yaml       class reference and hazard grades
 data/submissions/        input packets, one folder per submission
-output/                  extraction results as JSON
+tests/                   rules engine tests
 ```
 
-## Output
+## Extraction quality signals
 
-`SubmissionExtract` covers broker and insured details, requested coverages,
-locations and values, loss history, and incumbent market information. All
-substantive fields are nullable.
-
-Three fields describe the quality of the extraction itself:
+`SubmissionExtract` carries three fields describing the extraction itself:
 
 | Field | Meaning |
 |---|---|
@@ -78,20 +109,20 @@ Three fields describe the quality of the extraction itself:
 | `ambiguities` | Facts that are approximate, conflicting, or asserted without support |
 | `extraction_confidence` | 0.0–1.0 completeness and clarity of the packet |
 
-Downstream consumers should gate on `extraction_confidence` and treat a
-non-empty `missing_fields` as a follow-up trigger rather than a failure.
+All substantive fields are nullable. A missing value must reach
+`check_appetite` as missing, because the guide decides differently when a fact
+is absent than when it is unfavourable.
 
 ## Behaviour notes
 
-- **Extraction is deterministic.** `temperature` is pinned to 0.0 so the same
-  packet yields the same values on every run.
+- **Extraction is deterministic.** `temperature` is pinned to 0.0.
 - **Entity names are preserved verbatim.** `Bluewater Mfg. Company` is not
-  normalised to `Bluewater Manufacturing Co.`. Clearance matching depends on
+  normalised to `Bluewater Manufacturing Co.` — clearance matching depends on
   the original form.
 - **Broker framing is recorded, not applied.** A request to disregard prior
-  losses lands in `ambiguities`; the losses are still extracted in full.
-- **No decision is made here.** Appetite, pricing and routing are evaluated
-  downstream against the appetite guide, not by the model.
+  losses lands in `ambiguities`; the losses are still extracted and still
+  evaluated.
+- **The broker reply never quotes terms.** No premium, rate or capacity figure.
 
 ## Configuration
 
@@ -99,6 +130,26 @@ non-empty `missing_fields` as a follow-up trigger rather than a failure.
 |---|---|---|
 | `GEMINI_API_KEY` | — | API credential |
 | `TRIAGE_MODEL` | `gemini/gemini-2.5-flash` | LiteLLM model identifier |
+| `TRIAGE_MAX_RPM` | `4` | Request throttle |
+
+### Free tier quotas
+
+The tool loop issues roughly ten requests per submission. Google's free tier
+limits are per model per day, and they are low enough to matter:
+
+| Model | Free tier requests/day |
+|---|---|
+| `gemini-2.5-flash` | 20 |
+| `gemini-2.5-flash-lite` | substantially higher |
+
+Twenty requests per day is about two submissions. For batch runs use:
+
+```bash
+TRIAGE_MODEL=gemini/gemini-2.5-flash-lite TRIAGE_MAX_RPM=8 \
+  .venv/bin/python -m triage.main --all
+```
+
+Quota is tracked per model, so exhausting one leaves the others available.
 
 ## Sample data
 
@@ -111,13 +162,13 @@ non-renewal.
 ## Current limitations
 
 - Plain text input only; PDF and email attachment parsing is not implemented.
-- Documents are loaded by the CLI, not selected by the agent.
-- No persistence between runs — each submission is processed independently.
-- Extracted values are not reconciled against external data sources.
+- The appetite guide is a working sketch, not a real underwriting manual.
+- Loss experience is assessed as incurred against revenue, a proxy used because
+  a full premium history is not available in these packets.
+- No persistence between runs — each submission is processed independently, and
+  a duplicate submission is re-processed from scratch.
 
 ## Roadmap
 
-- File-reading and lookup tools, with appetite evaluated by a deterministic
-  rules engine
 - Persisted submission state and lifecycle transitions
 - Clearance against previously received submissions

@@ -4,9 +4,15 @@ version = "0.1.0"
 description = "Automated intake and triage for commercial insurance submissions"
 requires-python = ">=3.10,<3.13"
 dependencies = [
-    "crewai>=0.100.0",
+    "crewai[google-genai]>=1.0",
     "pydantic>=2.0",
     "python-dotenv>=1.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
 ]
 
 [build-system]

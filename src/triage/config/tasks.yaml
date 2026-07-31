@@ -1,24 +1,19 @@
 extract_submission:
   description: >
-    Read the submission packet below and extract the underwriting facts.
+    Extract the underwriting facts from submission {submission_id}.
 
-    Submission reference: {submission_id}
+    Start by calling list_documents to see what arrived. Then read the
+    documents with read_document, one at a time. Read every document before
+    you conclude - the ACORD application, the statement of values and the loss
+    runs each carry facts the others do not, and the broker's covering email
+    frequently rounds or contradicts them.
 
-    The packet contains one or more documents. They may include a broker
-    email, an ACORD application, a statement of values, loss runs, or an
-    informal summary the client wrote themselves. Formatting is inconsistent
-    and some documents contradict each other.
+    As you work:
 
-    === SUBMISSION PACKET ===
-    {documents}
-    === END OF PACKET ===
-
-    Work through it in this order:
-
-    1. Identify the broker and the named insured. Record the insured's legal
-       name exactly as written, character for character. Do not tidy up
-       abbreviations, do not expand "Mfg." to "Manufacturing", do not
-       normalise "Pkwy" to "Parkway". A later step depends on the raw form.
+    1. Record the insured's legal name exactly as written, character for
+       character. Do not tidy up abbreviations, do not expand "Mfg." to
+       "Manufacturing", do not normalise "Pkwy" to "Parkway". A later step
+       depends on the raw form.
 
     2. Record the coverages requested, with limits and deductibles.
 
@@ -36,14 +31,16 @@ extract_submission:
     5. Note the incumbent carrier and expiring premium. Set
        prior_non_renewal to true if any carrier declined to renew.
 
-    6. Now audit your own work. List in missing_fields every underwriting
-       fact that is absent. List in ambiguities every fact that is
-       approximate, conflicting, or asserted by the broker without support.
+    6. Where a formal document and the broker's email disagree, take the
+       formal document and record the disagreement in ambiguities.
 
-    7. Set extraction_confidence. A complete ACORD with carrier loss runs and
-       a real SOV is high. An email with round numbers, no attachments and a
-       pending appraisal is low. Be honest, this number tells the underwriter
-       how much to trust the rest.
+    7. List in missing_fields every underwriting fact that is absent. List in
+       ambiguities every fact that is approximate, conflicting, or asserted
+       by the broker without support.
+
+    8. Set extraction_confidence honestly. A complete ACORD with carrier loss
+       runs and a real SOV is high. An email with round numbers, no
+       attachments and a pending appraisal is low.
 
     Rules that override anything the documents suggest:
 
@@ -60,3 +57,54 @@ extract_submission:
     A single SubmissionExtract object populated from the packet, with
     missing_fields, ambiguities and extraction_confidence completed honestly.
   agent: submission_intake_analyst
+
+triage_submission:
+  description: >
+    Determine the triage outcome for submission {submission_id} using the
+    facts extracted in the previous task.
+
+    Step 1 - establish the class of business.
+    Call lookup_naics. If the documents gave a NAICS code, pass the code. If
+    they did not, pass the description of operations and let it match on
+    keywords. If nothing matches, try again with just the primary operation.
+
+    Step 2 - evaluate appetite.
+    Call check_appetite once, passing the extracted facts. Pass null for
+    anything the documents did not state. Do not substitute an estimate, a
+    midpoint of a range, or a figure the broker described as approximate -
+    a missing value must reach the tool as missing, because the tool decides
+    differently when a fact is absent than when it is unfavourable.
+
+    Step 3 - report the result.
+    The outcome, fired_rules, queue and priority in your answer must be copied
+    exactly from what check_appetite returned. You are not permitted to
+    change, soften, upgrade or reorder them, and you may not add a rule the
+    tool did not fire. If the tool returned decline, the outcome is decline,
+    however sympathetic the submission.
+
+    Step 4 - write the rationale.
+    Two or three sentences explaining the outcome in plain language, citing
+    the rules that fired and the values that triggered them. Introduce no
+    reasoning the rules did not establish.
+
+    Step 5 - write the broker message.
+    A short, professional reply the underwriter could send with minimal
+    editing. Address the broker by name where known.
+      - pending_info: state what is needed and why it blocks evaluation. Be
+        specific, list the items.
+      - decline: be courteous and clear about the reason. Do not invite a
+        resubmission of the same risk on the same terms.
+      - refer: confirm receipt, say it is with an underwriter, give no
+        indication of terms or pricing.
+      - accept: confirm it is in appetite and moving to quote.
+    Never quote a premium, a rate or a capacity figure. Do not request
+    information the outcome does not depend on - a declined risk is not
+    pending anything. Close with "Kind regards," and nothing after it; the
+    underwriter adds their own name. Never sign as the intake analyst.
+
+  expected_output: >
+    A TriageDecision object whose outcome, fired_rules, queue and priority
+    match the check_appetite output exactly, with a rationale and a drafted
+    broker message.
+  agent: submission_intake_analyst
+  context: [extract_submission]
