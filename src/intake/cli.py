@@ -27,7 +27,7 @@ OUTCOME_LABEL = {
 
 
 def run_one(submission_id: str) -> dict:
-    from triage.crew import SubmissionTriageCrew
+    from intake.crew import SubmissionTriageCrew
 
     if not (SUBMISSIONS_DIR / submission_id).is_dir():
         available = ", ".join(sorted(p.name for p in SUBMISSIONS_DIR.iterdir() if p.is_dir()))

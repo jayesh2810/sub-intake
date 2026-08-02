@@ -6,7 +6,7 @@ from typing import List, Optional
 
 import yaml
 
-from triage.models import NaicsInfo
+from intake.models import NaicsInfo
 
 RULES_DIR = Path(__file__).parent / "rules"
 

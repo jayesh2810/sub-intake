@@ -1,0 +1,98 @@
+as_of: '2026-07-30'
+brokers:
+- id: BRK-001
+  name: Devanshi Patel
+  agency: Harborline Insurance Brokers
+  email: devanshi.patel@harborlinebrokers.com
+  submissions_sent: 84
+  bound: 31
+  avg_bound_premium_usd: 71000
+  tier: preferred
+- id: BRK-002
+  name: Marcus Whitfield
+  agency: Keystone Risk Partners
+  email: marcus.whitfield@keystone-risk.com
+  submissions_sent: 62
+  bound: 19
+  avg_bound_premium_usd: 88000
+  tier: standard
+- id: BRK-003
+  name: Tonya Bell
+  agency: Crestpoint Agency
+  email: tonya.bell@crestpointagency.net
+  submissions_sent: 47
+  bound: 6
+  avg_bound_premium_usd: 24000
+  tier: watch
+- id: BRK-004
+  name: Jared Hollis
+  agency: Tri-State Insurance Services
+  email: jared.hollis@tristate-ins.com
+  submissions_sent: 55
+  bound: 9
+  avg_bound_premium_usd: 33000
+  tier: watch
+- id: BRK-005
+  name: Priya Raghunathan
+  agency: Meridian Brokerage Group
+  email: priya.raghunathan@meridianbg.com
+  submissions_sent: 91
+  bound: 38
+  avg_bound_premium_usd: 104000
+  tier: preferred
+- id: BRK-006
+  name: S. Okafor
+  agency: Latitude Commercial
+  email: s..okafor@latitudecommercial.com
+  submissions_sent: 38
+  bound: 13
+  avg_bound_premium_usd: 57000
+  tier: standard
+- id: BRK-007
+  name: Bill Trombley
+  agency: Trombley & Sons Insurance
+  email: bill.trombley@trombleyins.com
+  submissions_sent: 29
+  bound: 11
+  avg_bound_premium_usd: 41000
+  tier: standard
+- id: BRK-008
+  name: Anna Kowalczyk
+  agency: Northgate Risk Advisors
+  email: anna.kowalczyk@northgaterisk.com
+  submissions_sent: 73
+  bound: 27
+  avg_bound_premium_usd: 66000
+  tier: preferred
+- id: BRK-009
+  name: Rey Delgado
+  agency: Delgado Insurance Group
+  email: rey.delgado@delgadoins.com
+  submissions_sent: 21
+  bound: 3
+  avg_bound_premium_usd: 19000
+  tier: watch
+- id: BRK-010
+  name: Hannah Fiedler
+  agency: Copperline Brokers
+  email: hannah.fiedler@copperlinebrokers.com
+  submissions_sent: 44
+  bound: 16
+  avg_bound_premium_usd: 72000
+  tier: standard
+- id: BRK-011
+  name: Wes Nakamura
+  agency: Pacific Union Brokerage
+  email: wes.nakamura@pacunionbrokerage.com
+  submissions_sent: 12
+  bound: 4
+  avg_bound_premium_usd: 48000
+  tier: standard
+- id: BRK-012
+  name: Ollie Brennan
+  agency: Brennan Risk Services
+  email: ollie.brennan@brennanrisk.com
+  submissions_sent: 0
+  bound: 0
+  avg_bound_premium_usd: null
+  tier: null

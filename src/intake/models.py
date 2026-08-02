@@ -260,3 +260,88 @@ class TriageDecision(BaseModel):
         None, description="Draft reply to the broker. Professional, brief, no pricing."
     )
     extraction_confidence: Optional[float] = Field(None, ge=0.0, le=1.0)
+
+
+# ---------------------------------------------------------------------------
+# Clearance and scoring
+#
+# Both deterministic. Clearance must give the same answer for the same pair of
+# submissions every time, and every score must decompose into named components
+# so a ranking can be defended.
+# ---------------------------------------------------------------------------
+
+
+class DocumentType(str, Enum):
+    ACORD_125 = "acord_125"
+    ACORD_126 = "acord_126"
+    ACORD_140 = "acord_140"
+    LOSS_RUN = "loss_run"
+    SOV = "sov"
+    FINANCIAL = "financial"
+    SUPPLEMENTAL = "supplemental"
+    EMAIL_BODY = "email_body"
+    UNKNOWN = "unknown"
+
+
+class BrokerRecord(BaseModel):
+    """A broker and their track record with us."""
+
+    id: str
+    name: str
+    agency: str
+    email: Optional[str] = None
+    phone: Optional[str] = None
+    submissions_sent: int = 0
+    bound: int = 0
+    avg_bound_premium_usd: Optional[float] = None
+    tier: Optional[str] = Field(None, description="e.g. preferred, standard, watch")
+
+    @property
+    def hit_ratio(self) -> Optional[float]:
+        """Share of submissions that bound. None until there is any history."""
+        if not self.submissions_sent:
+            return None
+        return self.bound / self.submissions_sent
+
+
+class ClearanceResult(BaseModel):
+    """Whether this risk has already reached us from somewhere else."""
+
+    submission_id: str
+    normalised_name: str
+    normalised_address: Optional[str] = None
+    matched_submission_id: Optional[str] = None
+    match_score: Optional[float] = Field(
+        None, ge=0.0, le=100.0, description="Fuzzy similarity to the matched risk"
+    )
+    is_duplicate: bool = False
+    matched_broker: Optional[str] = Field(
+        None, description="Who submitted it first. First broker owns the risk."
+    )
+
+
+class ScoreComponent(BaseModel):
+    """One named contribution to the triage score."""
+
+    name: str
+    raw: float = Field(..., ge=0.0, le=100.0, description="Component score before weighting")
+    weight: float = Field(..., ge=0.0, le=1.0)
+    contribution: float = Field(..., description="raw * weight")
+    basis: str = Field(..., description="The values this was computed from")
+
+
+class TriageScore(BaseModel):
+    """Where a submission sits in the queue, and why."""
+
+    submission_id: str
+    total: float = Field(..., ge=0.0, le=100.0)
+    components: List[ScoreComponent] = Field(default_factory=list)
+    estimated_premium_usd: Optional[float] = Field(
+        None,
+        description="Crude indication used only to sort the queue. Not a rate, "
+        "not a quote, and never to be presented as one.",
+    )
+    suppressed: bool = Field(
+        False, description="True for declines - scored, stored, but off the worklist"
+    )
+    weights_version: Optional[str] = None

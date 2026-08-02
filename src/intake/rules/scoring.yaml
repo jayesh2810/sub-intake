@@ -1,0 +1,76 @@
+weights_version: "2026.07"
+
+# Five components, each scored 0-100, combined as a weighted sum.
+# Every total must decompose back into these, because a carrier will ask
+# why a given submission is at the top of the list.
+weights:
+  appetite_fit: 0.35
+  premium_value: 0.25
+  winnability: 0.20
+  urgency: 0.15
+  completeness: 0.05
+
+appetite_fit:
+  accept: 100
+  refer: 60
+  pending_info: 40
+  decline: 0
+
+premium_value:
+  # Log-scaled between these bounds. A $2k account and a $5k account should
+  # not be meaningfully apart; $50k and $500k should be.
+  floor_usd: 2500
+  ceiling_usd: 500000
+
+# Rough premium indication used ONLY to sort the queue. Not a rate, not a
+# quote, and never to be shown as one.
+premium_proxy:
+  property_rate_per_100_tiv:
+    1: 0.030
+    2: 0.045
+    3: 0.065
+    4: 0.095
+    5: 0.140
+  gl_rate_per_1000_revenue:
+    1: 0.80
+    2: 1.40
+    3: 2.60
+    4: 4.50
+    5: 7.50
+  # Applied when neither TIV nor revenue is known, so an unpriceable
+  # submission does not silently sort to the bottom of the list.
+  unknown_exposure_usd: 15000
+
+winnability:
+  # Broker hit ratio is the backbone. The adjustments encode what an
+  # underwriter knows without being able to articulate it.
+  base_from_hit_ratio: true
+  no_history_default: 45        # a broker we have never seen
+  shopping_reason_adjustment:
+    price: 0                    # shopping on price alone, converts poorly
+    service: 12                 # unhappy with the incumbent, converts well
+    coverage: 8
+    non_renewal: -15            # they were thrown off, ask why
+    unknown: 0
+  incumbent_known_bonus: 5      # we can see what we are competing against
+
+urgency:
+  # Days to effective date. Inside the first band is genuinely urgent.
+  bands:
+    - {within_days: 14, score: 100}
+    - {within_days: 30, score: 80}
+    - {within_days: 60, score: 55}
+    - {within_days: 120, score: 30}
+  beyond_score: 15
+  unknown_score: 40             # no effective date stated
+
+completeness:
+  # Can the underwriter actually work this today?
+  base_from_extraction_confidence: true
+  loss_runs_missing_penalty: 25
+  estimated_values_penalty: 15
+  needs_ocr_penalty: 30
+
+# Declined risks score zero and drop off the worklist. They stay in the
+# database, queryable and auditable, but they do not consume attention.
+suppress_declines: true

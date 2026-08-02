@@ -1,0 +1,616 @@
+seed: 7
+as_of: '2026-07-30'
+count: 50
+submissions:
+- id: SUB-0001
+  flavour: no_naics
+  insured: Ironwood Company
+  address: 7728 Prospect Road
+  city: Springfield
+  state: MO
+  broker: S. Okafor
+  naics: '332312'
+  naics_stated: false
+  tiv: 17600000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0002
+  flavour: clean
+  insured: Copper Basin Company
+  address: 4156 Franklin Avenue
+  city: Tucson
+  state: AZ
+  broker: S. Okafor
+  naics: '332119'
+  naics_stated: true
+  tiv: 6300000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0003
+  flavour: unlicensed
+  insured: Wraysbury Fabrication Inc.
+  address: 2759 Commerce Drive
+  city: Syracuse
+  state: NY
+  broker: Bill Trombley
+  naics: '531120'
+  naics_stated: true
+  tiv: 7950000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0004
+  flavour: over_capacity
+  insured: Stonebridge Works Inc.
+  address: 8973 Sycamore Street
+  city: Fresno
+  state: CA
+  broker: Rey Delgado
+  naics: '236116'
+  naics_stated: true
+  tiv: 35179171
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0005
+  flavour: bad_losses
+  insured: Harbor Point Services Inc.
+  address: 2885 Beckett Road
+  city: Modesto
+  state: CA
+  broker: Tonya Bell
+  naics: '531120'
+  naics_stated: true
+  tiv: 8350000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0006
+  flavour: clean
+  insured: Northfield Company
+  address: 7857 Prospect Road
+  city: Akron
+  state: OH
+  broker: Rey Delgado
+  naics: '722511'
+  naics_stated: true
+  tiv: 8350000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0007
+  flavour: bad_losses
+  insured: Redstone Associates LP
+  address: 2442 Sierra Ridge Drive
+  city: Modesto
+  state: CA
+  broker: Marcus Whitfield
+  naics: '238220'
+  naics_stated: true
+  tiv: 25300000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0008
+  flavour: over_capacity
+  insured: Pinnacle Properties LLC
+  address: 9161 Franklin Avenue
+  city: Charlotte
+  state: NC
+  broker: Wes Nakamura
+  naics: '332312'
+  naics_stated: true
+  tiv: 22091299
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0009
+  flavour: scanned
+  insured: Marchwood Partners LP
+  address: 4287 Franklin Avenue
+  city: Syracuse
+  state: NY
+  broker: S. Okafor
+  naics: '238220'
+  naics_stated: true
+  tiv: 13875000
+  has_loss_runs: true
+  scanned: true
+- id: SUB-0010
+  flavour: clean
+  insured: Calloway Logistics LLC
+  address: 5443 Meadowbrook Court
+  city: Greensboro
+  state: NC
+  broker: Bill Trombley
+  naics: '332119'
+  naics_stated: true
+  tiv: 21350000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0011
+  flavour: clean
+  insured: Apex Company
+  address: 5087 Prospect Road
+  city: Tucson
+  state: AZ
+  broker: Bill Trombley
+  naics: '332312'
+  naics_stated: true
+  tiv: 5725000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0012
+  flavour: clean
+  insured: Osgood Associates LP
+  address: 7485 Franklin Avenue
+  city: Macon
+  state: GA
+  broker: Marcus Whitfield
+  naics: '541330'
+  naics_stated: true
+  tiv: 10200000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0013
+  flavour: clean
+  insured: Marchwood Associates LP
+  address: 7486 Prospect Road
+  city: Dayton
+  state: OH
+  broker: Bill Trombley
+  naics: '531110'
+  naics_stated: true
+  tiv: 28525000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0014
+  flavour: incomplete
+  insured: Vanguard Fabrication Inc.
+  address: 7404 Franklin Avenue
+  city: Racine
+  state: WI
+  broker: Anna Kowalczyk
+  naics: '236116'
+  naics_stated: true
+  tiv: 20800000
+  has_loss_runs: false
+  scanned: false
+- id: SUB-0015
+  flavour: incomplete
+  insured: Bluewater Works Inc.
+  address: 4070 Copper Creek Lane
+  city: Green Bay
+  state: WI
+  broker: Jared Hollis
+  naics: '332119'
+  naics_stated: true
+  tiv: 13675000
+  has_loss_runs: false
+  scanned: false
+- id: SUB-0016
+  flavour: clean
+  insured: Osgood Company
+  address: 1024 Prospect Road
+  city: Charlotte
+  state: NC
+  broker: Priya Raghunathan
+  naics: '332119'
+  naics_stated: true
+  tiv: 19000000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0017
+  flavour: no_naics
+  insured: Westmarch Partners LP
+  address: 6731 Industrial Parkway
+  city: Mesa
+  state: AZ
+  broker: Rey Delgado
+  naics: '531110'
+  naics_stated: false
+  tiv: 9725000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0018
+  flavour: bad_losses
+  insured: Thornbury Services Inc.
+  address: 6780 Commerce Drive
+  city: Savannah
+  state: GA
+  broker: Jared Hollis
+  naics: '531110'
+  naics_stated: true
+  tiv: 6075000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0019
+  flavour: clean
+  insured: Penhurst Works Inc.
+  address: 706 Commerce Drive
+  city: Charlotte
+  state: NC
+  broker: Marcus Whitfield
+  naics: '531120'
+  naics_stated: true
+  tiv: 25975000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0020
+  flavour: scanned
+  insured: Halloway Manufacturing Co.
+  address: 398 Warehouse Row
+  city: Greensboro
+  state: NC
+  broker: Priya Raghunathan
+  naics: '531120'
+  naics_stated: true
+  tiv: 18625000
+  has_loss_runs: true
+  scanned: true
+- id: SUB-0021
+  flavour: clean
+  insured: Ridgeway Manufacturing Co.
+  address: 2116 Beckett Road
+  city: Allentown
+  state: PA
+  broker: Bill Trombley
+  naics: '423830'
+  naics_stated: true
+  tiv: 17525000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0022
+  flavour: clean
+  insured: Kestrel Fabrication Inc.
+  address: 3273 Beckett Road
+  city: Dayton
+  state: OH
+  broker: Rey Delgado
+  naics: '332312'
+  naics_stated: true
+  tiv: 13500000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0023
+  flavour: no_naics
+  insured: Thornbury Partners LP
+  address: 4955 Sycamore Street
+  city: Green Bay
+  state: WI
+  broker: Bill Trombley
+  naics: '531110'
+  naics_stated: false
+  tiv: 13800000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0024
+  flavour: incomplete
+  insured: Ashcombe Associates LP
+  address: 8580 Meadowbrook Court
+  city: Dayton
+  state: OH
+  broker: Priya Raghunathan
+  naics: '332119'
+  naics_stated: true
+  tiv: 16675000
+  has_loss_runs: false
+  scanned: false
+- id: SUB-0025
+  flavour: clean
+  insured: Ironwood Holdings LLC
+  address: 3655 Commerce Drive
+  city: Utica
+  state: NY
+  broker: Ollie Brennan
+  naics: '531110'
+  naics_stated: true
+  tiv: 8150000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0026
+  flavour: over_capacity
+  insured: Apex Industries Inc.
+  address: 9774 Warehouse Row
+  city: Toledo
+  state: OH
+  broker: Tonya Bell
+  naics: '541330'
+  naics_stated: true
+  tiv: 5668736
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0027
+  flavour: clean
+  insured: Ravensworth Company
+  address: 4804 Beckett Road
+  city: Mesa
+  state: AZ
+  broker: Marcus Whitfield
+  naics: '531110'
+  naics_stated: true
+  tiv: 12850000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0028
+  flavour: incomplete
+  insured: Ravensworth Works Inc.
+  address: 2178 Sycamore Street
+  city: Greensboro
+  state: NC
+  broker: Jared Hollis
+  naics: '236116'
+  naics_stated: true
+  tiv: 11100000
+  has_loss_runs: false
+  scanned: false
+- id: SUB-0029
+  flavour: clean
+  insured: Cedar Hollow Contractors Inc.
+  address: 7225 Sierra Ridge Drive
+  city: Fort Wayne
+  state: IN
+  broker: Priya Raghunathan
+  naics: '541330'
+  naics_stated: true
+  tiv: 6850000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0030
+  flavour: clean
+  insured: Stonebridge Logistics LLC
+  address: 8591 Foundry Way
+  city: Waco
+  state: TX
+  broker: Jared Hollis
+  naics: '332119'
+  naics_stated: true
+  tiv: 16075000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0031
+  flavour: clean
+  insured: Stonebridge Properties LLC
+  address: 6521 Copper Creek Lane
+  city: Modesto
+  state: CA
+  broker: Wes Nakamura
+  naics: '541330'
+  naics_stated: true
+  tiv: 18425000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0032
+  flavour: incomplete
+  insured: Ridgeway Properties LLC
+  address: 3927 Beckett Road
+  city: Fresno
+  state: CA
+  broker: Hannah Fiedler
+  naics: '332119'
+  naics_stated: true
+  tiv: 14625000
+  has_loss_runs: false
+  scanned: false
+- id: SUB-0033
+  flavour: incomplete
+  insured: Northfield Fabrication Inc.
+  address: 851 Foundry Way
+  city: Fresno
+  state: CA
+  broker: Bill Trombley
+  naics: '531120'
+  naics_stated: true
+  tiv: 13850000
+  has_loss_runs: false
+  scanned: false
+- id: SUB-0034
+  flavour: unlicensed
+  insured: Apex Group Inc.
+  address: 1877 Industrial Parkway
+  city: Fresno
+  state: CA
+  broker: Ollie Brennan
+  naics: '236116'
+  naics_stated: true
+  tiv: 19950000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0035
+  flavour: clean
+  insured: Wraysbury Services Inc.
+  address: 3577 Beckett Road
+  city: Green Bay
+  state: WI
+  broker: Bill Trombley
+  naics: '423830'
+  naics_stated: true
+  tiv: 33650000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0036
+  flavour: clean
+  insured: Quarry Hill Holdings LLC
+  address: 5540 Prospect Road
+  city: Tucson
+  state: AZ
+  broker: Bill Trombley
+  naics: '332119'
+  naics_stated: true
+  tiv: 25975000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0037
+  flavour: scanned
+  insured: Silver Creek Contractors Inc.
+  address: 6044 Prospect Road
+  city: Mesa
+  state: AZ
+  broker: Rey Delgado
+  naics: '531110'
+  naics_stated: true
+  tiv: 23750000
+  has_loss_runs: true
+  scanned: true
+- id: SUB-0038
+  flavour: incomplete
+  insured: Northfield Enterprises LLC
+  address: 2920 Industrial Parkway
+  city: Modesto
+  state: CA
+  broker: Wes Nakamura
+  naics: '332312'
+  naics_stated: true
+  tiv: 22500000
+  has_loss_runs: false
+  scanned: false
+- id: SUB-0039
+  flavour: clean
+  insured: Redstone Fabrication Inc.
+  address: 3053 Meadowbrook Court
+  city: Allentown
+  state: PA
+  broker: S. Okafor
+  naics: '493110'
+  naics_stated: true
+  tiv: 18000000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0040
+  flavour: incomplete
+  insured: Halloway Contractors Inc.
+  address: 3875 Meadowbrook Court
+  city: Waco
+  state: TX
+  broker: Tonya Bell
+  naics: '531110'
+  naics_stated: true
+  tiv: 13375000
+  has_loss_runs: false
+  scanned: false
+- id: SUB-0041
+  flavour: incomplete
+  insured: Ambleside Works Inc.
+  address: 4109 Warehouse Row
+  city: Green Bay
+  state: WI
+  broker: Ollie Brennan
+  naics: '531110'
+  naics_stated: true
+  tiv: 8075000
+  has_loss_runs: false
+  scanned: false
+- id: SUB-0042
+  flavour: clean
+  insured: Redstone Properties LLC
+  address: 3826 Old Mill Road
+  city: Joplin
+  state: MO
+  broker: Anna Kowalczyk
+  naics: '423830'
+  naics_stated: true
+  tiv: 20625000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0043
+  flavour: clean
+  insured: Fairmount Associates LP
+  address: 1746 Sierra Ridge Drive
+  city: Toledo
+  state: OH
+  broker: Devanshi Patel
+  naics: '332119'
+  naics_stated: true
+  tiv: 10100000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0044
+  flavour: incomplete
+  insured: Wraysbury Logistics LLC
+  address: 8495 Sycamore Street
+  city: Racine
+  state: WI
+  broker: Rey Delgado
+  naics: '236116'
+  naics_stated: true
+  tiv: 5700000
+  has_loss_runs: false
+  scanned: false
+- id: SUB-0045
+  flavour: no_naics
+  insured: Wraysbury Holdings LLC
+  address: 9110 Prospect Road
+  city: Springfield
+  state: MO
+  broker: Priya Raghunathan
+  naics: '493110'
+  naics_stated: false
+  tiv: 9300000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0046
+  flavour: duplicate
+  insured: Copper Basin Co.
+  address: 4156 Franklin Ave
+  city: Tucson
+  state: AZ
+  broker: Wes Nakamura
+  naics: '332119'
+  naics_stated: true
+  tiv: 6300000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0047
+  flavour: duplicate
+  insured: Stonebridge Works Inc.
+  address: 8973 Sycamore St
+  city: Fresno
+  state: CA
+  broker: Anna Kowalczyk
+  naics: '236116'
+  naics_stated: true
+  tiv: 35200000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0048
+  flavour: duplicate
+  insured: Westmarch Partners LP
+  address: 6731 Industrial Pkwy
+  city: Mesa
+  state: AZ
+  broker: Priya Raghunathan
+  naics: '531110'
+  naics_stated: false
+  tiv: 9700000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0049
+  flavour: decoy
+  insured: Wraysbury Services Inc.
+  address: 270 Foundry Way
+  city: Lubbock
+  state: TX
+  broker: Hannah Fiedler
+  naics: '423830'
+  naics_stated: true
+  tiv: 10050000
+  has_loss_runs: true
+  scanned: false
+- id: SUB-0050
+  flavour: decoy
+  insured: Halloway Manufacturing Co.
+  address: 9159 Industrial Parkway
+  city: Grand Rapids
+  state: MI
+  broker: S. Okafor
+  naics: '531120'
+  naics_stated: true
+  tiv: 8775000
+  has_loss_runs: true
+  scanned: false
+expected_duplicate_pairs:
+- - SUB-0002
+  - SUB-0046
+- - SUB-0004
+  - SUB-0047
+- - SUB-0017
+  - SUB-0048
+expected_non_duplicate_pairs:
+- - SUB-0035
+  - SUB-0049
+- - SUB-0020
+  - SUB-0050

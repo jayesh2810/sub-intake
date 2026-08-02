@@ -4,3 +4,10 @@ __pycache__/
 .env
 output/
 .claude/
+
+# generated corpus - reproducible from scripts/generate_mailbox.py --seed 7
+data/mailbox/
+data/intake.db
+data/intake.db-wal
+data/intake.db-shm
+data/packets/

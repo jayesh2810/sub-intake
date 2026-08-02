@@ -12,8 +12,8 @@ from typing import List, Optional
 
 import yaml
 
-from triage import naics
-from triage.models import AppetiteResult, FiredRule, NaicsInfo, Outcome
+from intake import naics
+from intake.models import AppetiteResult, FiredRule, NaicsInfo, Outcome
 
 RULES_DIR = Path(__file__).parent / "rules"
 

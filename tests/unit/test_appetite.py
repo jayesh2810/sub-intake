@@ -4,9 +4,9 @@ from datetime import date
 
 import pytest
 
-from triage import naics
-from triage.appetite import evaluate
-from triage.models import Outcome
+from intake import naics
+from intake.appetite import evaluate
+from intake.models import Outcome
 
 AS_OF = date(2026, 7, 30)
 

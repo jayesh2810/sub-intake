@@ -5,8 +5,8 @@ import os
 from crewai import LLM, Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 
-from triage.models import SubmissionExtract, TriageDecision
-from triage.tools import ALL_TOOLS
+from intake.models import SubmissionExtract, TriageDecision
+from intake.tools import ALL_TOOLS
 
 # LiteLLM resolves `gemini/` models against GEMINI_API_KEY. Accept the common
 # alternative variable names and normalise onto that.

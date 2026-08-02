@@ -6,9 +6,9 @@ from typing import List, Optional
 
 from crewai.tools import tool
 
-from triage import appetite, naics
+from intake import appetite, naics
 
-SUBMISSIONS_DIR = Path(__file__).resolve().parents[2] / "data" / "submissions"
+SUBMISSIONS_DIR = Path(__file__).resolve().parents[3] / "data" / "submissions"
 
 
 def _packet_dir(submission_id: str) -> Optional[Path]:
