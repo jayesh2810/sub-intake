@@ -11,3 +11,6 @@ data/intake.db
 data/intake.db-wal
 data/intake.db-shm
 data/packets/
+
+# local working notes - never pushed
+notes/

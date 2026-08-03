@@ -1,125 +1,138 @@
-"""CLI entry point for submission triage.
+"""Pipeline CLI.
 
-    python -m triage.main SUB-1001        triage one submission
-    python -m triage.main --all           triage every submission in data/
-    python -m triage.main --list          list available submissions
+    python -m intake.cli ingest        read the mailbox, register submissions
+    python -m intake.cli parse         extract text and classify documents
+    python -m intake.cli status        where everything currently sits
+    python -m intake.cli show SUB-0001 one submission in detail
+
+Stages are idempotent and re-runnable in isolation, so any of these can be
+run again without undoing work.
 """
 
 import argparse
-import json
-import sys
 from pathlib import Path
 
 from dotenv import load_dotenv
 
+from intake import db
+from intake.pipeline import ingest, parse
+
 load_dotenv()
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-SUBMISSIONS_DIR = PROJECT_ROOT / "data" / "submissions"
-OUTPUT_DIR = PROJECT_ROOT / "output"
-
-OUTCOME_LABEL = {
-    "accept": "ACCEPT",
-    "refer": "REFER TO UNDERWRITER",
-    "decline": "DECLINE",
-    "pending_info": "PENDING INFORMATION",
-}
 
 
-def run_one(submission_id: str) -> dict:
-    from intake.crew import SubmissionTriageCrew
-
-    if not (SUBMISSIONS_DIR / submission_id).is_dir():
-        available = ", ".join(sorted(p.name for p in SUBMISSIONS_DIR.iterdir() if p.is_dir()))
-        sys.exit(f"No submission '{submission_id}'. Available: {available}")
-
-    print(f"\n{'=' * 70}\n  TRIAGE {submission_id}\n{'=' * 70}")
-
-    result = SubmissionTriageCrew().crew().kickoff(inputs={"submission_id": submission_id})
-
-    extract = result.tasks_output[0].pydantic
-    decision = result.tasks_output[1].pydantic
-
-    payload = {
-        "submission_id": submission_id,
-        "decision": decision.model_dump(mode="json"),
-        "extract": extract.model_dump(mode="json"),
-    }
-
-    OUTPUT_DIR.mkdir(exist_ok=True)
-    out_path = OUTPUT_DIR / f"{submission_id}.json"
-    out_path.write_text(json.dumps(payload, indent=2))
-
-    report(submission_id, extract, decision)
-    print(f"\n  Saved: {out_path.relative_to(PROJECT_ROOT)}")
-    return payload
+def cmd_ingest(args) -> None:
+    with db.session() as conn:
+        result = ingest.run(conn, mailbox=Path(args.mailbox) if args.mailbox else None)
+    print(f"brokers loaded     {result['brokers']}")
+    print(f"newly ingested     {result['ingested']}")
+    print(f"already present    {result['already_present']}")
+    if result["ingested"]:
+        ids = result["new_ids"]
+        preview = ", ".join(ids[:6]) + (f" ... {ids[-1]}" if len(ids) > 6 else "")
+        print(f"                   {preview}")
 
 
-def report(submission_id: str, e, d) -> None:
-    money = lambda v: f"${v:,.0f}" if v is not None else "not stated"
+def cmd_parse(args) -> None:
+    with db.session() as conn:
+        result = parse.run(conn, only=args.only)
+    print(f"submissions parsed {result['parsed']}")
+    print(f"documents          {result['documents']}")
+    if result["needs_ocr"]:
+        print(f"\nunreadable, flagged for manual handling ({len(result['needs_ocr'])}):")
+        for sid in result["needs_ocr"]:
+            print(f"   {sid}")
 
-    print(f"\n{'-' * 70}")
-    print(f"  {submission_id}  {d.named_insured or e.insured.named_insured or 'UNKNOWN'}")
-    print(f"{'-' * 70}")
-    print(f"  Broker         {e.broker.agency_name or '?'} / {e.broker.producer_name or '?'}")
-    if d.naics:
-        print(f"  Class          {d.naics.code} {d.naics.title[:44]}")
-        print(f"                 hazard grade {d.naics.hazard_grade}, matched on {d.naics.matched_on}")
-    print(f"  Revenue        {money(e.insured.annual_revenue_usd)}")
-    tiv_flag = "  (ESTIMATED)" if e.tiv_is_estimated else ""
-    print(f"  TIV            {money(e.total_insured_value_usd)}{tiv_flag}")
-    print(f"  Effective      {e.effective_date or 'not stated'}")
-    runs = "carrier loss runs" if e.loss_runs_provided else "NO FORMAL LOSS RUNS"
-    print(f"  Losses         {money(e.total_incurred_5yr_usd)} ({runs})")
 
-    print(f"\n  >>> {OUTCOME_LABEL.get(d.outcome.value, d.outcome.value.upper())}")
-    print(f"      queue {d.queue or '-'}   priority {d.priority or '-'}   "
-          f"extraction confidence {e.extraction_confidence:.2f}")
+def cmd_status(args) -> None:
+    with db.session() as conn:
+        rows = conn.execute(
+            "SELECT status, COUNT(*) n FROM submissions GROUP BY status"
+        ).fetchall()
+        total = conn.execute("SELECT COUNT(*) n FROM submissions").fetchone()["n"]
+        docs = conn.execute("SELECT COUNT(*) n FROM documents").fetchone()["n"]
+        ocr = conn.execute(
+            "SELECT COUNT(DISTINCT submission_id) n FROM documents WHERE needs_ocr = 1"
+        ).fetchone()["n"]
+        by_type = conn.execute(
+            "SELECT doc_type, COUNT(*) n FROM documents GROUP BY doc_type ORDER BY n DESC"
+        ).fetchall()
 
-    if d.fired_rules:
-        print(f"\n  Rules fired ({len(d.fired_rules)}):")
-        for r in d.fired_rules:
-            print(f"    [{r.outcome.value:<12}] {r.rule_id}")
-            print(f"                   {r.detail}")
+    if not total:
+        print("No submissions. Run: python -m intake.cli ingest")
+        return
 
-    print(f"\n  Rationale:\n    {d.rationale}")
+    print(f"{total} submissions, {docs} documents\n")
+    order = {s: i for i, s in enumerate(db.ALL_STATES)}
+    for r in sorted(rows, key=lambda r: order.get(r["status"], 99)):
+        print(f"  {r['status']:<14} {r['n']}")
+    if ocr:
+        print(f"\n  {ocr} submission(s) have unreadable documents")
+    if by_type:
+        print("\ndocument types")
+        for r in by_type:
+            print(f"  {r['doc_type']:<14} {r['n']}")
 
-    if d.information_required:
-        print("\n  Information required:")
-        for item in d.information_required:
-            print(f"    - {item}")
 
-    if d.broker_message:
-        print("\n  Draft reply to broker:")
-        for line in d.broker_message.splitlines():
-            print(f"    {line}")
+def cmd_show(args) -> None:
+    with db.session() as conn:
+        sub = conn.execute(
+            """SELECT s.*, b.name broker_name, b.agency
+               FROM submissions s LEFT JOIN brokers b ON b.id = s.broker_id
+               WHERE s.id = ?""", (args.submission_id,)).fetchone()
+        if sub is None:
+            raise SystemExit(f"No submission '{args.submission_id}'")
+        docs = conn.execute(
+            """SELECT filename, doc_type, page_count, needs_ocr, extraction_method,
+                      length(text) chars
+               FROM documents WHERE submission_id = ? ORDER BY filename""",
+            (args.submission_id,)).fetchall()
+        events = conn.execute(
+            "SELECT event_type, detail, actor, created_at FROM events "
+            "WHERE submission_id = ? ORDER BY id", (args.submission_id,)).fetchall()
+
+    print(f"{sub['id']}  [{sub['status']}]")
+    print(f"  subject   {sub['subject']}")
+    print(f"  received  {sub['received_at']}")
+    print(f"  broker    {sub['broker_name'] or 'UNMATCHED'} / {sub['agency'] or '-'}")
+    print(f"  packet    {sub['packet_dir']}")
+
+    if docs:
+        print(f"\n  documents ({len(docs)})")
+        for d in docs:
+            flag = "  ** UNREADABLE **" if d["needs_ocr"] else ""
+            print(f"    {d['filename']:<26} {d['doc_type']:<14} "
+                  f"{d['page_count']}p  {d['chars'] or 0:>6} chars{flag}")
+
+    if events:
+        print(f"\n  events ({len(events)})")
+        for e in events:
+            detail = (e["detail"] or "")[:70]
+            print(f"    {e['created_at']}  {e['event_type']:<22} {detail}")
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="Triage a commercial insurance submission")
-    p.add_argument("submission_id", nargs="?", help="e.g. SUB-1001")
-    p.add_argument("--all", action="store_true", help="triage every submission")
-    p.add_argument("--list", action="store_true", help="list available submissions")
+    p = argparse.ArgumentParser(prog="intake", description=__doc__.split("\n")[0])
+    sub = p.add_subparsers(dest="command", required=True)
+
+    s = sub.add_parser("ingest", help="read the mailbox and register submissions")
+    s.add_argument("--mailbox", help="override the mailbox directory")
+    s.set_defaults(func=cmd_ingest)
+
+    s = sub.add_parser("parse", help="extract text and classify documents")
+    s.add_argument("--only", nargs="*", help="specific submission ids")
+    s.set_defaults(func=cmd_parse)
+
+    s = sub.add_parser("status", help="pipeline state summary")
+    s.set_defaults(func=cmd_status)
+
+    s = sub.add_parser("show", help="one submission in detail")
+    s.add_argument("submission_id")
+    s.set_defaults(func=cmd_show)
+
     args = p.parse_args()
-
-    ids = sorted(d.name for d in SUBMISSIONS_DIR.iterdir() if d.is_dir())
-
-    if args.list:
-        print("Available submissions:")
-        for sid in ids:
-            docs = ", ".join(sorted(f.name for f in (SUBMISSIONS_DIR / sid).glob("*.txt")))
-            print(f"  {sid}  [{docs}]")
-        return
-
-    if args.all:
-        for sid in ids:
-            run_one(sid)
-        return
-
-    if not args.submission_id:
-        p.error("give a submission id, or use --all / --list")
-
-    run_one(args.submission_id)
+    args.func(args)
 
 
 if __name__ == "__main__":
