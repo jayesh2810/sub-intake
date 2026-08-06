@@ -1,0 +1,59 @@
+{
+  "submission_id": "SUB-0014",
+  "content_hash": "2bf73c842c6ebb8ecf48351c766b65b94116cc91e1a6c34128f675ec699a7f23",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Anna Kowalczyk",
+      "agency_name": "Northgate Risk Advisors",
+      "email": "anna.kowalczyk@northgaterisk.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Vanguard Fabrication Inc.",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "7404 Franklin Avenue",
+      "city": "Racine",
+      "state": "WI",
+      "zip_code": "50896",
+      "website": null,
+      "business_description": "Ground-up multifamily residential construction",
+      "naics_code": "236116",
+      "sic_code": null,
+      "years_in_business": 3,
+      "annual_revenue_usd": null,
+      "employee_count": 104
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 10000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-08-11",
+    "expiration_date": "2027-08-11",
+    "locations": [],
+    "total_insured_value_usd": null,
+    "tiv_is_estimated": null,
+    "loss_runs": [],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": null,
+    "loss_runs_provided": false,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": null,
+    "reason_for_shopping": null,
+    "prior_non_renewal": false,
+    "missing_fields": [
+      "annual revenue",
+      "carrier loss runs",
+      "statement of values"
+    ],
+    "ambiguities": [],
+    "extraction_confidence": 0.55
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "submission_id": "SUB-0039",
+  "content_hash": "863ee05a0495cd497bfcb4245e0ade73427566b20ef871e7a10998df6041bad0",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "\"S. Okafor\"",
+      "agency_name": null,
+      "email": "s..okafor@latitudecommercial.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Redstone Fabrication Inc.",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "3053 Meadowbrook Court",
+      "city": "Allentown",
+      "state": "PA",
+      "zip_code": "69162",
+      "website": null,
+      "business_description": "Refrigerated warehousing and distribution",
+      "naics_code": "493110",
+      "sic_code": null,
+      "years_in_business": 3,
+      "annual_revenue_usd": 31000000.0,
+      "employee_count": 208
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 10000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-11-02",
+    "expiration_date": "2027-11-02",
+    "locations": [
+      {
+        "address": "3053 Meadowbrook Court",
+        "city": "Allentown",
+        "construction_type": "Non-Combustible",
+        "year_built": 2003,
+        "square_feet": 43000,
+        "building_value_usd": 1100000.0,
+        "contents_value_usd": 1100000.0,
+        "business_income_usd": 850000.0,
+        "sprinklered": false,
+        "state": "PA",
+        "zip_code": "69162"
+      },
+      {
+        "address": "6846 Old Mill Road",
+        "city": "Allentown",
+        "construction_type": "Non-Combustible",
+        "year_built": 1969,
+        "square_feet": 75000,
+        "building_value_usd": 5750000.0,
+        "contents_value_usd": 2275000.0,
+        "business_income_usd": 500000.0,
+        "sprinklered": false,
+        "state": "PA",
+        "zip_code": "30406"
+      },
+      {
+        "address": "8144 Commerce Drive",
+        "city": "Allentown",
+        "construction_type": "Non-Combustible",
+        "year_built": 1997,
+        "square_feet": 129000,
+        "building_value_usd": 3700000.0,
+        "contents_value_usd": 1125000.0,
+        "business_income_usd": 1600000.0,
+        "sprinklered": true,
+        "state": "PA",
+        "zip_code": "51689"
+      }
+    ],
+    "total_insured_value_usd": 18000000.0,
+    "tiv_is_estimated": false,
+    "loss_runs": [
+      {
+        "policy_year": "2021-2022",
+        "line_of_business": "General Liability",
+        "claim_count": 4,
+        "paid_usd": 85503.0,
+        "incurred_usd": 85812.0
+      },
+      {
+        "policy_year": "2022-2023",
+        "line_of_business": "Property",
+        "claim_count": 2,
+        "paid_usd": 33186.0,
+        "incurred_usd": 51933.0
+      },
+      {
+        "policy_year": "2023-2024",
+        "line_of_business": "General Liability",
+        "claim_count": 4,
+        "paid_usd": 74253.0,
+        "incurred_usd": 77470.0
+      },
+      {
+        "policy_year": "2024-2025",
+        "line_of_business": "Property",
+        "claim_count": 6,
+        "paid_usd": 10959.0,
+        "incurred_usd": 11054.0
+      },
+      {
+        "policy_year": "2025-2026",
+        "line_of_business": "Property",
+        "claim_count": 6,
+        "paid_usd": 42454.0,
+        "incurred_usd": 70010.0
+      }
+    ],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": 296279.0,
+    "loss_runs_provided": true,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": 18000.0,
+    "reason_for_shopping": "Renewal increase quoted at +34%",
+    "prior_non_renewal": false,
+    "missing_fields": [],
+    "ambiguities": [],
+    "extraction_confidence": 0.9
+  }
+}

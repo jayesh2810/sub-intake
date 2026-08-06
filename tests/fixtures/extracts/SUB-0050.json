@@ -1,0 +1,105 @@
+{
+  "submission_id": "SUB-0050",
+  "content_hash": "bfbb61431afc2deb7964593e671f76d01d219ea408471ef7ff614c88f7660e92",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "\"S. Okafor\"",
+      "agency_name": null,
+      "email": "s..okafor@latitudecommercial.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Halloway Manufacturing Co.",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "9159 Industrial Parkway",
+      "city": "Grand Rapids",
+      "state": "MI",
+      "zip_code": "49905",
+      "website": null,
+      "business_description": "Multi-tenant retail center, landlord operations",
+      "naics_code": "531120",
+      "sic_code": null,
+      "years_in_business": 2,
+      "annual_revenue_usd": 1800000.0,
+      "employee_count": 6
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 25000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-08-08",
+    "expiration_date": "2027-08-08",
+    "locations": [
+      {
+        "address": "9159 Industrial Parkway",
+        "city": "Grand Rapids",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1993,
+        "square_feet": 31000,
+        "building_value_usd": 4300000.0,
+        "contents_value_usd": 4425000.0,
+        "business_income_usd": 50000.0,
+        "sprinklered": true,
+        "state": "MI",
+        "zip_code": "49905"
+      }
+    ],
+    "total_insured_value_usd": 8775000.0,
+    "tiv_is_estimated": false,
+    "loss_runs": [
+      {
+        "policy_year": "2021-2022",
+        "line_of_business": "Property",
+        "claim_count": 4,
+        "paid_usd": 2679.0,
+        "incurred_usd": 3187.0
+      },
+      {
+        "policy_year": "2022-2023",
+        "line_of_business": "Property",
+        "claim_count": 2,
+        "paid_usd": 3952.0,
+        "incurred_usd": 4896.0
+      },
+      {
+        "policy_year": "2023-2024",
+        "line_of_business": "Property",
+        "claim_count": 1,
+        "paid_usd": 3221.0,
+        "incurred_usd": 5034.0
+      },
+      {
+        "policy_year": "2024-2025",
+        "line_of_business": "Property",
+        "claim_count": 5,
+        "paid_usd": 2301.0,
+        "incurred_usd": 2891.0
+      },
+      {
+        "policy_year": "2025-2026",
+        "line_of_business": "General Liability",
+        "claim_count": 5,
+        "paid_usd": 623.0,
+        "incurred_usd": 807.0
+      }
+    ],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": 16815.0,
+    "loss_runs_provided": true,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": 201000.0,
+    "reason_for_shopping": "Ongoing service and claims handling issues with incumbent",
+    "prior_non_renewal": false,
+    "missing_fields": [],
+    "ambiguities": [],
+    "extraction_confidence": 0.9
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "submission_id": "SUB-0040",
+  "content_hash": "60ee7b080b5de7e01dc9b4ab5c58e118464ad988b19b469b3719d2f5cff25150",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Tonya Bell",
+      "agency_name": "Crestpoint Agency",
+      "email": "tonya.bell@crestpointagency.net",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Halloway Contractors Inc.",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "3875 Meadowbrook Court",
+      "city": "Waco",
+      "state": "TX",
+      "zip_code": "33019",
+      "website": null,
+      "business_description": "Garden style apartment complex, residential rental",
+      "naics_code": "531110",
+      "sic_code": null,
+      "years_in_business": 3,
+      "annual_revenue_usd": null,
+      "employee_count": 95
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 25000.0,
+        "notes": null
+      },
+      {
+        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 25000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-09-01",
+    "expiration_date": "2027-09-01",
+    "locations": [
+      {
+        "address": "3875 Meadowbrook Court",
+        "city": "Waco",
+        "construction_type": "Wood Frame",
+        "year_built": 1980,
+        "square_feet": 26000,
+        "building_value_usd": 7050000.0,
+        "contents_value_usd": 4025000.0,
+        "business_income_usd": 2300000.0,
+        "sprinklered": true,
+        "state": "TX",
+        "zip_code": "33019"
+      }
+    ],
+    "total_insured_value_usd": 13375000.0,
+    "tiv_is_estimated": true,
+    "loss_runs": [],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": null,
+    "loss_runs_provided": false,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": null,
+    "reason_for_shopping": null,
+    "prior_non_renewal": false,
+    "missing_fields": [
+      "annual revenue",
+      "carrier loss runs"
+    ],
+    "ambiguities": [
+      "Total insured value is an owner estimate, appraisal pending."
+    ],
+    "extraction_confidence": 0.4
+  }
+}

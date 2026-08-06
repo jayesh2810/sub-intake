@@ -1,0 +1,81 @@
+{
+  "submission_id": "SUB-0033",
+  "content_hash": "3abbf73bb4a9efcfb8279a813a40d854a9fb3f37d20307c19b22baeb25b00322",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Bill Trombley",
+      "agency_name": "Trombley & Sons Insurance",
+      "email": "bill.trombley@trombleyins.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Northfield Fabrication Inc.",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "851 Foundry Way",
+      "city": "Fresno",
+      "state": "CA",
+      "zip_code": "53313",
+      "website": null,
+      "business_description": "Multi-tenant retail center, landlord operations",
+      "naics_code": "531120",
+      "sic_code": null,
+      "years_in_business": 2,
+      "annual_revenue_usd": null,
+      "employee_count": 125
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 25000.0,
+        "notes": null
+      },
+      {
+        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 25000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-08-24",
+    "expiration_date": "2027-08-24",
+    "locations": [
+      {
+        "address": "851 Foundry Way",
+        "city": "Fresno",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1974,
+        "square_feet": 136000,
+        "building_value_usd": 8200000.0,
+        "contents_value_usd": 3250000.0,
+        "business_income_usd": 2400000.0,
+        "sprinklered": false,
+        "state": "CA",
+        "zip_code": "53313"
+      }
+    ],
+    "total_insured_value_usd": 13850000.0,
+    "tiv_is_estimated": true,
+    "loss_runs": [],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": null,
+    "loss_runs_provided": false,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": null,
+    "reason_for_shopping": null,
+    "prior_non_renewal": false,
+    "missing_fields": [
+      "annual revenue",
+      "carrier loss runs"
+    ],
+    "ambiguities": [
+      "Total insured value is an owner estimate, appraisal pending."
+    ],
+    "extraction_confidence": 0.4
+  }
+}

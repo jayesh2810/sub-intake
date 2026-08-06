@@ -1,0 +1,118 @@
+{
+  "submission_id": "SUB-0010",
+  "content_hash": "3d8b326f763c182a6e227344321bf6950d233b44f4b2e42d398a52a7e7c18a05",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Bill Trombley",
+      "agency_name": "Trombley & Sons Insurance",
+      "email": "bill.trombley@trombleyins.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Calloway Logistics LLC",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "5443 Meadowbrook Court",
+      "city": "Greensboro",
+      "state": "NC",
+      "zip_code": "74774",
+      "website": null,
+      "business_description": "Precision metal stamping and sheet metal fabrication",
+      "naics_code": "332119",
+      "sic_code": null,
+      "years_in_business": 28,
+      "annual_revenue_usd": 8900000.0,
+      "employee_count": 35
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 10000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-09-01",
+    "expiration_date": "2027-09-01",
+    "locations": [
+      {
+        "address": "5443 Meadowbrook Court",
+        "city": "Greensboro",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1977,
+        "square_feet": 78000,
+        "building_value_usd": 5350000.0,
+        "contents_value_usd": 425000.0,
+        "business_income_usd": 2250000.0,
+        "sprinklered": true,
+        "state": "NC",
+        "zip_code": "74774"
+      },
+      {
+        "address": "7132 Meadowbrook Court",
+        "city": "Greensboro",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1976,
+        "square_feet": 135000,
+        "building_value_usd": 6950000.0,
+        "contents_value_usd": 4525000.0,
+        "business_income_usd": 1850000.0,
+        "sprinklered": true,
+        "state": "NC",
+        "zip_code": "76262"
+      }
+    ],
+    "total_insured_value_usd": 21350000.0,
+    "tiv_is_estimated": false,
+    "loss_runs": [
+      {
+        "policy_year": "2021-2022",
+        "line_of_business": "Property",
+        "claim_count": 6,
+        "paid_usd": 1825.0,
+        "incurred_usd": 2247.0
+      },
+      {
+        "policy_year": "2022-2023",
+        "line_of_business": "Property",
+        "claim_count": 4,
+        "paid_usd": 2388.0,
+        "incurred_usd": 3385.0
+      },
+      {
+        "policy_year": "2023-2024",
+        "line_of_business": "General Liability",
+        "claim_count": 1,
+        "paid_usd": 1194.0,
+        "incurred_usd": 1328.0
+      },
+      {
+        "policy_year": "2024-2025",
+        "line_of_business": "Property",
+        "claim_count": 6,
+        "paid_usd": 1290.0,
+        "incurred_usd": 1592.0
+      },
+      {
+        "policy_year": "2025-2026",
+        "line_of_business": "General Liability",
+        "claim_count": 3,
+        "paid_usd": 165.0,
+        "incurred_usd": 179.0
+      }
+    ],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": 8731.0,
+    "loss_runs_provided": true,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": 207000.0,
+    "reason_for_shopping": "Ongoing service and claims handling issues with incumbent",
+    "prior_non_renewal": false,
+    "missing_fields": [],
+    "ambiguities": [],
+    "extraction_confidence": 0.9
+  }
+}

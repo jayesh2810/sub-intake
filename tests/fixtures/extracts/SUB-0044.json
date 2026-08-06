@@ -1,0 +1,74 @@
+{
+  "submission_id": "SUB-0044",
+  "content_hash": "ddefdcfe0084ebc60a730bdf00b32aad5f86e3ecaabf166291f2d48614f0d635",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Rey Delgado",
+      "agency_name": "Delgado Insurance Group",
+      "email": "rey.delgado@delgadoins.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Wraysbury Logistics LLC",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "8495 Sycamore Street",
+      "city": "Racine",
+      "state": "WI",
+      "zip_code": "60223",
+      "website": null,
+      "business_description": "Ground-up multifamily residential construction",
+      "naics_code": "236116",
+      "sic_code": null,
+      "years_in_business": 6,
+      "annual_revenue_usd": null,
+      "employee_count": 177
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 10000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-09-13",
+    "expiration_date": "2027-09-13",
+    "locations": [
+      {
+        "address": "8495 Sycamore Street",
+        "city": "Racine",
+        "construction_type": "Joisted Masonry",
+        "year_built": 2005,
+        "square_feet": 107000,
+        "building_value_usd": 2800000.0,
+        "contents_value_usd": 2400000.0,
+        "business_income_usd": 500000.0,
+        "sprinklered": true,
+        "state": "WI",
+        "zip_code": "60223"
+      }
+    ],
+    "total_insured_value_usd": 5700000.0,
+    "tiv_is_estimated": true,
+    "loss_runs": [],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": null,
+    "loss_runs_provided": false,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": null,
+    "reason_for_shopping": null,
+    "prior_non_renewal": false,
+    "missing_fields": [
+      "annual revenue",
+      "carrier loss runs"
+    ],
+    "ambiguities": [
+      "Total insured value is an owner estimate, appraisal pending."
+    ],
+    "extraction_confidence": 0.4
+  }
+}

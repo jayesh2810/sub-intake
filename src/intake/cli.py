@@ -15,7 +15,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 from intake import db
-from intake.pipeline import ingest, parse
+from intake.pipeline import extract, ingest, parse
 
 load_dotenv()
 
@@ -45,6 +45,33 @@ def cmd_parse(args) -> None:
             print(f"   {sid}")
 
 
+def cmd_extract(args) -> None:
+    with db.session() as conn:
+        result = extract.run(
+            conn, only=args.only, limit=args.limit, force=args.force,
+            dry_run=args.dry_run, record_fixtures=args.record_fixtures,
+            use_fixtures=args.use_fixtures,
+        )
+
+    if args.dry_run:
+        print(f"cached, no call needed  {result['cached']}")
+        print(f"would call the model    {result['would_call']}")
+        if result["would_call_ids"]:
+            ids = result["would_call_ids"]
+            print("                        " + ", ".join(ids[:8])
+                  + (f" ... (+{len(ids) - 8})" if len(ids) > 8 else ""))
+        return
+
+    print(f"served from cache       {result['cached']}")
+    print(f"extracted               {result['extracted']}  ({result.get('source')})")
+    if result["tokens"]:
+        print(f"tokens                  {result['tokens']:,}")
+    if result["failed"]:
+        print(f"\nfailed ({len(result['failed'])}):")
+        for f in result["failed"]:
+            print(f"   {f['submission_id']}: {f['error']}")
+
+
 def cmd_status(args) -> None:
     with db.session() as conn:
         rows = conn.execute(
@@ -57,6 +84,10 @@ def cmd_status(args) -> None:
         ).fetchone()["n"]
         by_type = conn.execute(
             "SELECT doc_type, COUNT(*) n FROM documents GROUP BY doc_type ORDER BY n DESC"
+        ).fetchall()
+        provenance = conn.execute(
+            "SELECT model, COUNT(*) n, SUM(tokens_in + tokens_out) t "
+            "FROM extracts GROUP BY model ORDER BY n DESC"
         ).fetchall()
 
     if not total:
@@ -73,6 +104,15 @@ def cmd_status(args) -> None:
         print("\ndocument types")
         for r in by_type:
             print(f"  {r['doc_type']:<14} {r['n']}")
+
+    if provenance:
+        print("\nextract provenance")
+        for r in provenance:
+            tok = f"  {r['t']:,} tokens" if r["t"] else ""
+            print(f"  {r['model']:<28} {r['n']}{tok}")
+        if any(r["model"] == "fixture:synthetic" for r in provenance):
+            print("\n  ** fixture:synthetic extracts are scaffolding, not model")
+            print("     output. Re-run `extract` to replace them as quota allows.")
 
 
 def cmd_show(args) -> None:
@@ -123,6 +163,18 @@ def main() -> None:
     s = sub.add_parser("parse", help="extract text and classify documents")
     s.add_argument("--only", nargs="*", help="specific submission ids")
     s.set_defaults(func=cmd_parse)
+
+    s = sub.add_parser("extract", help="run the extraction agent (the only LLM stage)")
+    s.add_argument("--only", nargs="*", help="specific submission ids")
+    s.add_argument("--limit", type=int, help="cap how many model calls to make")
+    s.add_argument("--force", action="store_true", help="ignore the cache")
+    s.add_argument("--dry-run", action="store_true",
+                   help="report what would be called, call nothing")
+    s.add_argument("--record-fixtures", action="store_true",
+                   help="save responses for offline replay")
+    s.add_argument("--use-fixtures", action="store_true",
+                   help="replay recorded responses instead of calling the model")
+    s.set_defaults(func=cmd_extract)
 
     s = sub.add_parser("status", help="pipeline state summary")
     s.set_defaults(func=cmd_status)

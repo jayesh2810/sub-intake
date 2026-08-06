@@ -16,7 +16,7 @@ import json
 import sqlite3
 from contextlib import contextmanager
 from pathlib import Path
-from typing import Any, Iterator, Optional
+from typing import Any, Iterator, Optional, Union
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DB_PATH = PROJECT_ROOT / "data" / "intake.db"
@@ -132,7 +132,7 @@ CREATE INDEX IF NOT EXISTS ix_events_submission ON events(submission_id, id);
 """
 
 
-def connect(path: Optional[Path] = None) -> sqlite3.Connection:
+def connect(path: Optional[Union[Path, str]] = None) -> sqlite3.Connection:
     target = Path(path) if path else DB_PATH
     target.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(target)

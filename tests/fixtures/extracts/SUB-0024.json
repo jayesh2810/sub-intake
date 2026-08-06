@@ -1,0 +1,94 @@
+{
+  "submission_id": "SUB-0024",
+  "content_hash": "fb018251541891f46b76aab48e2695a397bd0adfc49ac809fdb717dbd78d71d4",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Priya Raghunathan",
+      "agency_name": "Meridian Brokerage Group",
+      "email": "priya.raghunathan@meridianbg.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Ashcombe Associates LP",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "8580 Meadowbrook Court",
+      "city": "Dayton",
+      "state": "OH",
+      "zip_code": "74599",
+      "website": null,
+      "business_description": "Precision metal stamping and sheet metal fabrication",
+      "naics_code": "332119",
+      "sic_code": null,
+      "years_in_business": 18,
+      "annual_revenue_usd": null,
+      "employee_count": 129
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 5000.0,
+        "notes": null
+      },
+      {
+        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 5000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-08-11",
+    "expiration_date": "2027-08-11",
+    "locations": [
+      {
+        "address": "8580 Meadowbrook Court",
+        "city": "Dayton",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1983,
+        "square_feet": 48000,
+        "building_value_usd": 8100000.0,
+        "contents_value_usd": 425000.0,
+        "business_income_usd": 150000.0,
+        "sprinklered": true,
+        "state": "OH",
+        "zip_code": "74599"
+      },
+      {
+        "address": "513 Franklin Avenue",
+        "city": "Dayton",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1983,
+        "square_feet": 46000,
+        "building_value_usd": 7200000.0,
+        "contents_value_usd": 800000.0,
+        "business_income_usd": 0.0,
+        "sprinklered": true,
+        "state": "OH",
+        "zip_code": "34334"
+      }
+    ],
+    "total_insured_value_usd": 16675000.0,
+    "tiv_is_estimated": true,
+    "loss_runs": [],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": null,
+    "loss_runs_provided": false,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": null,
+    "reason_for_shopping": null,
+    "prior_non_renewal": false,
+    "missing_fields": [
+      "annual revenue",
+      "carrier loss runs"
+    ],
+    "ambiguities": [
+      "Total insured value is an owner estimate, appraisal pending."
+    ],
+    "extraction_confidence": 0.4
+  }
+}

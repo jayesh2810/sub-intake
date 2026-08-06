@@ -1,0 +1,100 @@
+{
+  "submission_id": "SUB-0038",
+  "content_hash": "159518809cdf723e19a56ebf7b741451ee764a2612eadeedcdba811c00cfea5f",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Wes Nakamura",
+      "agency_name": "Pacific Union Brokerage",
+      "email": "wes.nakamura@pacunionbrokerage.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Northfield Enterprises LLC",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "2920 Industrial Parkway",
+      "city": "Modesto",
+      "state": "CA",
+      "zip_code": "43536",
+      "website": null,
+      "business_description": "Fabricated structural metal for commercial construction",
+      "naics_code": "332312",
+      "sic_code": null,
+      "years_in_business": 3,
+      "annual_revenue_usd": null,
+      "employee_count": 45
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 5000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-09-30",
+    "expiration_date": "2027-09-30",
+    "locations": [
+      {
+        "address": "2920 Industrial Parkway",
+        "city": "Modesto",
+        "construction_type": "Non-Combustible",
+        "year_built": 1990,
+        "square_feet": 21000,
+        "building_value_usd": 3200000.0,
+        "contents_value_usd": 450000.0,
+        "business_income_usd": 800000.0,
+        "sprinklered": true,
+        "state": "CA",
+        "zip_code": "43536"
+      },
+      {
+        "address": "8020 Industrial Parkway",
+        "city": "Modesto",
+        "construction_type": "Non-Combustible",
+        "year_built": 1977,
+        "square_feet": 87000,
+        "building_value_usd": 6950000.0,
+        "contents_value_usd": 1400000.0,
+        "business_income_usd": 2150000.0,
+        "sprinklered": true,
+        "state": "CA",
+        "zip_code": "23245"
+      },
+      {
+        "address": "9763 Prospect Road",
+        "city": "Modesto",
+        "construction_type": "Non-Combustible",
+        "year_built": 2016,
+        "square_feet": 32000,
+        "building_value_usd": 4200000.0,
+        "contents_value_usd": 2200000.0,
+        "business_income_usd": 1150000.0,
+        "sprinklered": false,
+        "state": "CA",
+        "zip_code": "67839"
+      }
+    ],
+    "total_insured_value_usd": 22500000.0,
+    "tiv_is_estimated": true,
+    "loss_runs": [],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": null,
+    "loss_runs_provided": false,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": null,
+    "reason_for_shopping": null,
+    "prior_non_renewal": false,
+    "missing_fields": [
+      "annual revenue",
+      "carrier loss runs"
+    ],
+    "ambiguities": [
+      "Total insured value is an owner estimate, appraisal pending."
+    ],
+    "extraction_confidence": 0.4
+  }
+}

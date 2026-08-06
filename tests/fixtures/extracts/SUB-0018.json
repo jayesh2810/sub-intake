@@ -1,0 +1,114 @@
+{
+  "submission_id": "SUB-0018",
+  "content_hash": "03525c209e11d098db7bdc2d352bed7d1469068c1a5ccd6ae5a9add8483aff35",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Jared Hollis",
+      "agency_name": "Tri-State Insurance Services",
+      "email": "jared.hollis@tristate-ins.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Thornbury Services Inc.",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "6780 Commerce Drive",
+      "city": "Savannah",
+      "state": "GA",
+      "zip_code": "95137",
+      "website": null,
+      "business_description": "Garden style apartment complex, residential rental",
+      "naics_code": "531110",
+      "sic_code": null,
+      "years_in_business": 11,
+      "annual_revenue_usd": 4200000.0,
+      "employee_count": 18
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 10000.0,
+        "notes": null
+      },
+      {
+        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 10000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-08-17",
+    "expiration_date": "2027-08-17",
+    "locations": [
+      {
+        "address": "6780 Commerce Drive",
+        "city": "Savannah",
+        "construction_type": "Wood Frame",
+        "year_built": 1970,
+        "square_feet": 129000,
+        "building_value_usd": 3550000.0,
+        "contents_value_usd": 1175000.0,
+        "business_income_usd": 1350000.0,
+        "sprinklered": false,
+        "state": "GA",
+        "zip_code": "95137"
+      }
+    ],
+    "total_insured_value_usd": 6075000.0,
+    "tiv_is_estimated": false,
+    "loss_runs": [
+      {
+        "policy_year": "2021-2022",
+        "line_of_business": "Property",
+        "claim_count": 2,
+        "paid_usd": 16108.0,
+        "incurred_usd": 21009.0
+      },
+      {
+        "policy_year": "2022-2023",
+        "line_of_business": "Property",
+        "claim_count": 6,
+        "paid_usd": 19645.0,
+        "incurred_usd": 24092.0
+      },
+      {
+        "policy_year": "2023-2024",
+        "line_of_business": "Property",
+        "claim_count": 3,
+        "paid_usd": 89365.0,
+        "incurred_usd": 124549.0
+      },
+      {
+        "policy_year": "2024-2025",
+        "line_of_business": "General Liability",
+        "claim_count": 3,
+        "paid_usd": 124428.0,
+        "incurred_usd": 177344.0
+      },
+      {
+        "policy_year": "2025-2026",
+        "line_of_business": "General Liability",
+        "claim_count": 2,
+        "paid_usd": 86636.0,
+        "incurred_usd": 111679.0
+      }
+    ],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": 458673.0,
+    "loss_runs_provided": true,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": 166000.0,
+    "reason_for_shopping": "Non-renewal issued by incumbent",
+    "prior_non_renewal": true,
+    "missing_fields": [],
+    "ambiguities": [
+      "Prior carrier issued a non-renewal for adverse losses."
+    ],
+    "extraction_confidence": 0.9
+  }
+}

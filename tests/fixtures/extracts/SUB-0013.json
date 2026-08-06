@@ -1,0 +1,95 @@
+{
+  "submission_id": "SUB-0013",
+  "content_hash": "edf5090afa71dc1c2cdcdc9bde52ca67e63fe486cda426b0911423a0e4247a3d",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Bill Trombley",
+      "agency_name": "Trombley & Sons Insurance",
+      "email": "bill.trombley@trombleyins.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Marchwood Associates LP",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "7486 Prospect Road",
+      "city": "Dayton",
+      "state": "OH",
+      "zip_code": "28162",
+      "website": null,
+      "business_description": "Mid-rise apartment building, residential rental",
+      "naics_code": "531110",
+      "sic_code": null,
+      "years_in_business": 2,
+      "annual_revenue_usd": 14500000.0,
+      "employee_count": 54
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 10000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-09-30",
+    "expiration_date": "2027-09-30",
+    "locations": [],
+    "total_insured_value_usd": null,
+    "tiv_is_estimated": null,
+    "loss_runs": [
+      {
+        "policy_year": "2021-2022",
+        "line_of_business": "General Liability",
+        "claim_count": 4,
+        "paid_usd": 2774.0,
+        "incurred_usd": 3599.0
+      },
+      {
+        "policy_year": "2022-2023",
+        "line_of_business": "Property",
+        "claim_count": 2,
+        "paid_usd": 15254.0,
+        "incurred_usd": 23974.0
+      },
+      {
+        "policy_year": "2023-2024",
+        "line_of_business": "General Liability",
+        "claim_count": 5,
+        "paid_usd": 24743.0,
+        "incurred_usd": 38878.0
+      },
+      {
+        "policy_year": "2024-2025",
+        "line_of_business": "Property",
+        "claim_count": 3,
+        "paid_usd": 18538.0,
+        "incurred_usd": 26358.0
+      },
+      {
+        "policy_year": "2025-2026",
+        "line_of_business": "Property",
+        "claim_count": 1,
+        "paid_usd": 19520.0,
+        "incurred_usd": 21693.0
+      }
+    ],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": 114502.0,
+    "loss_runs_provided": true,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": 87000.0,
+    "reason_for_shopping": "Non-renewal issued by incumbent",
+    "prior_non_renewal": true,
+    "missing_fields": [
+      "statement of values"
+    ],
+    "ambiguities": [
+      "Prior carrier issued a non-renewal for adverse losses."
+    ],
+    "extraction_confidence": 0.9
+  }
+}

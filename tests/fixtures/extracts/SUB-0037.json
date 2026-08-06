@@ -1,0 +1,106 @@
+{
+  "submission_id": "SUB-0037",
+  "content_hash": "06b6910064b13c0c31924f86a331e6232533bd0212da77f2308ddb638b9ceda6",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Rey Delgado",
+      "agency_name": "Delgado Insurance Group",
+      "email": "rey.delgado@delgadoins.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Silver Creek Contractors Inc.",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "6044 Prospect Road",
+      "city": "Mesa",
+      "state": "AZ",
+      "zip_code": "83981",
+      "website": null,
+      "business_description": "Garden style apartment complex, residential rental",
+      "naics_code": "531110",
+      "sic_code": null,
+      "years_in_business": 35,
+      "annual_revenue_usd": 14500000.0,
+      "employee_count": 104
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 5000.0,
+        "notes": null
+      },
+      {
+        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 5000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-08-11",
+    "expiration_date": "2027-08-11",
+    "locations": [
+      {
+        "address": "6044 Prospect Road",
+        "city": "Mesa",
+        "construction_type": "Wood Frame",
+        "year_built": 1990,
+        "square_feet": 109000,
+        "building_value_usd": 4100000.0,
+        "contents_value_usd": 1725000.0,
+        "business_income_usd": 100000.0,
+        "sprinklered": true,
+        "state": "AZ",
+        "zip_code": "83981"
+      },
+      {
+        "address": "6228 Commerce Drive",
+        "city": "Mesa",
+        "construction_type": "Wood Frame",
+        "year_built": 2008,
+        "square_feet": 124000,
+        "building_value_usd": 6700000.0,
+        "contents_value_usd": 1125000.0,
+        "business_income_usd": 1000000.0,
+        "sprinklered": true,
+        "state": "AZ",
+        "zip_code": "58715"
+      },
+      {
+        "address": "597 Warehouse Row",
+        "city": "Mesa",
+        "construction_type": "Wood Frame",
+        "year_built": 2001,
+        "square_feet": 11000,
+        "building_value_usd": 8000000.0,
+        "contents_value_usd": 350000.0,
+        "business_income_usd": 650000.0,
+        "sprinklered": true,
+        "state": "AZ",
+        "zip_code": "46771"
+      }
+    ],
+    "total_insured_value_usd": 23750000.0,
+    "tiv_is_estimated": false,
+    "loss_runs": [],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": null,
+    "loss_runs_provided": false,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": 99500.0,
+    "reason_for_shopping": "Non-renewal issued by incumbent",
+    "prior_non_renewal": false,
+    "missing_fields": [
+      "carrier loss runs"
+    ],
+    "ambiguities": [
+      "Loss run document could not be read; loss history is unknown, not zero."
+    ],
+    "extraction_confidence": 0.65
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "submission_id": "SUB-0025",
+  "content_hash": "e8dbf4888d353d5c6b3e2f7c3512364c404ea849c6c060e11b9495cbd654adac",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Ollie Brennan",
+      "agency_name": "Brennan Risk Services",
+      "email": "ollie.brennan@brennanrisk.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Ironwood Holdings LLC",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "3655 Commerce Drive",
+      "city": "Utica",
+      "state": "NY",
+      "zip_code": "76509",
+      "website": null,
+      "business_description": "Mid-rise apartment building, residential rental",
+      "naics_code": "531110",
+      "sic_code": null,
+      "years_in_business": 18,
+      "annual_revenue_usd": 48000000.0,
+      "employee_count": 186
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 5000.0,
+        "notes": null
+      },
+      {
+        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 5000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-08-17",
+    "expiration_date": "2027-08-17",
+    "locations": [
+      {
+        "address": "3655 Commerce Drive",
+        "city": "Utica",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1968,
+        "square_feet": 49000,
+        "building_value_usd": 4150000.0,
+        "contents_value_usd": 1650000.0,
+        "business_income_usd": 2350000.0,
+        "sprinklered": false,
+        "state": "NY",
+        "zip_code": "76509"
+      }
+    ],
+    "total_insured_value_usd": 8150000.0,
+    "tiv_is_estimated": false,
+    "loss_runs": [
+      {
+        "policy_year": "2021-2022",
+        "line_of_business": "General Liability",
+        "claim_count": 4,
+        "paid_usd": 49710.0,
+        "incurred_usd": 53116.0
+      },
+      {
+        "policy_year": "2022-2023",
+        "line_of_business": "Property",
+        "claim_count": 1,
+        "paid_usd": 110828.0,
+        "incurred_usd": 143025.0
+      },
+      {
+        "policy_year": "2023-2024",
+        "line_of_business": "Property",
+        "claim_count": 5,
+        "paid_usd": 50927.0,
+        "incurred_usd": 53389.0
+      },
+      {
+        "policy_year": "2024-2025",
+        "line_of_business": "Property",
+        "claim_count": 4,
+        "paid_usd": 32997.0,
+        "incurred_usd": 38864.0
+      },
+      {
+        "policy_year": "2025-2026",
+        "line_of_business": "Property",
+        "claim_count": 5,
+        "paid_usd": 142215.0,
+        "incurred_usd": 147478.0
+      }
+    ],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": 435872.0,
+    "loss_runs_provided": true,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": 177000.0,
+    "reason_for_shopping": "Ongoing service and claims handling issues with incumbent",
+    "prior_non_renewal": false,
+    "missing_fields": [],
+    "ambiguities": [],
+    "extraction_confidence": 0.9
+  }
+}

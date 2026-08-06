@@ -1,0 +1,118 @@
+{
+  "submission_id": "SUB-0021",
+  "content_hash": "2ed1f37764caea0b316be136edda0451520539e869201696ab078a30fbf62f40",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Bill Trombley",
+      "agency_name": "Trombley & Sons Insurance",
+      "email": "bill.trombley@trombleyins.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Ridgeway Manufacturing Co.",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "2116 Beckett Road",
+      "city": "Allentown",
+      "state": "PA",
+      "zip_code": "42382",
+      "website": null,
+      "business_description": "Industrial machinery and equipment distribution",
+      "naics_code": "423830",
+      "sic_code": null,
+      "years_in_business": 3,
+      "annual_revenue_usd": 48000000.0,
+      "employee_count": 155
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 10000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-08-08",
+    "expiration_date": "2027-08-08",
+    "locations": [
+      {
+        "address": "2116 Beckett Road",
+        "city": "Allentown",
+        "construction_type": "Non-Combustible",
+        "year_built": 2014,
+        "square_feet": 55000,
+        "building_value_usd": 4950000.0,
+        "contents_value_usd": 3725000.0,
+        "business_income_usd": 2400000.0,
+        "sprinklered": true,
+        "state": "PA",
+        "zip_code": "42382"
+      },
+      {
+        "address": "5411 Commerce Drive",
+        "city": "Allentown",
+        "construction_type": "Non-Combustible",
+        "year_built": 2006,
+        "square_feet": 122000,
+        "building_value_usd": 850000.0,
+        "contents_value_usd": 4300000.0,
+        "business_income_usd": 1300000.0,
+        "sprinklered": false,
+        "state": "PA",
+        "zip_code": "61096"
+      }
+    ],
+    "total_insured_value_usd": 17525000.0,
+    "tiv_is_estimated": false,
+    "loss_runs": [
+      {
+        "policy_year": "2021-2022",
+        "line_of_business": "General Liability",
+        "claim_count": 4,
+        "paid_usd": 54176.0,
+        "incurred_usd": 78053.0
+      },
+      {
+        "policy_year": "2022-2023",
+        "line_of_business": "General Liability",
+        "claim_count": 2,
+        "paid_usd": 48919.0,
+        "incurred_usd": 52931.0
+      },
+      {
+        "policy_year": "2023-2024",
+        "line_of_business": "General Liability",
+        "claim_count": 1,
+        "paid_usd": 32553.0,
+        "incurred_usd": 51932.0
+      },
+      {
+        "policy_year": "2024-2025",
+        "line_of_business": "General Liability",
+        "claim_count": 4,
+        "paid_usd": 2066.0,
+        "incurred_usd": 2769.0
+      },
+      {
+        "policy_year": "2025-2026",
+        "line_of_business": "General Liability",
+        "claim_count": 5,
+        "paid_usd": 58954.0,
+        "incurred_usd": 73320.0
+      }
+    ],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": 259005.0,
+    "loss_runs_provided": true,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": 205500.0,
+    "reason_for_shopping": "Incumbent restricting coverage at renewal",
+    "prior_non_renewal": false,
+    "missing_fields": [],
+    "ambiguities": [],
+    "extraction_confidence": 0.9
+  }
+}

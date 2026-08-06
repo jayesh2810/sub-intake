@@ -1,0 +1,107 @@
+{
+  "submission_id": "SUB-0049",
+  "content_hash": "4f74cf7a02521ce1e1146796b17c95010082324c1a98a23923b1d4a4305b6693",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Hannah Fiedler",
+      "agency_name": "Copperline Brokers",
+      "email": "hannah.fiedler@copperlinebrokers.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Wraysbury Services Inc.",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "270 Foundry Way",
+      "city": "Lubbock",
+      "state": "TX",
+      "zip_code": "18948",
+      "website": null,
+      "business_description": "Industrial machinery and equipment distribution",
+      "naics_code": "423830",
+      "sic_code": null,
+      "years_in_business": 28,
+      "annual_revenue_usd": 31000000.0,
+      "employee_count": 241
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 10000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-11-02",
+    "expiration_date": "2027-11-02",
+    "locations": [
+      {
+        "address": "270 Foundry Way",
+        "city": "Lubbock",
+        "construction_type": "Non-Combustible",
+        "year_built": 2001,
+        "square_feet": 64000,
+        "building_value_usd": 6150000.0,
+        "contents_value_usd": 2750000.0,
+        "business_income_usd": 1150000.0,
+        "sprinklered": true,
+        "state": "TX",
+        "zip_code": "18948"
+      }
+    ],
+    "total_insured_value_usd": 10050000.0,
+    "tiv_is_estimated": false,
+    "loss_runs": [
+      {
+        "policy_year": "2021-2022",
+        "line_of_business": "General Liability",
+        "claim_count": 6,
+        "paid_usd": 22451.0,
+        "incurred_usd": 27648.0
+      },
+      {
+        "policy_year": "2022-2023",
+        "line_of_business": "Property",
+        "claim_count": 2,
+        "paid_usd": 25140.0,
+        "incurred_usd": 33742.0
+      },
+      {
+        "policy_year": "2023-2024",
+        "line_of_business": "General Liability",
+        "claim_count": 1,
+        "paid_usd": 70260.0,
+        "incurred_usd": 75516.0
+      },
+      {
+        "policy_year": "2024-2025",
+        "line_of_business": "Property",
+        "claim_count": 1,
+        "paid_usd": 62094.0,
+        "incurred_usd": 72005.0
+      },
+      {
+        "policy_year": "2025-2026",
+        "line_of_business": "General Liability",
+        "claim_count": 6,
+        "paid_usd": 101432.0,
+        "incurred_usd": 137565.0
+      }
+    ],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": 346476.0,
+    "loss_runs_provided": true,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": 92000.0,
+    "reason_for_shopping": "Non-renewal issued by incumbent",
+    "prior_non_renewal": true,
+    "missing_fields": [],
+    "ambiguities": [
+      "Prior carrier issued a non-renewal for adverse losses."
+    ],
+    "extraction_confidence": 0.9
+  }
+}

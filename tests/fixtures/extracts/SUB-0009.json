@@ -1,0 +1,60 @@
+{
+  "submission_id": "SUB-0009",
+  "content_hash": "81a7a271fb0e357c01bedd23d3dda07199b59e5cf00cf0fa7357a45cacf447a2",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "\"S. Okafor\"",
+      "agency_name": null,
+      "email": "s..okafor@latitudecommercial.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Marchwood Partners LP",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "4287 Franklin Avenue",
+      "city": "Syracuse",
+      "state": "NY",
+      "zip_code": "31397",
+      "website": null,
+      "business_description": "Commercial plumbing and HVAC installation and service",
+      "naics_code": "238220",
+      "sic_code": null,
+      "years_in_business": 2,
+      "annual_revenue_usd": 1800000.0,
+      "employee_count": 6
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 5000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-08-08",
+    "expiration_date": "2027-08-08",
+    "locations": [],
+    "total_insured_value_usd": null,
+    "tiv_is_estimated": null,
+    "loss_runs": [],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": null,
+    "loss_runs_provided": false,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": 120000.0,
+    "reason_for_shopping": "Incumbent restricting coverage at renewal",
+    "prior_non_renewal": false,
+    "missing_fields": [
+      "carrier loss runs",
+      "statement of values"
+    ],
+    "ambiguities": [
+      "Loss run document could not be read; loss history is unknown, not zero."
+    ],
+    "extraction_confidence": 0.65
+  }
+}

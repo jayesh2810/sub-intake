@@ -1,0 +1,105 @@
+{
+  "submission_id": "SUB-0043",
+  "content_hash": "427731ca8501d72a3a63f5ea26fa9d49ca85d4cf884376dfcadc5b05131f5a93",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Devanshi Patel",
+      "agency_name": "Harborline Insurance Brokers",
+      "email": "devanshi.patel@harborlinebrokers.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Fairmount Associates LP",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "1746 Sierra Ridge Drive",
+      "city": "Toledo",
+      "state": "OH",
+      "zip_code": "25951",
+      "website": null,
+      "business_description": "Automotive component stamping, tier two supplier",
+      "naics_code": "332119",
+      "sic_code": null,
+      "years_in_business": 35,
+      "annual_revenue_usd": 22400000.0,
+      "employee_count": 91
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 50000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-10-16",
+    "expiration_date": "2027-10-16",
+    "locations": [
+      {
+        "address": "1746 Sierra Ridge Drive",
+        "city": "Toledo",
+        "construction_type": "Joisted Masonry",
+        "year_built": 2001,
+        "square_feet": 9000,
+        "building_value_usd": 8350000.0,
+        "contents_value_usd": 1650000.0,
+        "business_income_usd": 100000.0,
+        "sprinklered": false,
+        "state": "OH",
+        "zip_code": "25951"
+      }
+    ],
+    "total_insured_value_usd": 10100000.0,
+    "tiv_is_estimated": false,
+    "loss_runs": [
+      {
+        "policy_year": "2021-2022",
+        "line_of_business": "Property",
+        "claim_count": 4,
+        "paid_usd": 4672.0,
+        "incurred_usd": 5589.0
+      },
+      {
+        "policy_year": "2022-2023",
+        "line_of_business": "Property",
+        "claim_count": 4,
+        "paid_usd": 1311.0,
+        "incurred_usd": 2019.0
+      },
+      {
+        "policy_year": "2023-2024",
+        "line_of_business": "Property",
+        "claim_count": 3,
+        "paid_usd": 31022.0,
+        "incurred_usd": 32107.0
+      },
+      {
+        "policy_year": "2024-2025",
+        "line_of_business": "General Liability",
+        "claim_count": 3,
+        "paid_usd": 21502.0,
+        "incurred_usd": 30834.0
+      },
+      {
+        "policy_year": "2025-2026",
+        "line_of_business": "Property",
+        "claim_count": 6,
+        "paid_usd": 24700.0,
+        "incurred_usd": 30177.0
+      }
+    ],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": 100726.0,
+    "loss_runs_provided": true,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": 158000.0,
+    "reason_for_shopping": "Incumbent restricting coverage at renewal",
+    "prior_non_renewal": false,
+    "missing_fields": [],
+    "ambiguities": [],
+    "extraction_confidence": 0.9
+  }
+}

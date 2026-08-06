@@ -1,0 +1,81 @@
+{
+  "submission_id": "SUB-0015",
+  "content_hash": "db1ee52168410412ab17800125055820e7cdbd76960a057ec882b6ce10e84963",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Jared Hollis",
+      "agency_name": "Tri-State Insurance Services",
+      "email": "jared.hollis@tristate-ins.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Bluewater Works Inc.",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "4070 Copper Creek Lane",
+      "city": "Green Bay",
+      "state": "WI",
+      "zip_code": "78980",
+      "website": null,
+      "business_description": "Automotive component stamping, tier two supplier",
+      "naics_code": "332119",
+      "sic_code": null,
+      "years_in_business": 6,
+      "annual_revenue_usd": null,
+      "employee_count": 70
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 10000.0,
+        "notes": null
+      },
+      {
+        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 10000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-08-24",
+    "expiration_date": "2027-08-24",
+    "locations": [
+      {
+        "address": "4070 Copper Creek Lane",
+        "city": "Green Bay",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1983,
+        "square_feet": 69000,
+        "building_value_usd": 8650000.0,
+        "contents_value_usd": 2775000.0,
+        "business_income_usd": 2250000.0,
+        "sprinklered": true,
+        "state": "WI",
+        "zip_code": "78980"
+      }
+    ],
+    "total_insured_value_usd": 13675000.0,
+    "tiv_is_estimated": true,
+    "loss_runs": [],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": null,
+    "loss_runs_provided": false,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": null,
+    "reason_for_shopping": null,
+    "prior_non_renewal": false,
+    "missing_fields": [
+      "annual revenue",
+      "carrier loss runs"
+    ],
+    "ambiguities": [
+      "Total insured value is an owner estimate, appraisal pending."
+    ],
+    "extraction_confidence": 0.4
+  }
+}

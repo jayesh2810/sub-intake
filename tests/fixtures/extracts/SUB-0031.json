@@ -1,0 +1,125 @@
+{
+  "submission_id": "SUB-0031",
+  "content_hash": "ef8340e0bbf9628381967f0bc3a3d4cc70b80a6128d1a1773f120ecede7380d9",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Wes Nakamura",
+      "agency_name": "Pacific Union Brokerage",
+      "email": "wes.nakamura@pacunionbrokerage.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Stonebridge Properties LLC",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "6521 Copper Creek Lane",
+      "city": "Modesto",
+      "state": "CA",
+      "zip_code": "37788",
+      "website": null,
+      "business_description": "Civil and structural engineering consultancy",
+      "naics_code": "541330",
+      "sic_code": null,
+      "years_in_business": 11,
+      "annual_revenue_usd": 14500000.0,
+      "employee_count": 80
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 25000.0,
+        "notes": null
+      },
+      {
+        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 25000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-09-30",
+    "expiration_date": "2027-09-30",
+    "locations": [
+      {
+        "address": "6521 Copper Creek Lane",
+        "city": "Modesto",
+        "construction_type": "Fire Resistive",
+        "year_built": 1978,
+        "square_feet": 39000,
+        "building_value_usd": 3200000.0,
+        "contents_value_usd": 4200000.0,
+        "business_income_usd": 600000.0,
+        "sprinklered": true,
+        "state": "CA",
+        "zip_code": "37788"
+      },
+      {
+        "address": "9308 Meadowbrook Court",
+        "city": "Modesto",
+        "construction_type": "Fire Resistive",
+        "year_built": 1977,
+        "square_feet": 96000,
+        "building_value_usd": 6400000.0,
+        "contents_value_usd": 3125000.0,
+        "business_income_usd": 900000.0,
+        "sprinklered": false,
+        "state": "CA",
+        "zip_code": "39620"
+      }
+    ],
+    "total_insured_value_usd": 18425000.0,
+    "tiv_is_estimated": false,
+    "loss_runs": [
+      {
+        "policy_year": "2021-2022",
+        "line_of_business": "Property",
+        "claim_count": 4,
+        "paid_usd": 11886.0,
+        "incurred_usd": 19776.0
+      },
+      {
+        "policy_year": "2022-2023",
+        "line_of_business": "General Liability",
+        "claim_count": 3,
+        "paid_usd": 4059.0,
+        "incurred_usd": 5816.0
+      },
+      {
+        "policy_year": "2023-2024",
+        "line_of_business": "General Liability",
+        "claim_count": 3,
+        "paid_usd": 14072.0,
+        "incurred_usd": 17772.0
+      },
+      {
+        "policy_year": "2024-2025",
+        "line_of_business": "General Liability",
+        "claim_count": 5,
+        "paid_usd": 14832.0,
+        "incurred_usd": 17350.0
+      },
+      {
+        "policy_year": "2025-2026",
+        "line_of_business": "General Liability",
+        "claim_count": 2,
+        "paid_usd": 24098.0,
+        "incurred_usd": 24806.0
+      }
+    ],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": 85520.0,
+    "loss_runs_provided": true,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": 153500.0,
+    "reason_for_shopping": "Ongoing service and claims handling issues with incumbent",
+    "prior_non_renewal": false,
+    "missing_fields": [],
+    "ambiguities": [],
+    "extraction_confidence": 0.9
+  }
+}

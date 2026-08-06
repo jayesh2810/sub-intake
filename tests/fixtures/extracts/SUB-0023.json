@@ -1,0 +1,120 @@
+{
+  "submission_id": "SUB-0023",
+  "content_hash": "e68424ab8df63d3662aec0b9a091aa24e67b9dc00f8c5d8c7efef9ffd6895ace",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Bill Trombley",
+      "agency_name": "Trombley & Sons Insurance",
+      "email": "bill.trombley@trombleyins.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Thornbury Partners LP",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "4955 Sycamore Street",
+      "city": "Green Bay",
+      "state": "WI",
+      "zip_code": "43246",
+      "website": null,
+      "business_description": "Garden style apartment complex, residential rental",
+      "naics_code": null,
+      "sic_code": null,
+      "years_in_business": 3,
+      "annual_revenue_usd": 4200000.0,
+      "employee_count": 20
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 10000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-08-11",
+    "expiration_date": "2027-08-11",
+    "locations": [
+      {
+        "address": "4955 Sycamore Street",
+        "city": "Green Bay",
+        "construction_type": "Wood Frame",
+        "year_built": 1987,
+        "square_feet": 86000,
+        "building_value_usd": 1000000.0,
+        "contents_value_usd": 4925000.0,
+        "business_income_usd": 100000.0,
+        "sprinklered": true,
+        "state": "WI",
+        "zip_code": "43246"
+      },
+      {
+        "address": "2547 Sierra Ridge Drive",
+        "city": "Green Bay",
+        "construction_type": "Wood Frame",
+        "year_built": 2008,
+        "square_feet": 116000,
+        "building_value_usd": 3200000.0,
+        "contents_value_usd": 3425000.0,
+        "business_income_usd": 1150000.0,
+        "sprinklered": false,
+        "state": "WI",
+        "zip_code": "90747"
+      }
+    ],
+    "total_insured_value_usd": 13800000.0,
+    "tiv_is_estimated": false,
+    "loss_runs": [
+      {
+        "policy_year": "2021-2022",
+        "line_of_business": "General Liability",
+        "claim_count": 5,
+        "paid_usd": 5169.0,
+        "incurred_usd": 7495.0
+      },
+      {
+        "policy_year": "2022-2023",
+        "line_of_business": "General Liability",
+        "claim_count": 5,
+        "paid_usd": 166.0,
+        "incurred_usd": 255.0
+      },
+      {
+        "policy_year": "2023-2024",
+        "line_of_business": "General Liability",
+        "claim_count": 5,
+        "paid_usd": 27.0,
+        "incurred_usd": 30.0
+      },
+      {
+        "policy_year": "2024-2025",
+        "line_of_business": "Property",
+        "claim_count": 2,
+        "paid_usd": 2466.0,
+        "incurred_usd": 4073.0
+      },
+      {
+        "policy_year": "2025-2026",
+        "line_of_business": "Property",
+        "claim_count": 6,
+        "paid_usd": 804.0,
+        "incurred_usd": 1220.0
+      }
+    ],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": 13073.0,
+    "loss_runs_provided": true,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": 218000.0,
+    "reason_for_shopping": "Renewal increase quoted at +22%",
+    "prior_non_renewal": false,
+    "missing_fields": [
+      "NAICS code"
+    ],
+    "ambiguities": [],
+    "extraction_confidence": 0.85
+  }
+}

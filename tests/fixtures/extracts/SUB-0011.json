@@ -1,0 +1,93 @@
+{
+  "submission_id": "SUB-0011",
+  "content_hash": "23b1e5f7dfbb5c6b93fc13044a16ca3abf6834fab74c99c4a8e718f07f6eee4c",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Bill Trombley",
+      "agency_name": "Trombley & Sons Insurance",
+      "email": "bill.trombley@trombleyins.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Apex Company",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "5087 Prospect Road",
+      "city": "Tucson",
+      "state": "AZ",
+      "zip_code": "84417",
+      "website": null,
+      "business_description": "Fabricated structural metal for commercial construction",
+      "naics_code": "332312",
+      "sic_code": null,
+      "years_in_business": 3,
+      "annual_revenue_usd": 14500000.0,
+      "employee_count": 107
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 10000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-08-17",
+    "expiration_date": "2027-08-17",
+    "locations": [],
+    "total_insured_value_usd": null,
+    "tiv_is_estimated": null,
+    "loss_runs": [
+      {
+        "policy_year": "2021-2022",
+        "line_of_business": "Property",
+        "claim_count": 5,
+        "paid_usd": 1627.0,
+        "incurred_usd": 2394.0
+      },
+      {
+        "policy_year": "2022-2023",
+        "line_of_business": "Property",
+        "claim_count": 4,
+        "paid_usd": 3268.0,
+        "incurred_usd": 5385.0
+      },
+      {
+        "policy_year": "2023-2024",
+        "line_of_business": "General Liability",
+        "claim_count": 1,
+        "paid_usd": 7235.0,
+        "incurred_usd": 7797.0
+      },
+      {
+        "policy_year": "2024-2025",
+        "line_of_business": "General Liability",
+        "claim_count": 3,
+        "paid_usd": 2370.0,
+        "incurred_usd": 3141.0
+      },
+      {
+        "policy_year": "2025-2026",
+        "line_of_business": "Property",
+        "claim_count": 1,
+        "paid_usd": 4266.0,
+        "incurred_usd": 5124.0
+      }
+    ],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": 23841.0,
+    "loss_runs_provided": true,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": 227500.0,
+    "reason_for_shopping": "Incumbent restricting coverage at renewal",
+    "prior_non_renewal": false,
+    "missing_fields": [
+      "statement of values"
+    ],
+    "ambiguities": [],
+    "extraction_confidence": 0.9
+  }
+}

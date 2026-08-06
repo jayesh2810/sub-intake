@@ -1,0 +1,105 @@
+{
+  "submission_id": "SUB-0008",
+  "content_hash": "7e00c4488a166b589ed12587ca71b324010fc81c508b5818d8bf995d257cf6bf",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Wes Nakamura",
+      "agency_name": "Pacific Union Brokerage",
+      "email": "wes.nakamura@pacunionbrokerage.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Pinnacle Properties LLC",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "9161 Franklin Avenue",
+      "city": "Charlotte",
+      "state": "NC",
+      "zip_code": "45108",
+      "website": null,
+      "business_description": "Fabricated structural metal for commercial construction",
+      "naics_code": "332312",
+      "sic_code": null,
+      "years_in_business": 11,
+      "annual_revenue_usd": 22400000.0,
+      "employee_count": 76
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 50000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-09-30",
+    "expiration_date": "2027-09-30",
+    "locations": [
+      {
+        "address": "9161 Franklin Avenue",
+        "city": "Charlotte",
+        "construction_type": "Non-Combustible",
+        "year_built": 2007,
+        "square_feet": 39000,
+        "building_value_usd": 16341299.0,
+        "contents_value_usd": 3500000.0,
+        "business_income_usd": 2250000.0,
+        "sprinklered": true,
+        "state": "NC",
+        "zip_code": "45108"
+      }
+    ],
+    "total_insured_value_usd": 22091299.0,
+    "tiv_is_estimated": false,
+    "loss_runs": [
+      {
+        "policy_year": "2021-2022",
+        "line_of_business": "General Liability",
+        "claim_count": 5,
+        "paid_usd": 4994.0,
+        "incurred_usd": 5748.0
+      },
+      {
+        "policy_year": "2022-2023",
+        "line_of_business": "General Liability",
+        "claim_count": 3,
+        "paid_usd": 27258.0,
+        "incurred_usd": 29581.0
+      },
+      {
+        "policy_year": "2023-2024",
+        "line_of_business": "General Liability",
+        "claim_count": 1,
+        "paid_usd": 12091.0,
+        "incurred_usd": 19948.0
+      },
+      {
+        "policy_year": "2024-2025",
+        "line_of_business": "Property",
+        "claim_count": 5,
+        "paid_usd": 13311.0,
+        "incurred_usd": 16852.0
+      },
+      {
+        "policy_year": "2025-2026",
+        "line_of_business": "General Liability",
+        "claim_count": 1,
+        "paid_usd": 5639.0,
+        "incurred_usd": 6532.0
+      }
+    ],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": 78661.0,
+    "loss_runs_provided": true,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": 96500.0,
+    "reason_for_shopping": "Renewal increase quoted at +18%",
+    "prior_non_renewal": false,
+    "missing_fields": [],
+    "ambiguities": [],
+    "extraction_confidence": 0.9
+  }
+}

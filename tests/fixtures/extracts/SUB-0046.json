@@ -1,0 +1,112 @@
+{
+  "submission_id": "SUB-0046",
+  "content_hash": "8c0a5c9a885e55bb4fdddb464bb46d340965e6b0cde80ffd28bd727b49aabbd2",
+  "synthetic": true,
+  "extract": {
+    "broker": {
+      "producer_name": "Wes Nakamura",
+      "agency_name": "Pacific Union Brokerage",
+      "email": "wes.nakamura@pacunionbrokerage.com",
+      "phone": null,
+      "submitted_date": null
+    },
+    "insured": {
+      "named_insured": "Copper Basin Co.",
+      "dba": null,
+      "entity_type": null,
+      "mailing_address": "4156 Franklin Ave",
+      "city": "Tucson",
+      "state": "AZ",
+      "zip_code": "61242",
+      "website": null,
+      "business_description": "Precision metal stamping and sheet metal fabrication",
+      "naics_code": "332119",
+      "sic_code": null,
+      "years_in_business": 3,
+      "annual_revenue_usd": 4200000.0,
+      "employee_count": 19
+    },
+    "coverages_requested": [
+      {
+        "line_of_business": "COMMERCIAL PROPERTY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 5000.0,
+        "notes": null
+      },
+      {
+        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 5000.0,
+        "notes": null
+      }
+    ],
+    "effective_date": "2026-12-07",
+    "expiration_date": "2027-12-07",
+    "locations": [
+      {
+        "address": "4156 Franklin Avenue",
+        "city": "Tucson",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1999,
+        "square_feet": 26000,
+        "building_value_usd": 2050000.0,
+        "contents_value_usd": 3000000.0,
+        "business_income_usd": 1250000.0,
+        "sprinklered": true,
+        "state": "AZ",
+        "zip_code": "61242"
+      }
+    ],
+    "total_insured_value_usd": 6300000.0,
+    "tiv_is_estimated": false,
+    "loss_runs": [
+      {
+        "policy_year": "2021-2022",
+        "line_of_business": "Property",
+        "claim_count": 2,
+        "paid_usd": 8139.0,
+        "incurred_usd": 12855.0
+      },
+      {
+        "policy_year": "2022-2023",
+        "line_of_business": "Property",
+        "claim_count": 2,
+        "paid_usd": 3576.0,
+        "incurred_usd": 4142.0
+      },
+      {
+        "policy_year": "2023-2024",
+        "line_of_business": "Property",
+        "claim_count": 4,
+        "paid_usd": 5761.0,
+        "incurred_usd": 6179.0
+      },
+      {
+        "policy_year": "2024-2025",
+        "line_of_business": "Property",
+        "claim_count": 3,
+        "paid_usd": 3804.0,
+        "incurred_usd": 5338.0
+      },
+      {
+        "policy_year": "2025-2026",
+        "line_of_business": "Property",
+        "claim_count": 4,
+        "paid_usd": 10706.0,
+        "incurred_usd": 13155.0
+      }
+    ],
+    "notable_claims": [],
+    "total_incurred_5yr_usd": 41669.0,
+    "loss_runs_provided": true,
+    "incumbent_carrier": null,
+    "expiring_premium_usd": 217500.0,
+    "reason_for_shopping": "Incumbent restricting coverage at renewal",
+    "prior_non_renewal": false,
+    "missing_fields": [],
+    "ambiguities": [],
+    "extraction_confidence": 0.9
+  }
+}
