@@ -315,8 +315,16 @@ class ClearanceResult(BaseModel):
         None, ge=0.0, le=100.0, description="Fuzzy similarity to the matched risk"
     )
     is_duplicate: bool = False
+    needs_review: bool = Field(
+        False,
+        description="Name matched but the location could not confirm it. "
+                    "Raised for an underwriter rather than acted on.",
+    )
     matched_broker: Optional[str] = Field(
         None, description="Who submitted it first. First broker owns the risk."
+    )
+    match_basis: Optional[str] = Field(
+        None, description="Why this cleared or did not, in plain words."
     )
 
 

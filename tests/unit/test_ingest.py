@@ -32,6 +32,54 @@ def build_eml(message_id="<a@broker.com>", sender="Devanshi Patel <d.patel@hb.co
     return msg.as_bytes()
 
 
+# --- received_at ------------------------------------------------------------
+#
+# Clearance gives a contested risk to whoever submitted first, and the
+# worklist ranks on how long a submission has been sitting. Both read this
+# column, and neither would notice if it were wrong.
+
+
+def test_dates_are_stored_so_that_they_sort():
+    """The raw header does not: as a string, 'Fri, 31 Jul' precedes 'Mon, 27 Jul'."""
+    headers = ["Mon, 27 Jul 2026 09:00:00 -0500",
+               "Thu, 30 Jul 2026 09:00:00 -0500",
+               "Fri, 31 Jul 2026 09:00:00 -0500"]
+    stored = [ingest.received_at(h)[0] for h in headers]
+    assert sorted(stored) == stored
+    assert sorted(headers) != headers
+
+
+def test_offsets_are_normalised_before_comparison():
+    """09:00 in Los Angeles is later than 09:00 in New York."""
+    east, _ = ingest.received_at("Mon, 27 Jul 2026 09:00:00 -0400")
+    west, _ = ingest.received_at("Mon, 27 Jul 2026 09:00:00 -0700")
+    assert east < west
+
+
+def test_an_unreadable_date_falls_back_and_says_so(conn):
+    timestamp, warning = ingest.received_at("not a date")
+    assert timestamp and warning and "unreadable" in warning
+
+    msg = EmailMessage()
+    msg["Message-ID"] = "<bad-date@x.com>"
+    msg["From"] = "d.patel@hb.com"
+    msg["Date"] = "not a date"
+    msg.set_content("hello")
+    sid, _ = ingest.ingest_message(conn, msg.as_bytes())
+
+    kinds = [r["event_type"] for r in conn.execute(
+        "SELECT event_type FROM events WHERE submission_id = ?", (sid,))]
+    assert "date_unreadable" in kinds
+
+
+def test_the_stored_timestamp_is_the_parsed_one(conn):
+    submission_id, _ = ingest.ingest_message(conn, build_eml())
+    stored = conn.execute(
+        "SELECT received_at FROM submissions WHERE id = ?",
+        (submission_id,)).fetchone()[0]
+    assert stored == "2026-07-27T14:00:00+00:00"
+
+
 # --- idempotency ------------------------------------------------------------
 
 

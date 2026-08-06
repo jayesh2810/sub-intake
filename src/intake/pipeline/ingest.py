@@ -17,8 +17,10 @@ carry.
 import email
 import re
 import sqlite3
+from datetime import datetime, timezone
 from email import policy
 from email.message import EmailMessage
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Optional
 
@@ -98,6 +100,34 @@ def _match_broker(conn: sqlite3.Connection, from_header: str) -> Optional[str]:
     return None
 
 
+def received_at(date_header: Optional[str]) -> tuple[str, Optional[str]]:
+    """Return (ISO 8601 UTC timestamp, warning).
+
+    Stored as ISO because the raw header does not sort: as a string,
+    "Fri, 31 Jul" comes before "Mon, 27 Jul". Clearance decides which broker
+    owns a risk by who submitted first, so a header-order mistake here would
+    hand the account to the wrong agency and nothing downstream would notice.
+
+    A header we cannot read falls back to the ingest time, which is the
+    earliest moment we can honestly vouch for, and says so in the event log.
+    """
+    raw = (date_header or "").strip()
+    if raw:
+        try:
+            parsed = parsedate_to_datetime(raw)
+        except (TypeError, ValueError):
+            parsed = None
+        if parsed is not None:
+            if parsed.tzinfo is None:
+                parsed = parsed.replace(tzinfo=timezone.utc)
+            return parsed.astimezone(timezone.utc).isoformat(), None
+
+    return (
+        datetime.now(timezone.utc).isoformat(),
+        f"unreadable Date header {raw!r}; recorded as received at ingest",
+    )
+
+
 def _next_display_id(conn: sqlite3.Connection) -> str:
     row = conn.execute(
         "SELECT id FROM submissions WHERE id LIKE 'SUB-%' ORDER BY id DESC LIMIT 1"
@@ -144,17 +174,20 @@ def ingest_message(
         (packet / name).write_bytes(payload)
         written += 1
 
+    timestamp, date_warning = received_at(msg["Date"])
     conn.execute(
         """INSERT INTO submissions
              (id, message_id, subject, received_at, broker_id, packet_dir, status)
            VALUES (?,?,?,?,?,?,'received')""",
-        (submission_id, message_id, msg["Subject"], msg["Date"] or "",
+        (submission_id, message_id, msg["Subject"], timestamp,
          _match_broker(conn, msg["From"] or ""), str(packet.relative_to(PROJECT_ROOT))),
     )
     db.log_event(
         conn, submission_id, "ingested",
         {"source": source, "attachments": written, "message_id": message_id},
     )
+    if date_warning:
+        db.log_event(conn, submission_id, "date_unreadable", date_warning)
     return submission_id, True
 
 

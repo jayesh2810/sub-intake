@@ -90,13 +90,19 @@ CREATE TABLE IF NOT EXISTS extracts (
 );
 CREATE INDEX IF NOT EXISTS ix_extracts_hash ON extracts(content_hash);
 
+-- needs_review is the honest third answer: the name matched but the location
+-- could not confirm it. Those go to an underwriter rather than being blocked,
+-- because wrongly blocking a legitimate submission costs more than a missed
+-- duplicate.
 CREATE TABLE IF NOT EXISTS clearance (
     submission_id           TEXT PRIMARY KEY REFERENCES submissions(id) ON DELETE CASCADE,
     normalised_name         TEXT NOT NULL,
     normalised_address      TEXT,
     matched_submission_id   TEXT REFERENCES submissions(id),
     match_score             REAL,
-    is_duplicate            INTEGER NOT NULL DEFAULT 0
+    is_duplicate            INTEGER NOT NULL DEFAULT 0,
+    needs_review            INTEGER NOT NULL DEFAULT 0,
+    match_basis             TEXT
 );
 CREATE INDEX IF NOT EXISTS ix_clearance_name ON clearance(normalised_name);
 

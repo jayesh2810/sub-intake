@@ -2,6 +2,8 @@
 
     python -m intake.cli ingest        read the mailbox, register submissions
     python -m intake.cli parse         extract text and classify documents
+    python -m intake.cli extract       read the packets (the only LLM stage)
+    python -m intake.cli clear         check for the same risk from two brokers
     python -m intake.cli status        where everything currently sits
     python -m intake.cli show SUB-0001 one submission in detail
 
@@ -15,7 +17,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 from intake import db
-from intake.pipeline import extract, ingest, parse
+from intake.pipeline import clearance, extract, ingest, parse
 
 load_dotenv()
 
@@ -72,6 +74,30 @@ def cmd_extract(args) -> None:
             print(f"   {f['submission_id']}: {f['error']}")
 
 
+def cmd_clear(args) -> None:
+    with db.session() as conn:
+        result = clearance.run(conn, only=args.only, rebuild=args.rebuild)
+
+    print(f"cleared                 {result['cleared']}")
+    print(f"duplicates              {len(result['duplicates'])}")
+    print(f"flagged for review      {len(result['review'])}")
+
+    for label, rows in (("duplicate of", result["duplicates"]),
+                        ("possible match", result["review"])):
+        for r in rows:
+            broker = f" ({r.matched_broker} submitted first)" if r.matched_broker else ""
+            print(f"\n  {r.submission_id}  {label} {r.matched_submission_id}"
+                  f"  score {r.match_score}{broker}")
+            print(f"    {r.match_basis}")
+
+    if result["stale_extracts"]:
+        print(f"\nskipped, extract no longer matches the packet "
+              f"({len(result['stale_extracts'])}): "
+              f"{', '.join(result['stale_extracts'])}")
+    if result["not_extracted"]:
+        print(f"\nskipped, not extracted yet: {', '.join(result['not_extracted'])}")
+
+
 def cmd_status(args) -> None:
     with db.session() as conn:
         rows = conn.execute(
@@ -89,6 +115,10 @@ def cmd_status(args) -> None:
             "SELECT model, COUNT(*) n, SUM(tokens_in + tokens_out) t "
             "FROM extracts GROUP BY model ORDER BY n DESC"
         ).fetchall()
+        clear = conn.execute(
+            "SELECT SUM(is_duplicate) dupes, SUM(needs_review) review, "
+            "COUNT(*) n FROM clearance"
+        ).fetchone()
 
     if not total:
         print("No submissions. Run: python -m intake.cli ingest")
@@ -114,6 +144,11 @@ def cmd_status(args) -> None:
             print("\n  ** fixture:synthetic extracts are scaffolding, not model")
             print("     output. Re-run `extract` to replace them as quota allows.")
 
+    if clear and clear["n"]:
+        print(f"\nclearance ({clear['n']} checked)")
+        print(f"  {clear['dupes'] or 0} duplicate(s), "
+              f"{clear['review'] or 0} flagged for review")
+
 
 def cmd_show(args) -> None:
     with db.session() as conn:
@@ -131,6 +166,12 @@ def cmd_show(args) -> None:
         events = conn.execute(
             "SELECT event_type, detail, actor, created_at FROM events "
             "WHERE submission_id = ? ORDER BY id", (args.submission_id,)).fetchall()
+        clear = conn.execute(
+            """SELECT c.*, b.name first_broker
+               FROM clearance c
+               LEFT JOIN submissions m ON m.id = c.matched_submission_id
+               LEFT JOIN brokers b ON b.id = m.broker_id
+               WHERE c.submission_id = ?""", (args.submission_id,)).fetchone()
 
     print(f"{sub['id']}  [{sub['status']}]")
     print(f"  subject   {sub['subject']}")
@@ -144,6 +185,18 @@ def cmd_show(args) -> None:
             flag = "  ** UNREADABLE **" if d["needs_ocr"] else ""
             print(f"    {d['filename']:<26} {d['doc_type']:<14} "
                   f"{d['page_count']}p  {d['chars'] or 0:>6} chars{flag}")
+
+    if clear:
+        verdict = ("DUPLICATE" if clear["is_duplicate"]
+                   else "review" if clear["needs_review"] else "clear")
+        print(f"\n  clearance  [{verdict}]")
+        print(f"    normalised  {clear['normalised_name']} / "
+              f"{clear['normalised_address'] or '-'}")
+        if clear["matched_submission_id"]:
+            broker = f", {clear['first_broker']}" if clear["first_broker"] else ""
+            print(f"    matches     {clear['matched_submission_id']} "
+                  f"(score {clear['match_score']}{broker})")
+        print(f"    basis       {clear['match_basis']}")
 
     if events:
         print(f"\n  events ({len(events)})")
@@ -175,6 +228,12 @@ def main() -> None:
     s.add_argument("--use-fixtures", action="store_true",
                    help="replay recorded responses instead of calling the model")
     s.set_defaults(func=cmd_extract)
+
+    s = sub.add_parser("clear", help="check for the same risk from two brokers")
+    s.add_argument("--only", nargs="*", help="specific submission ids")
+    s.add_argument("--rebuild", action="store_true",
+                   help="discard prior clearance and re-run the whole mailbox")
+    s.set_defaults(func=cmd_clear)
 
     s = sub.add_parser("status", help="pipeline state summary")
     s.set_defaults(func=cmd_status)
