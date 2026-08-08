@@ -1,6 +1,6 @@
 {
   "submission_id": "SUB-0006",
-  "content_hash": "58691caa72153e95fcf01755d35674ab1c6a752ece5a5737926b77a127129dec",
+  "content_hash": "b14124937440681d322b0b7820fb3a3b1080ed04a45ec371d5e512e70da0bda3",
   "synthetic": true,
   "extract": {
     "broker": {
@@ -11,82 +11,121 @@
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Northfield Company",
+      "named_insured": "Penhurst Works Inc.",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "7857 Prospect Road",
-      "city": "Akron",
-      "state": "OH",
-      "zip_code": "25772",
+      "mailing_address": "4353 Sycamore Street",
+      "city": "Greensboro",
+      "state": "NC",
+      "zip_code": "36553",
       "website": null,
-      "business_description": "Full service casual dining restaurant",
-      "naics_code": "722511",
+      "business_description": "Commercial plumbing and HVAC installation and service",
+      "naics_code": "238220",
       "sic_code": null,
       "years_in_business": 3,
-      "annual_revenue_usd": 1800000.0,
-      "employee_count": 6
+      "annual_revenue_usd": 76000000.0,
+      "employee_count": 343
     },
     "coverages_requested": [
       {
-        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
+        "line_of_business": "COMMERCIAL PROPERTY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 25000.0,
+        "deductible_usd": 5000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-08-11",
-    "expiration_date": "2027-08-11",
-    "locations": [],
-    "total_insured_value_usd": null,
-    "tiv_is_estimated": null,
+    "effective_date": "2026-12-07",
+    "expiration_date": "2027-12-07",
+    "locations": [
+      {
+        "address": "4353 Sycamore Street",
+        "city": "Greensboro",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1996,
+        "square_feet": 41000,
+        "building_value_usd": 3600000.0,
+        "contents_value_usd": 475000.0,
+        "business_income_usd": 600000.0,
+        "sprinklered": false,
+        "state": "NC",
+        "zip_code": "36553"
+      },
+      {
+        "address": "5277 Commerce Drive",
+        "city": "Greensboro",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1983,
+        "square_feet": 115000,
+        "building_value_usd": 3100000.0,
+        "contents_value_usd": 775000.0,
+        "business_income_usd": 1050000.0,
+        "sprinklered": true,
+        "state": "NC",
+        "zip_code": "97969"
+      },
+      {
+        "address": "2104 Beckett Road",
+        "city": "Greensboro",
+        "construction_type": "Joisted Masonry",
+        "year_built": 2010,
+        "square_feet": 99000,
+        "building_value_usd": 2200000.0,
+        "contents_value_usd": 900000.0,
+        "business_income_usd": 200000.0,
+        "sprinklered": true,
+        "state": "NC",
+        "zip_code": "94339"
+      }
+    ],
+    "total_insured_value_usd": 12900000.0,
+    "tiv_is_estimated": false,
     "loss_runs": [
       {
         "policy_year": "2021-2022",
-        "line_of_business": "Property",
-        "claim_count": 1,
-        "paid_usd": 569.0,
-        "incurred_usd": 733.0
+        "line_of_business": "General Liability",
+        "claim_count": 5,
+        "paid_usd": 92009.0,
+        "incurred_usd": 120823.0
       },
       {
         "policy_year": "2022-2023",
-        "line_of_business": "Property",
-        "claim_count": 6,
-        "paid_usd": 231.0,
-        "incurred_usd": 325.0
+        "line_of_business": "General Liability",
+        "claim_count": 2,
+        "paid_usd": 109781.0,
+        "incurred_usd": 147825.0
       },
       {
         "policy_year": "2023-2024",
-        "line_of_business": "General Liability",
-        "claim_count": 5,
-        "paid_usd": 353.0,
-        "incurred_usd": 362.0
+        "line_of_business": "Property",
+        "claim_count": 6,
+        "paid_usd": 224143.0,
+        "incurred_usd": 300307.0
       },
       {
         "policy_year": "2024-2025",
         "line_of_business": "General Liability",
         "claim_count": 5,
-        "paid_usd": 966.0,
-        "incurred_usd": 1010.0
+        "paid_usd": 197862.0,
+        "incurred_usd": 252547.0
       },
       {
         "policy_year": "2025-2026",
         "line_of_business": "Property",
         "claim_count": 4,
-        "paid_usd": 434.0,
-        "incurred_usd": 664.0
+        "paid_usd": 35886.0,
+        "incurred_usd": 48985.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 3094.0,
+    "total_incurred_5yr_usd": 870487.0,
+    "open_claims": 0,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 189500.0,
+    "incumbent_carrier": "Continental Mutual Insurance",
+    "expiring_premium_usd": 219500.0,
     "reason_for_shopping": "Non-renewal issued by incumbent",
     "prior_non_renewal": true,
-    "missing_fields": [
-      "statement of values"
-    ],
+    "missing_fields": [],
     "ambiguities": [
       "Prior carrier issued a non-renewal for adverse losses."
     ],

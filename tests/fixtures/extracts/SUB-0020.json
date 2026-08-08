@@ -1,30 +1,30 @@
 {
   "submission_id": "SUB-0020",
-  "content_hash": "2e6c1bffd4679c5e6f115b6c5e2c3b832fa767f871e07a9378220f280cdb23b5",
+  "content_hash": "9bf61350cf32d69ae4a169d36f5f989ff432a9ac988a00dfd9dcd296b21d58cb",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Priya Raghunathan",
-      "agency_name": "Meridian Brokerage Group",
-      "email": "priya.raghunathan@meridianbg.com",
+      "producer_name": "Bill Trombley",
+      "agency_name": "Trombley & Sons Insurance",
+      "email": "bill.trombley@trombleyins.com",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Halloway Manufacturing Co.",
+      "named_insured": "Northfield Company",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "398 Warehouse Row",
-      "city": "Greensboro",
-      "state": "NC",
-      "zip_code": "94473",
+      "mailing_address": "5985 Commerce Drive",
+      "city": "Allentown",
+      "state": "PA",
+      "zip_code": "29590",
       "website": null,
-      "business_description": "Multi-tenant retail center, landlord operations",
-      "naics_code": "531120",
+      "business_description": "Industrial machinery and equipment distribution",
+      "naics_code": "423830",
       "sic_code": null,
-      "years_in_business": 6,
-      "annual_revenue_usd": 22400000.0,
-      "employee_count": 83
+      "years_in_business": 18,
+      "annual_revenue_usd": 14500000.0,
+      "employee_count": 112
     },
     "coverages_requested": [
       {
@@ -42,45 +42,33 @@
         "notes": null
       }
     ],
-    "effective_date": "2026-12-07",
-    "expiration_date": "2027-12-07",
+    "effective_date": "2026-09-30",
+    "expiration_date": "2027-09-30",
     "locations": [
       {
-        "address": "398 Warehouse Row",
-        "city": "Greensboro",
-        "construction_type": "Joisted Masonry",
-        "year_built": 1980,
-        "square_feet": 106000,
-        "building_value_usd": 5700000.0,
-        "contents_value_usd": 1450000.0,
-        "business_income_usd": 0.0,
-        "sprinklered": false,
-        "state": "NC",
-        "zip_code": "94473"
-      },
-      {
-        "address": "2665 Franklin Avenue",
-        "city": "Greensboro",
-        "construction_type": "Joisted Masonry",
-        "year_built": 1973,
-        "square_feet": 109000,
-        "building_value_usd": 5950000.0,
-        "contents_value_usd": 3075000.0,
-        "business_income_usd": 2450000.0,
-        "sprinklered": false,
-        "state": "NC",
-        "zip_code": "24881"
+        "address": "5985 Commerce Drive",
+        "city": "Allentown",
+        "construction_type": "Non-Combustible",
+        "year_built": 1983,
+        "square_feet": 55000,
+        "building_value_usd": 2750000.0,
+        "contents_value_usd": 1875000.0,
+        "business_income_usd": 1050000.0,
+        "sprinklered": true,
+        "state": "PA",
+        "zip_code": "29590"
       }
     ],
-    "total_insured_value_usd": 18625000.0,
+    "total_insured_value_usd": 5675000.0,
     "tiv_is_estimated": false,
     "loss_runs": [],
     "notable_claims": [],
     "total_incurred_5yr_usd": null,
+    "open_claims": null,
     "loss_runs_provided": false,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 219000.0,
-    "reason_for_shopping": "Ongoing service and claims handling issues with incumbent",
+    "incumbent_carrier": "Great Lakes Casualty",
+    "expiring_premium_usd": 128000.0,
+    "reason_for_shopping": "Renewal increase quoted at +22%",
     "prior_non_renewal": false,
     "missing_fields": [
       "carrier loss runs"

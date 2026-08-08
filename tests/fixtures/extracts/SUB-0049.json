@@ -1,107 +1,106 @@
 {
   "submission_id": "SUB-0049",
-  "content_hash": "4f74cf7a02521ce1e1146796b17c95010082324c1a98a23923b1d4a4305b6693",
+  "content_hash": "7e34e99306412d24f0a4eeb8aef4d750fc10bec26839d5a7c7383d20b8d1b25d",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Hannah Fiedler",
-      "agency_name": "Copperline Brokers",
-      "email": "hannah.fiedler@copperlinebrokers.com",
+      "producer_name": "Bill Trombley",
+      "agency_name": "Trombley & Sons Insurance",
+      "email": "bill.trombley@trombleyins.com",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Wraysbury Services Inc.",
+      "named_insured": "Beaumont Holdings LLC",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "270 Foundry Way",
-      "city": "Lubbock",
-      "state": "TX",
-      "zip_code": "18948",
+      "mailing_address": "994 Prospect Road",
+      "city": "Tucson",
+      "state": "AZ",
+      "zip_code": "41233",
       "website": null,
-      "business_description": "Industrial machinery and equipment distribution",
-      "naics_code": "423830",
+      "business_description": "Commercial plumbing and HVAC installation and service",
+      "naics_code": "238220",
       "sic_code": null,
-      "years_in_business": 28,
-      "annual_revenue_usd": 31000000.0,
-      "employee_count": 241
+      "years_in_business": 18,
+      "annual_revenue_usd": 14500000.0,
+      "employee_count": 48
     },
     "coverages_requested": [
       {
         "line_of_business": "COMMERCIAL PROPERTY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 10000.0,
+        "deductible_usd": 25000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-11-02",
-    "expiration_date": "2027-11-02",
+    "effective_date": "2026-09-01",
+    "expiration_date": "2027-09-01",
     "locations": [
       {
-        "address": "270 Foundry Way",
-        "city": "Lubbock",
-        "construction_type": "Non-Combustible",
-        "year_built": 2001,
-        "square_feet": 64000,
-        "building_value_usd": 6150000.0,
-        "contents_value_usd": 2750000.0,
-        "business_income_usd": 1150000.0,
+        "address": "994 Prospect Road",
+        "city": "Tucson",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1983,
+        "square_feet": 63000,
+        "building_value_usd": 3100000.0,
+        "contents_value_usd": 600000.0,
+        "business_income_usd": 900000.0,
         "sprinklered": true,
-        "state": "TX",
-        "zip_code": "18948"
+        "state": "AZ",
+        "zip_code": "41233"
       }
     ],
-    "total_insured_value_usd": 10050000.0,
+    "total_insured_value_usd": 4600000.0,
     "tiv_is_estimated": false,
     "loss_runs": [
       {
         "policy_year": "2021-2022",
-        "line_of_business": "General Liability",
-        "claim_count": 6,
-        "paid_usd": 22451.0,
-        "incurred_usd": 27648.0
+        "line_of_business": "Property",
+        "claim_count": 2,
+        "paid_usd": 35136.0,
+        "incurred_usd": 40345.0
       },
       {
         "policy_year": "2022-2023",
         "line_of_business": "Property",
-        "claim_count": 2,
-        "paid_usd": 25140.0,
-        "incurred_usd": 33742.0
+        "claim_count": 4,
+        "paid_usd": 10866.0,
+        "incurred_usd": 15016.0
       },
       {
         "policy_year": "2023-2024",
         "line_of_business": "General Liability",
         "claim_count": 1,
-        "paid_usd": 70260.0,
-        "incurred_usd": 75516.0
+        "paid_usd": 27325.0,
+        "incurred_usd": 29795.0
       },
       {
         "policy_year": "2024-2025",
         "line_of_business": "Property",
         "claim_count": 1,
-        "paid_usd": 62094.0,
-        "incurred_usd": 72005.0
+        "paid_usd": 31777.0,
+        "incurred_usd": 47472.0
       },
       {
         "policy_year": "2025-2026",
         "line_of_business": "General Liability",
-        "claim_count": 6,
-        "paid_usd": 101432.0,
-        "incurred_usd": 137565.0
+        "claim_count": 4,
+        "paid_usd": 16530.0,
+        "incurred_usd": 24504.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 346476.0,
+    "total_incurred_5yr_usd": 157132.0,
+    "open_claims": 3,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 92000.0,
-    "reason_for_shopping": "Non-renewal issued by incumbent",
-    "prior_non_renewal": true,
+    "incumbent_carrier": "Continental Mutual Insurance",
+    "expiring_premium_usd": 103500.0,
+    "reason_for_shopping": "Ongoing service and claims handling issues with incumbent",
+    "prior_non_renewal": false,
     "missing_fields": [],
-    "ambiguities": [
-      "Prior carrier issued a non-renewal for adverse losses."
-    ],
+    "ambiguities": [],
     "extraction_confidence": 0.9
   }
 }

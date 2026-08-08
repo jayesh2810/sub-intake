@@ -144,6 +144,12 @@ class SubmissionExtract(BaseModel):
     loss_runs: List[LossRunEntry] = Field(default_factory=list)
     notable_claims: List[NotableClaim] = Field(default_factory=list)
     total_incurred_5yr_usd: Optional[float] = None
+    open_claims: Optional[int] = Field(
+        None,
+        description="Claims still open across all lines, as stated on the loss "
+        "runs. Open claims can still develop, so this is not the same as a "
+        "count of claims. None if the documents do not say.",
+    )
     loss_runs_provided: Optional[bool] = Field(
         None,
         description="True only if actual carrier loss runs are attached. "
@@ -350,6 +356,12 @@ class TriageScore(BaseModel):
         "not a quote, and never to be presented as one.",
     )
     suppressed: bool = Field(
-        False, description="True for declines - scored, stored, but off the worklist"
+        False, description="Scored and stored, but off the worklist"
+    )
+    suppressed_because: Optional[str] = Field(
+        None, description="Why it is off the worklist, in plain words"
     )
     weights_version: Optional[str] = None
+    as_of: Optional[str] = Field(
+        None, description="Date the urgency component was computed against"
+    )

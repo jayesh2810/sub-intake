@@ -1,6 +1,6 @@
 {
   "submission_id": "SUB-0017",
-  "content_hash": "822b5dc9238c457917ce17d2697794db2de2513a915bcd47bc7ce3b776118e6a",
+  "content_hash": "bec1038191d243665bbaf0fa65dbcfe036002699c9ca854ca28ca45d3b7a01f1",
   "synthetic": true,
   "extract": {
     "broker": {
@@ -11,98 +11,105 @@
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Westmarch Partners LP",
+      "named_insured": "Lakeshore Group Inc.",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "6731 Industrial Parkway",
-      "city": "Mesa",
-      "state": "AZ",
-      "zip_code": "59226",
+      "mailing_address": "5437 Beckett Road",
+      "city": "Waco",
+      "state": "TX",
+      "zip_code": "65909",
       "website": null,
-      "business_description": "Mid-rise apartment building, residential rental",
+      "business_description": "Commercial plumbing and HVAC installation and service",
       "naics_code": null,
       "sic_code": null,
       "years_in_business": 11,
-      "annual_revenue_usd": 76000000.0,
-      "employee_count": 602
+      "annual_revenue_usd": 4200000.0,
+      "employee_count": 16
     },
     "coverages_requested": [
       {
         "line_of_business": "COMMERCIAL PROPERTY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 25000.0,
-        "notes": null
-      },
-      {
-        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
-        "limit_occurrence_usd": 1000000,
-        "limit_aggregate_usd": 2000000,
-        "deductible_usd": 25000.0,
+        "deductible_usd": 50000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-10-16",
-    "expiration_date": "2027-10-16",
+    "effective_date": "2026-08-24",
+    "expiration_date": "2027-08-24",
     "locations": [
       {
-        "address": "6731 Industrial Parkway",
-        "city": "Mesa",
+        "address": "5437 Beckett Road",
+        "city": "Waco",
         "construction_type": "Joisted Masonry",
-        "year_built": 1970,
-        "square_feet": 124000,
-        "building_value_usd": 8400000.0,
-        "contents_value_usd": 525000.0,
-        "business_income_usd": 800000.0,
+        "year_built": 1974,
+        "square_feet": 24000,
+        "building_value_usd": 3750000.0,
+        "contents_value_usd": 350000.0,
+        "business_income_usd": 300000.0,
+        "sprinklered": false,
+        "state": "TX",
+        "zip_code": "65909"
+      },
+      {
+        "address": "6998 Copper Creek Lane",
+        "city": "Waco",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1979,
+        "square_feet": 65000,
+        "building_value_usd": 900000.0,
+        "contents_value_usd": 1425000.0,
+        "business_income_usd": 700000.0,
         "sprinklered": true,
-        "state": "AZ",
-        "zip_code": "59226"
+        "state": "TX",
+        "zip_code": "68584"
       }
     ],
-    "total_insured_value_usd": 9725000.0,
+    "total_insured_value_usd": 7425000.0,
     "tiv_is_estimated": false,
     "loss_runs": [
       {
         "policy_year": "2021-2022",
         "line_of_business": "General Liability",
         "claim_count": 3,
-        "paid_usd": 81981.0,
-        "incurred_usd": 114028.0
+        "paid_usd": 10285.0,
+        "incurred_usd": 11489.0
       },
       {
         "policy_year": "2022-2023",
         "line_of_business": "Property",
-        "claim_count": 1,
-        "paid_usd": 85204.0,
-        "incurred_usd": 91578.0
+        "claim_count": 4,
+        "paid_usd": 1464.0,
+        "incurred_usd": 2095.0
       },
       {
         "policy_year": "2023-2024",
         "line_of_business": "Property",
-        "claim_count": 4,
-        "paid_usd": 285426.0,
-        "incurred_usd": 322069.0
+        "claim_count": 2,
+        "paid_usd": 9615.0,
+        "incurred_usd": 14540.0
       },
       {
         "policy_year": "2024-2025",
-        "line_of_business": "General Liability",
-        "claim_count": 4,
-        "paid_usd": 190042.0,
-        "incurred_usd": 207488.0
+        "line_of_business": "Property",
+        "claim_count": 3,
+        "paid_usd": 3179.0,
+        "incurred_usd": 5080.0
       },
       {
         "policy_year": "2025-2026",
         "line_of_business": "General Liability",
-        "claim_count": 4,
-        "paid_usd": 57581.0,
-        "incurred_usd": 88168.0
+        "claim_count": 2,
+        "paid_usd": 7870.0,
+        "incurred_usd": 9802.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 823331.0,
+    "total_incurred_5yr_usd": 43006.0,
+    "open_claims": 3,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 215500.0,
+    "incumbent_carrier": "Continental Mutual Insurance",
+    "expiring_premium_usd": 44000.0,
     "reason_for_shopping": "Ongoing service and claims handling issues with incumbent",
     "prior_non_renewal": false,
     "missing_fields": [

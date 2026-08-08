@@ -4,6 +4,8 @@
     python -m intake.cli parse         extract text and classify documents
     python -m intake.cli extract       read the packets (the only LLM stage)
     python -m intake.cli clear         check for the same risk from two brokers
+    python -m intake.cli assess        run the appetite guide
+    python -m intake.cli score         rank the queue
     python -m intake.cli status        where everything currently sits
     python -m intake.cli show SUB-0001 one submission in detail
 
@@ -12,12 +14,14 @@ run again without undoing work.
 """
 
 import argparse
+import json
+from datetime import date, datetime
 from pathlib import Path
 
 from dotenv import load_dotenv
 
 from intake import db
-from intake.pipeline import clearance, extract, ingest, parse
+from intake.pipeline import assess, clearance, extract, ingest, parse, score
 
 load_dotenv()
 
@@ -98,6 +102,69 @@ def cmd_clear(args) -> None:
         print(f"\nskipped, not extracted yet: {', '.join(result['not_extracted'])}")
 
 
+def _as_of(args) -> date:
+    """Both later stages read the calendar, so the date is an argument.
+
+    Defaulting to today is right in use and useless in a demo, where the
+    corpus was generated against a fixed week. --as-of pins it.
+    """
+    if not getattr(args, "as_of", None):
+        return date.today()
+    try:
+        return datetime.strptime(args.as_of, "%Y-%m-%d").date()
+    except ValueError:
+        raise SystemExit(f"--as-of wants YYYY-MM-DD, got '{args.as_of}'")
+
+
+def cmd_assess(args) -> None:
+    with db.session() as conn:
+        result = assess.run(conn, only=args.only, rebuild=args.rebuild,
+                            as_of=_as_of(args))
+
+    print(f"assessed                {result['assessed']}"
+          f"  (guide {result['guide_version']}, as of {result['as_of']})\n")
+    for outcome in ("accept", "refer", "pending_info", "decline"):
+        if outcome in result["outcomes"]:
+            print(f"  {outcome:<14} {result['outcomes'][outcome]}")
+    if result["queues"]:
+        print("\nqueues")
+        for queue, n in sorted(result["queues"].items(), key=lambda kv: -kv[1]):
+            print(f"  {queue:<24} {n}")
+    if result["stale_extracts"]:
+        print(f"\nskipped, extract no longer matches the packet: "
+              f"{', '.join(result['stale_extracts'])}")
+    if result["not_extracted"]:
+        print(f"\nskipped, not extracted yet: {', '.join(result['not_extracted'])}")
+
+
+def cmd_score(args) -> None:
+    with db.session() as conn:
+        result = score.run(conn, only=args.only, rebuild=args.rebuild,
+                           as_of=_as_of(args))
+
+    worklist = result["worklist"]
+    print(f"scored                  {result['scored']}"
+          f"  (weights {result['weights_version']}, as of {result['as_of']})")
+    print(f"on the worklist         {len(worklist)}")
+    print(f"held back               {len(result['suppressed'])}\n")
+
+    for rank, s in enumerate(worklist[:args.top], start=1):
+        parts = "  ".join(f"{c.name.split('_')[0]} {c.raw:.0f}" for c in s.components)
+        print(f"  {rank:>3}. {s.submission_id}  {s.total:>5.1f}   {parts}")
+    if len(worklist) > args.top:
+        print(f"       ... {len(worklist) - args.top} more")
+
+    if result["suppressed"]:
+        print("\nheld back")
+        for s in result["suppressed"]:
+            print(f"  {s.submission_id}  {s.total:>5.1f}   {s.suppressed_because}")
+    if result["not_assessed"]:
+        print(f"\nskipped, not assessed yet: {', '.join(result['not_assessed'])}")
+    if result["stale_extracts"]:
+        print(f"\nskipped, extract no longer matches the packet: "
+              f"{', '.join(result['stale_extracts'])}")
+
+
 def cmd_status(args) -> None:
     with db.session() as conn:
         rows = conn.execute(
@@ -118,6 +185,13 @@ def cmd_status(args) -> None:
         clear = conn.execute(
             "SELECT SUM(is_duplicate) dupes, SUM(needs_review) review, "
             "COUNT(*) n FROM clearance"
+        ).fetchone()
+        decided = conn.execute(
+            "SELECT outcome, COUNT(*) n FROM decisions GROUP BY outcome"
+        ).fetchall()
+        ranked = conn.execute(
+            "SELECT COUNT(*) n, SUM(suppressed) held, AVG(total) avg, "
+            "MAX(total) best FROM scores"
         ).fetchone()
 
     if not total:
@@ -149,6 +223,17 @@ def cmd_status(args) -> None:
         print(f"  {clear['dupes'] or 0} duplicate(s), "
               f"{clear['review'] or 0} flagged for review")
 
+    if decided:
+        print("\nappetite")
+        order = {"accept": 0, "refer": 1, "pending_info": 2, "decline": 3}
+        for r in sorted(decided, key=lambda r: order.get(r["outcome"], 9)):
+            print(f"  {r['outcome']:<14} {r['n']}")
+
+    if ranked and ranked["n"]:
+        print(f"\nworklist ({ranked['n'] - (ranked['held'] or 0)} ranked, "
+              f"{ranked['held'] or 0} held back)")
+        print(f"  top score {ranked['best']:.1f}, average {ranked['avg']:.1f}")
+
 
 def cmd_show(args) -> None:
     with db.session() as conn:
@@ -172,6 +257,10 @@ def cmd_show(args) -> None:
                LEFT JOIN submissions m ON m.id = c.matched_submission_id
                LEFT JOIN brokers b ON b.id = m.broker_id
                WHERE c.submission_id = ?""", (args.submission_id,)).fetchone()
+        decision = assess.load(conn, args.submission_id)
+        ranked = conn.execute(
+            "SELECT * FROM scores WHERE submission_id = ?",
+            (args.submission_id,)).fetchone()
 
     print(f"{sub['id']}  [{sub['status']}]")
     print(f"  subject   {sub['subject']}")
@@ -197,6 +286,25 @@ def cmd_show(args) -> None:
             print(f"    matches     {clear['matched_submission_id']} "
                   f"(score {clear['match_score']}{broker})")
         print(f"    basis       {clear['match_basis']}")
+
+    if decision:
+        print(f"\n  appetite   [{decision['outcome'].upper()}]"
+              f"   guide {decision['guide_version']}, as of {decision['as_of']}")
+        print(f"    queue       {decision['queue'] or '-'}  "
+              f"priority {decision['priority']}")
+        for rule in decision["fired_rules"]:
+            print(f"    {rule['rule_id']:<26} {rule['detail']}")
+        for item in decision["information_required"]:
+            print(f"    NEEDED                     {item}")
+
+    if ranked:
+        held = f"   HELD BACK: {ranked['suppressed_because']}" if ranked["suppressed"] else ""
+        print(f"\n  score      {ranked['total']}{held}")
+        print(f"    premium proxy  ~${ranked['estimated_premium_usd']:,.0f}"
+              f"   (triage indication only, not a rate)")
+        for c in json.loads(ranked["components_json"]):
+            print(f"    {c['name']:<15} {c['raw']:>5.1f} x {c['weight']:.2f} "
+                  f"= {c['contribution']:>5.2f}   {c['basis']}")
 
     if events:
         print(f"\n  events ({len(events)})")
@@ -234,6 +342,23 @@ def main() -> None:
     s.add_argument("--rebuild", action="store_true",
                    help="discard prior clearance and re-run the whole mailbox")
     s.set_defaults(func=cmd_clear)
+
+    s = sub.add_parser("assess", help="run the appetite guide over the extracts")
+    s.add_argument("--only", nargs="*", help="specific submission ids")
+    s.add_argument("--rebuild", action="store_true",
+                   help="discard prior decisions and re-evaluate everything")
+    s.add_argument("--as-of", dest="as_of", metavar="YYYY-MM-DD",
+                   help="evaluate against this date instead of today")
+    s.set_defaults(func=cmd_assess)
+
+    s = sub.add_parser("score", help="rank the queue")
+    s.add_argument("--only", nargs="*", help="specific submission ids")
+    s.add_argument("--rebuild", action="store_true",
+                   help="discard prior scores and re-rank everything")
+    s.add_argument("--as-of", dest="as_of", metavar="YYYY-MM-DD",
+                   help="score against this date instead of today")
+    s.add_argument("--top", type=int, default=15, help="how many rows to print")
+    s.set_defaults(func=cmd_score)
 
     s = sub.add_parser("status", help="pipeline state summary")
     s.set_defaults(func=cmd_status)

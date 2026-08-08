@@ -1,102 +1,103 @@
 {
   "submission_id": "SUB-0045",
-  "content_hash": "dcf577bdc49118b4fe1ae4c68bd0e7f73b87f6fbe66d83feac0d97bab61143b6",
+  "content_hash": "59c1d4a7fea308e1cd19015ba5c7ee3d159883bacd599d05934f28f1764c36c0",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Priya Raghunathan",
-      "agency_name": "Meridian Brokerage Group",
-      "email": "priya.raghunathan@meridianbg.com",
+      "producer_name": "Devanshi Patel",
+      "agency_name": "Harborline Insurance Brokers",
+      "email": "devanshi.patel@harborlinebrokers.com",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Wraysbury Holdings LLC",
+      "named_insured": "Ambleside Company",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "9110 Prospect Road",
-      "city": "Springfield",
-      "state": "MO",
-      "zip_code": "25394",
+      "mailing_address": "9159 Industrial Parkway",
+      "city": "Green Bay",
+      "state": "WI",
+      "zip_code": "49905",
       "website": null,
-      "business_description": "Refrigerated warehousing and distribution",
+      "business_description": "Multi-physician outpatient medical practice",
       "naics_code": null,
       "sic_code": null,
       "years_in_business": 2,
-      "annual_revenue_usd": 8900000.0,
-      "employee_count": 43
+      "annual_revenue_usd": 1800000.0,
+      "employee_count": 6
     },
     "coverages_requested": [
       {
         "line_of_business": "COMMERCIAL PROPERTY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 10000.0,
+        "deductible_usd": 25000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-09-13",
-    "expiration_date": "2027-09-13",
+    "effective_date": "2026-08-08",
+    "expiration_date": "2027-08-08",
     "locations": [
       {
-        "address": "9110 Prospect Road",
-        "city": "Springfield",
-        "construction_type": "Non-Combustible",
-        "year_built": 1999,
-        "square_feet": 107000,
-        "building_value_usd": 5650000.0,
-        "contents_value_usd": 2800000.0,
-        "business_income_usd": 850000.0,
+        "address": "9159 Industrial Parkway",
+        "city": "Green Bay",
+        "construction_type": "Fire Resistive",
+        "year_built": 1993,
+        "square_feet": 31000,
+        "building_value_usd": 2250000.0,
+        "contents_value_usd": 175000.0,
+        "business_income_usd": 300000.0,
         "sprinklered": true,
-        "state": "MO",
-        "zip_code": "25394"
+        "state": "WI",
+        "zip_code": "49905"
       }
     ],
-    "total_insured_value_usd": 9300000.0,
+    "total_insured_value_usd": 2725000.0,
     "tiv_is_estimated": false,
     "loss_runs": [
       {
         "policy_year": "2021-2022",
         "line_of_business": "General Liability",
-        "claim_count": 6,
-        "paid_usd": 6997.0,
-        "incurred_usd": 9601.0
+        "claim_count": 5,
+        "paid_usd": 706.0,
+        "incurred_usd": 1089.0
       },
       {
         "policy_year": "2022-2023",
-        "line_of_business": "General Liability",
-        "claim_count": 4,
-        "paid_usd": 11789.0,
-        "incurred_usd": 15161.0
+        "line_of_business": "Property",
+        "claim_count": 5,
+        "paid_usd": 2394.0,
+        "incurred_usd": 2649.0
       },
       {
         "policy_year": "2023-2024",
         "line_of_business": "Property",
-        "claim_count": 5,
-        "paid_usd": 4431.0,
-        "incurred_usd": 6141.0
+        "claim_count": 1,
+        "paid_usd": 1392.0,
+        "incurred_usd": 2176.0
       },
       {
         "policy_year": "2024-2025",
         "line_of_business": "Property",
-        "claim_count": 4,
-        "paid_usd": 6799.0,
-        "incurred_usd": 8191.0
+        "claim_count": 5,
+        "paid_usd": 3250.0,
+        "incurred_usd": 4083.0
       },
       {
         "policy_year": "2025-2026",
-        "line_of_business": "Property",
-        "claim_count": 1,
-        "paid_usd": 10813.0,
-        "incurred_usd": 11644.0
+        "line_of_business": "General Liability",
+        "claim_count": 5,
+        "paid_usd": 1816.0,
+        "incurred_usd": 2352.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 50738.0,
+    "total_incurred_5yr_usd": 12349.0,
+    "open_claims": 2,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 70000.0,
-    "reason_for_shopping": "Renewal increase quoted at +27%",
+    "incumbent_carrier": "Summit Guaranty Insurance",
+    "expiring_premium_usd": 201000.0,
+    "reason_for_shopping": "Ongoing service and claims handling issues with incumbent",
     "prior_non_renewal": false,
     "missing_fields": [
       "NAICS code"

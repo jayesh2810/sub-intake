@@ -1,42 +1,42 @@
 {
   "submission_id": "SUB-0029",
-  "content_hash": "646a27a5daee693baabfb2ee1605023193447b03d89d2ea96406bf00b49d0191",
+  "content_hash": "50a563dfc976f32bf3bc1bcdf695157edaa6f4f0fdef7d21d55483d5c793fdf6",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Priya Raghunathan",
-      "agency_name": "Meridian Brokerage Group",
-      "email": "priya.raghunathan@meridianbg.com",
+      "producer_name": "Wes Nakamura",
+      "agency_name": "Pacific Union Brokerage",
+      "email": "wes.nakamura@pacunionbrokerage.com",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Cedar Hollow Contractors Inc.",
+      "named_insured": "Kestrel Group Inc.",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "7225 Sierra Ridge Drive",
-      "city": "Fort Wayne",
-      "state": "IN",
-      "zip_code": "35715",
+      "mailing_address": "9605 Sierra Ridge Drive",
+      "city": "Greensboro",
+      "state": "NC",
+      "zip_code": "24320",
       "website": null,
-      "business_description": "Civil and structural engineering consultancy",
-      "naics_code": "541330",
+      "business_description": "Precision metal stamping and sheet metal fabrication",
+      "naics_code": "332119",
       "sic_code": null,
-      "years_in_business": 3,
-      "annual_revenue_usd": 48000000.0,
-      "employee_count": 319
+      "years_in_business": 11,
+      "annual_revenue_usd": 1800000.0,
+      "employee_count": 14
     },
     "coverages_requested": [
       {
         "line_of_business": "COMMERCIAL GENERAL LIABILITY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 25000.0,
+        "deductible_usd": 50000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-08-11",
-    "expiration_date": "2027-08-11",
+    "effective_date": "2026-09-01",
+    "expiration_date": "2027-09-01",
     "locations": [],
     "total_insured_value_usd": null,
     "tiv_is_estimated": null,
@@ -44,52 +44,51 @@
       {
         "policy_year": "2021-2022",
         "line_of_business": "Property",
-        "claim_count": 3,
-        "paid_usd": 52776.0,
-        "incurred_usd": 62718.0
+        "claim_count": 4,
+        "paid_usd": 523.0,
+        "incurred_usd": 706.0
       },
       {
         "policy_year": "2022-2023",
-        "line_of_business": "General Liability",
-        "claim_count": 1,
-        "paid_usd": 49284.0,
-        "incurred_usd": 54982.0
+        "line_of_business": "Property",
+        "claim_count": 3,
+        "paid_usd": 776.0,
+        "incurred_usd": 881.0
       },
       {
         "policy_year": "2023-2024",
         "line_of_business": "General Liability",
-        "claim_count": 6,
-        "paid_usd": 32920.0,
-        "incurred_usd": 39683.0
+        "claim_count": 4,
+        "paid_usd": 734.0,
+        "incurred_usd": 843.0
       },
       {
         "policy_year": "2024-2025",
         "line_of_business": "General Liability",
-        "claim_count": 2,
-        "paid_usd": 43480.0,
-        "incurred_usd": 50141.0
+        "claim_count": 1,
+        "paid_usd": 403.0,
+        "incurred_usd": 438.0
       },
       {
         "policy_year": "2025-2026",
-        "line_of_business": "Property",
-        "claim_count": 6,
-        "paid_usd": 24706.0,
-        "incurred_usd": 36733.0
+        "line_of_business": "General Liability",
+        "claim_count": 3,
+        "paid_usd": 737.0,
+        "incurred_usd": 1056.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 244257.0,
+    "total_incurred_5yr_usd": 3924.0,
+    "open_claims": 5,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 178500.0,
-    "reason_for_shopping": "Non-renewal issued by incumbent",
-    "prior_non_renewal": true,
+    "incumbent_carrier": "Ardent National",
+    "expiring_premium_usd": 177500.0,
+    "reason_for_shopping": "Ongoing service and claims handling issues with incumbent",
+    "prior_non_renewal": false,
     "missing_fields": [
       "statement of values"
     ],
-    "ambiguities": [
-      "Prior carrier issued a non-renewal for adverse losses."
-    ],
+    "ambiguities": [],
     "extraction_confidence": 0.9
   }
 }

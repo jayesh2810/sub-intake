@@ -1,14 +1,13 @@
 {
   "submission_id": "SUB-0001",
-  "content_hash": "3ef8cb10506d56a23ba9cfce4f0770ac09f102bcf4cab83e56c339c62f7f3f9b",
-  "synthetic": false,
+  "content_hash": "f3adfab6b1d8167d1499eaccca5eccd179d152aa522128f466687d304ad7ad81",
   "extract": {
     "broker": {
       "producer_name": "S. Okafor",
       "agency_name": "Latitude Commercial",
       "email": "s..okafor@latitudecommercial.com",
       "phone": null,
-      "submitted_date": "2026-07-28"
+      "submitted_date": "2026-07-27"
     },
     "insured": {
       "named_insured": "Ironwood Company",
@@ -28,117 +27,101 @@
     },
     "coverages_requested": [
       {
-        "line_of_business": "COMMERCIAL PROPERTY",
+        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
         "limit_occurrence_usd": 1000000.0,
         "limit_aggregate_usd": 2000000.0,
         "deductible_usd": 50000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-08-08",
-    "expiration_date": "2027-08-08",
-    "locations": [
-      {
-        "location_number": 1,
-        "address": "7728 Prospect Road",
-        "city": "Springfield",
-        "state": "MO",
-        "zip_code": "69399",
-        "occupancy": "Structural Metal Fabrication",
-        "construction_type": "Non-Combustible",
-        "year_built": 1991,
-        "square_feet": 82000,
-        "sprinklered": true,
-        "protection_class": null,
-        "building_value_usd": 4400000.0,
-        "contents_value_usd": 1300000.0,
-        "business_income_usd": 2200000.0,
-        "location_tiv_usd": 7900000.0
-      },
-      {
-        "location_number": 2,
-        "address": "1441 Prospect Road",
-        "city": "Springfield",
-        "state": "MO",
-        "zip_code": "49354",
-        "occupancy": "Structural Metal Fabrication",
-        "construction_type": "Non-Combustible",
-        "year_built": 2001,
-        "square_feet": 132000,
-        "sprinklered": false,
-        "protection_class": null,
-        "building_value_usd": 3500000.0,
-        "contents_value_usd": 4800000.0,
-        "business_income_usd": 1400000.0,
-        "location_tiv_usd": 9700000.0
-      }
-    ],
-    "total_insured_value_usd": 17600000.0,
-    "tiv_is_estimated": false,
+    "effective_date": "2026-12-07",
+    "expiration_date": "2027-12-07",
+    "locations": [],
+    "total_insured_value_usd": 7900000.0,
+    "tiv_is_estimated": true,
     "loss_runs": [
       {
         "policy_year": "2021-2022",
-        "line_of_business": "PROP",
-        "claim_count": 5,
-        "paid_usd": 3478.0,
+        "line_of_business": "GL",
+        "claim_count": 3,
+        "paid_usd": 24304.0,
         "reserved_usd": null,
-        "incurred_usd": 4195.0,
+        "incurred_usd": 27678.0,
         "open_claims": null
       },
       {
         "policy_year": "2022-2023",
         "line_of_business": "GL",
-        "claim_count": 3,
-        "paid_usd": 1186.0,
+        "claim_count": 5,
+        "paid_usd": 5104.0,
         "reserved_usd": null,
-        "incurred_usd": 1351.0,
+        "incurred_usd": 5556.0,
         "open_claims": null
       },
       {
         "policy_year": "2023-2024",
-        "line_of_business": "GL",
-        "claim_count": 5,
-        "paid_usd": 2575.0,
+        "line_of_business": "PROP",
+        "claim_count": 1,
+        "paid_usd": 17478.0,
         "reserved_usd": null,
-        "incurred_usd": 2803.0,
+        "incurred_usd": 17874.0,
         "open_claims": null
       },
       {
         "policy_year": "2024-2025",
-        "line_of_business": "PROP",
-        "claim_count": 1,
-        "paid_usd": 7478.0,
+        "line_of_business": "GL",
+        "claim_count": 6,
+        "paid_usd": 1240.0,
         "reserved_usd": null,
-        "incurred_usd": 7648.0,
+        "incurred_usd": 1433.0,
         "open_claims": null
       },
       {
         "policy_year": "2025-2026",
-        "line_of_business": "GL",
+        "line_of_business": "PROP",
         "claim_count": 6,
-        "paid_usd": 2991.0,
+        "paid_usd": 21510.0,
         "reserved_usd": null,
-        "incurred_usd": 3456.0,
+        "incurred_usd": 24427.0,
         "open_claims": null
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 19473.0,
+    "total_incurred_5yr_usd": 77000.0,
+    "open_claims": 3,
     "loss_runs_provided": true,
-    "incumbent_carrier": "Great Lakes Casualty",
-    "expiring_premium_usd": 201000.0,
-    "reason_for_shopping": "Incumbent restricting coverage at renewal",
+    "incumbent_carrier": "Westbrook Mutual",
+    "expiring_premium_usd": 106500.0,
+    "reason_for_shopping": "Renewal increase quoted at +12%",
     "prior_non_renewal": null,
     "missing_fields": [
-      "NAICS code",
-      "Protection class for location 1",
-      "Protection class for location 2",
-      "SIC code",
-      "Website"
+      "insured.dba",
+      "insured.entity_type",
+      "insured.website",
+      "insured.naics_code",
+      "insured.sic_code",
+      "locations",
+      "locations.location_number",
+      "locations.address",
+      "locations.city",
+      "locations.state",
+      "locations.zip_code",
+      "locations.occupancy",
+      "locations.construction_type",
+      "locations.year_built",
+      "locations.square_feet",
+      "locations.sprinklered",
+      "locations.protection_class",
+      "locations.building_value_usd",
+      "locations.contents_value_usd",
+      "locations.business_income_usd",
+      "locations.location_tiv_usd",
+      "notable_claims"
     ],
     "ambiguities": [
-      "TIV is about $17,600,000 (from email) vs $17,600,000 (from SOV)"
+      "TIV is about $7,900,000 across 2 location(s).",
+      "Revenue roughly $14,500,000 last FY."
     ],
-    "extraction_confidence": 0.8
+    "extraction_confidence": 0.7
   }
 }

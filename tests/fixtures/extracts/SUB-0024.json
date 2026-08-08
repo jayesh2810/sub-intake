@@ -1,6 +1,6 @@
 {
   "submission_id": "SUB-0024",
-  "content_hash": "fb018251541891f46b76aab48e2695a397bd0adfc49ac809fdb717dbd78d71d4",
+  "content_hash": "d1f2a3aefad7aba93f97ec89de2b9d0d43089d36b7a5497463470571707012e0",
   "synthetic": true,
   "extract": {
     "broker": {
@@ -11,20 +11,20 @@
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Ashcombe Associates LP",
+      "named_insured": "Penhurst Manufacturing Co.",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "8580 Meadowbrook Court",
-      "city": "Dayton",
-      "state": "OH",
-      "zip_code": "74599",
+      "mailing_address": "2708 Meadowbrook Court",
+      "city": "Erie",
+      "state": "PA",
+      "zip_code": "52843",
       "website": null,
-      "business_description": "Precision metal stamping and sheet metal fabrication",
-      "naics_code": "332119",
+      "business_description": "Multi-physician outpatient medical practice",
+      "naics_code": "621111",
       "sic_code": null,
-      "years_in_business": 18,
+      "years_in_business": 3,
       "annual_revenue_usd": null,
-      "employee_count": 129
+      "employee_count": 51
     },
     "coverages_requested": [
       {
@@ -46,37 +46,51 @@
     "expiration_date": "2027-08-11",
     "locations": [
       {
-        "address": "8580 Meadowbrook Court",
-        "city": "Dayton",
-        "construction_type": "Joisted Masonry",
-        "year_built": 1983,
-        "square_feet": 48000,
-        "building_value_usd": 8100000.0,
-        "contents_value_usd": 425000.0,
-        "business_income_usd": 150000.0,
-        "sprinklered": true,
-        "state": "OH",
-        "zip_code": "74599"
+        "address": "2708 Meadowbrook Court",
+        "city": "Erie",
+        "construction_type": "Fire Resistive",
+        "year_built": 1980,
+        "square_feet": 105000,
+        "building_value_usd": 1550000.0,
+        "contents_value_usd": 850000.0,
+        "business_income_usd": 600000.0,
+        "sprinklered": false,
+        "state": "PA",
+        "zip_code": "52843"
       },
       {
-        "address": "513 Franklin Avenue",
-        "city": "Dayton",
-        "construction_type": "Joisted Masonry",
-        "year_built": 1983,
-        "square_feet": 46000,
-        "building_value_usd": 7200000.0,
-        "contents_value_usd": 800000.0,
-        "business_income_usd": 0.0,
+        "address": "7792 Copper Creek Lane",
+        "city": "Erie",
+        "construction_type": "Fire Resistive",
+        "year_built": 2012,
+        "square_feet": 7000,
+        "building_value_usd": 3700000.0,
+        "contents_value_usd": 1475000.0,
+        "business_income_usd": 1150000.0,
         "sprinklered": true,
-        "state": "OH",
-        "zip_code": "34334"
+        "state": "PA",
+        "zip_code": "79549"
+      },
+      {
+        "address": "9444 Sierra Ridge Drive",
+        "city": "Erie",
+        "construction_type": "Fire Resistive",
+        "year_built": 1993,
+        "square_feet": 25000,
+        "building_value_usd": 1750000.0,
+        "contents_value_usd": 550000.0,
+        "business_income_usd": 50000.0,
+        "sprinklered": true,
+        "state": "PA",
+        "zip_code": "37782"
       }
     ],
-    "total_insured_value_usd": 16675000.0,
+    "total_insured_value_usd": 11675000.0,
     "tiv_is_estimated": true,
     "loss_runs": [],
     "notable_claims": [],
     "total_incurred_5yr_usd": null,
+    "open_claims": null,
     "loss_runs_provided": false,
     "incumbent_carrier": null,
     "expiring_premium_usd": null,

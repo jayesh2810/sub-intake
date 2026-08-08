@@ -1,138 +1,96 @@
 {
   "submission_id": "SUB-0036",
-  "content_hash": "c96bed26e9bb77ae857d6896b39e33cd2f3cbcaa09baafefad4d0705c83edfae",
+  "content_hash": "b3bf8ddcce36f88de9af7558ca42801b079480f31e312dd76d285615618aa34f",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Bill Trombley",
-      "agency_name": "Trombley & Sons Insurance",
-      "email": "bill.trombley@trombleyins.com",
+      "producer_name": "Marcus Whitfield",
+      "agency_name": "Keystone Risk Partners",
+      "email": "marcus.whitfield@keystone-risk.com",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Quarry Hill Holdings LLC",
+      "named_insured": "Ashcombe Partners LP",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "5540 Prospect Road",
-      "city": "Tucson",
-      "state": "AZ",
-      "zip_code": "12031",
+      "mailing_address": "2064 Meadowbrook Court",
+      "city": "Toledo",
+      "state": "OH",
+      "zip_code": "21790",
       "website": null,
-      "business_description": "Automotive component stamping, tier two supplier",
+      "business_description": "Precision metal stamping and sheet metal fabrication",
       "naics_code": "332119",
       "sic_code": null,
-      "years_in_business": 28,
-      "annual_revenue_usd": 22400000.0,
-      "employee_count": 169
+      "years_in_business": 35,
+      "annual_revenue_usd": 76000000.0,
+      "employee_count": 349
     },
     "coverages_requested": [
-      {
-        "line_of_business": "COMMERCIAL PROPERTY",
-        "limit_occurrence_usd": 1000000,
-        "limit_aggregate_usd": 2000000,
-        "deductible_usd": 10000.0,
-        "notes": null
-      },
       {
         "line_of_business": "COMMERCIAL GENERAL LIABILITY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 10000.0,
+        "deductible_usd": 25000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-11-02",
-    "expiration_date": "2027-11-02",
-    "locations": [
-      {
-        "address": "5540 Prospect Road",
-        "city": "Tucson",
-        "construction_type": "Joisted Masonry",
-        "year_built": 1977,
-        "square_feet": 85000,
-        "building_value_usd": 8050000.0,
-        "contents_value_usd": 1725000.0,
-        "business_income_usd": 1200000.0,
-        "sprinklered": false,
-        "state": "AZ",
-        "zip_code": "12031"
-      },
-      {
-        "address": "6263 Prospect Road",
-        "city": "Tucson",
-        "construction_type": "Joisted Masonry",
-        "year_built": 1996,
-        "square_feet": 78000,
-        "building_value_usd": 5350000.0,
-        "contents_value_usd": 2200000.0,
-        "business_income_usd": 800000.0,
-        "sprinklered": true,
-        "state": "AZ",
-        "zip_code": "40717"
-      },
-      {
-        "address": "7022 Beckett Road",
-        "city": "Tucson",
-        "construction_type": "Joisted Masonry",
-        "year_built": 2016,
-        "square_feet": 16000,
-        "building_value_usd": 3800000.0,
-        "contents_value_usd": 1050000.0,
-        "business_income_usd": 1800000.0,
-        "sprinklered": false,
-        "state": "AZ",
-        "zip_code": "86892"
-      }
-    ],
-    "total_insured_value_usd": 25975000.0,
-    "tiv_is_estimated": false,
+    "effective_date": "2026-08-11",
+    "expiration_date": "2027-08-11",
+    "locations": [],
+    "total_insured_value_usd": null,
+    "tiv_is_estimated": null,
     "loss_runs": [
       {
         "policy_year": "2021-2022",
         "line_of_business": "General Liability",
-        "claim_count": 4,
-        "paid_usd": 44585.0,
-        "incurred_usd": 65551.0
+        "claim_count": 1,
+        "paid_usd": 114022.0,
+        "incurred_usd": 118637.0
       },
       {
         "policy_year": "2022-2023",
         "line_of_business": "Property",
-        "claim_count": 3,
-        "paid_usd": 46865.0,
-        "incurred_usd": 55610.0
+        "claim_count": 1,
+        "paid_usd": 52881.0,
+        "incurred_usd": 75206.0
       },
       {
         "policy_year": "2023-2024",
         "line_of_business": "General Liability",
-        "claim_count": 4,
-        "paid_usd": 65560.0,
-        "incurred_usd": 74219.0
+        "claim_count": 1,
+        "paid_usd": 147631.0,
+        "incurred_usd": 230522.0
       },
       {
         "policy_year": "2024-2025",
         "line_of_business": "General Liability",
-        "claim_count": 5,
-        "paid_usd": 25368.0,
-        "incurred_usd": 28173.0
+        "claim_count": 1,
+        "paid_usd": 53719.0,
+        "incurred_usd": 55054.0
       },
       {
         "policy_year": "2025-2026",
         "line_of_business": "General Liability",
-        "claim_count": 4,
-        "paid_usd": 5639.0,
-        "incurred_usd": 6909.0
+        "claim_count": 5,
+        "paid_usd": 251988.0,
+        "incurred_usd": 301210.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 230462.0,
+    "total_incurred_5yr_usd": 780629.0,
+    "open_claims": 2,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 166000.0,
-    "reason_for_shopping": "Ongoing service and claims handling issues with incumbent",
-    "prior_non_renewal": false,
-    "missing_fields": [],
-    "ambiguities": [],
+    "incumbent_carrier": "Great Lakes Casualty",
+    "expiring_premium_usd": 117500.0,
+    "reason_for_shopping": "Non-renewal issued by incumbent",
+    "prior_non_renewal": true,
+    "missing_fields": [
+      "statement of values"
+    ],
+    "ambiguities": [
+      "Prior carrier issued a non-renewal for adverse losses."
+    ],
     "extraction_confidence": 0.9
   }
 }

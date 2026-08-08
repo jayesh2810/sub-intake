@@ -1,121 +1,102 @@
 {
   "submission_id": "SUB-0042",
-  "content_hash": "a6457b9f0b1a72a0d806a7ffcfc916997cc3afe3d2bae81a37bc9aaafe261eb4",
+  "content_hash": "90b327ef76b4ba916adcbe81757a16cc3c27ae7c3eb6bb583bcdb707c757fb35",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Anna Kowalczyk",
-      "agency_name": "Northgate Risk Advisors",
-      "email": "anna.kowalczyk@northgaterisk.com",
+      "producer_name": "Tonya Bell",
+      "agency_name": "Crestpoint Agency",
+      "email": "tonya.bell@crestpointagency.net",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Redstone Properties LLC",
+      "named_insured": "Brightwater Associates LP",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "3826 Old Mill Road",
-      "city": "Joplin",
-      "state": "MO",
-      "zip_code": "29296",
+      "mailing_address": "9050 Sierra Ridge Drive",
+      "city": "Fort Wayne",
+      "state": "IN",
+      "zip_code": "69525",
       "website": null,
-      "business_description": "Industrial machinery and equipment distribution",
-      "naics_code": "423830",
+      "business_description": "General warehousing and distribution, third party logistics",
+      "naics_code": "493110",
       "sic_code": null,
-      "years_in_business": 3,
-      "annual_revenue_usd": 4200000.0,
-      "employee_count": 20
+      "years_in_business": 6,
+      "annual_revenue_usd": 48000000.0,
+      "employee_count": 203
     },
     "coverages_requested": [
       {
         "line_of_business": "COMMERCIAL PROPERTY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 10000.0,
-        "notes": null
-      },
-      {
-        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
-        "limit_occurrence_usd": 1000000,
-        "limit_aggregate_usd": 2000000,
-        "deductible_usd": 10000.0,
+        "deductible_usd": 5000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-08-24",
-    "expiration_date": "2027-08-24",
+    "effective_date": "2026-08-08",
+    "expiration_date": "2027-08-08",
     "locations": [
       {
-        "address": "3826 Old Mill Road",
-        "city": "Joplin",
+        "address": "9050 Sierra Ridge Drive",
+        "city": "Fort Wayne",
         "construction_type": "Non-Combustible",
-        "year_built": 2010,
-        "square_feet": 124000,
-        "building_value_usd": 7950000.0,
-        "contents_value_usd": 1200000.0,
-        "business_income_usd": 50000.0,
+        "year_built": 2007,
+        "square_feet": 62000,
+        "building_value_usd": 850000.0,
+        "contents_value_usd": 725000.0,
+        "business_income_usd": 850000.0,
         "sprinklered": false,
-        "state": "MO",
-        "zip_code": "29296"
-      },
-      {
-        "address": "6469 Meadowbrook Court",
-        "city": "Joplin",
-        "construction_type": "Non-Combustible",
-        "year_built": 2006,
-        "square_feet": 15000,
-        "building_value_usd": 8500000.0,
-        "contents_value_usd": 475000.0,
-        "business_income_usd": 2450000.0,
-        "sprinklered": false,
-        "state": "MO",
-        "zip_code": "65113"
+        "state": "IN",
+        "zip_code": "69525"
       }
     ],
-    "total_insured_value_usd": 20625000.0,
+    "total_insured_value_usd": 2425000.0,
     "tiv_is_estimated": false,
     "loss_runs": [
       {
         "policy_year": "2021-2022",
         "line_of_business": "General Liability",
         "claim_count": 5,
-        "paid_usd": 822.0,
-        "incurred_usd": 1324.0
+        "paid_usd": 81774.0,
+        "incurred_usd": 107799.0
       },
       {
         "policy_year": "2022-2023",
-        "line_of_business": "Property",
-        "claim_count": 6,
-        "paid_usd": 1675.0,
-        "incurred_usd": 1721.0
+        "line_of_business": "General Liability",
+        "claim_count": 2,
+        "paid_usd": 77937.0,
+        "incurred_usd": 82496.0
       },
       {
         "policy_year": "2023-2024",
         "line_of_business": "Property",
-        "claim_count": 4,
-        "paid_usd": 3354.0,
-        "incurred_usd": 3877.0
+        "claim_count": 3,
+        "paid_usd": 44934.0,
+        "incurred_usd": 54621.0
       },
       {
         "policy_year": "2024-2025",
-        "line_of_business": "Property",
+        "line_of_business": "General Liability",
         "claim_count": 3,
-        "paid_usd": 2045.0,
-        "incurred_usd": 3178.0
+        "paid_usd": 30424.0,
+        "incurred_usd": 42615.0
       },
       {
         "policy_year": "2025-2026",
         "line_of_business": "Property",
-        "claim_count": 1,
-        "paid_usd": 2632.0,
-        "incurred_usd": 3607.0
+        "claim_count": 3,
+        "paid_usd": 24274.0,
+        "incurred_usd": 38978.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 13707.0,
+    "total_incurred_5yr_usd": 326509.0,
+    "open_claims": 5,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 119500.0,
+    "incumbent_carrier": "Pioneer Indemnity",
+    "expiring_premium_usd": 107000.0,
     "reason_for_shopping": "Incumbent restricting coverage at renewal",
     "prior_non_renewal": false,
     "missing_fields": [],

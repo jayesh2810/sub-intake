@@ -69,7 +69,10 @@ def parse_acord(t: str) -> dict:
         "deductible_usd": _num(t, rf"DEDUCTIBLE\s+{MONEY}"),
         "effective_date": _date(t, r"PROPOSED EFFECTIVE DATE:\s*(\S+)"),
         "expiration_date": _date(t, r"EXPIRATION DATE:\s*(\S+)"),
-        "incumbent_carrier": _str(t, r"^CARRIER:\s*(.+)$"),
+        # (?m) or this anchor only matches the top of the document, and the
+        # carrier line sits well down the form. Without it every submission
+        # looks like the incumbent was never disclosed.
+        "incumbent_carrier": _str(t, r"(?m)^CARRIER:\s*(.+)$"),
         "expiring_premium_usd": _num(t, rf"ANNUAL PREMIUM:\s*{MONEY}"),
         "reason_for_shopping": _str(t, r"REASON FOR SHOPPING:\s*(.+)"),
     }
@@ -224,6 +227,7 @@ def build(conn, submission_id: str) -> dict:
         "tiv_is_estimated": sov.get("tiv_is_estimated"),
         "loss_runs": lr["loss_runs"], "notable_claims": [],
         "total_incurred_5yr_usd": lr["total_incurred_5yr_usd"],
+        "open_claims": lr["open_claims"],
         "loss_runs_provided": readable_runs,
         "incumbent_carrier": acord.get("incumbent_carrier"),
         "expiring_premium_usd": acord.get("expiring_premium_usd"),

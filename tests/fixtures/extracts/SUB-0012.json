@@ -1,93 +1,96 @@
 {
   "submission_id": "SUB-0012",
-  "content_hash": "fed052307fe87fda1533c6412e3e32ac0bfc9c61b5804b06848d81b1bf761717",
+  "content_hash": "657780d2a78b579570bbb680e9003a157db64371988fa0886867019f49a38080",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Marcus Whitfield",
-      "agency_name": "Keystone Risk Partners",
-      "email": "marcus.whitfield@keystone-risk.com",
+      "producer_name": "Hannah Fiedler",
+      "agency_name": "Copperline Brokers",
+      "email": "hannah.fiedler@copperlinebrokers.com",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Osgood Associates LP",
+      "named_insured": "Ashcombe Industries Inc.",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "7485 Franklin Avenue",
-      "city": "Macon",
-      "state": "GA",
-      "zip_code": "49577",
+      "mailing_address": "4290 Meadowbrook Court",
+      "city": "Lansing",
+      "state": "MI",
+      "zip_code": "95566",
       "website": null,
-      "business_description": "Civil and structural engineering consultancy",
-      "naics_code": "541330",
+      "business_description": "Automotive component stamping, tier two supplier",
+      "naics_code": "332119",
       "sic_code": null,
-      "years_in_business": 3,
-      "annual_revenue_usd": 76000000.0,
-      "employee_count": 382
+      "years_in_business": 6,
+      "annual_revenue_usd": 8900000.0,
+      "employee_count": 41
     },
     "coverages_requested": [
       {
         "line_of_business": "COMMERCIAL GENERAL LIABILITY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 50000.0,
+        "deductible_usd": 10000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-08-17",
-    "expiration_date": "2027-08-17",
+    "effective_date": "2026-09-30",
+    "expiration_date": "2027-09-30",
     "locations": [],
     "total_insured_value_usd": null,
     "tiv_is_estimated": null,
     "loss_runs": [
       {
         "policy_year": "2021-2022",
-        "line_of_business": "Property",
-        "claim_count": 6,
-        "paid_usd": 34649.0,
-        "incurred_usd": 48397.0
+        "line_of_business": "General Liability",
+        "claim_count": 4,
+        "paid_usd": 1703.0,
+        "incurred_usd": 2209.0
       },
       {
         "policy_year": "2022-2023",
-        "line_of_business": "General Liability",
-        "claim_count": 1,
-        "paid_usd": 38193.0,
-        "incurred_usd": 50443.0
+        "line_of_business": "Property",
+        "claim_count": 2,
+        "paid_usd": 9362.0,
+        "incurred_usd": 14715.0
       },
       {
         "policy_year": "2023-2024",
-        "line_of_business": "Property",
-        "claim_count": 3,
-        "paid_usd": 57617.0,
-        "incurred_usd": 59389.0
+        "line_of_business": "General Liability",
+        "claim_count": 5,
+        "paid_usd": 15187.0,
+        "incurred_usd": 23863.0
       },
       {
         "policy_year": "2024-2025",
-        "line_of_business": "General Liability",
-        "claim_count": 1,
-        "paid_usd": 99827.0,
-        "incurred_usd": 140157.0
+        "line_of_business": "Property",
+        "claim_count": 3,
+        "paid_usd": 11378.0,
+        "incurred_usd": 16178.0
       },
       {
         "policy_year": "2025-2026",
         "line_of_business": "Property",
-        "claim_count": 6,
-        "paid_usd": 20848.0,
-        "incurred_usd": 29189.0
+        "claim_count": 1,
+        "paid_usd": 11981.0,
+        "incurred_usd": 13315.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 327575.0,
+    "total_incurred_5yr_usd": 70280.0,
+    "open_claims": 0,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 98500.0,
-    "reason_for_shopping": "Incumbent restricting coverage at renewal",
-    "prior_non_renewal": false,
+    "incumbent_carrier": "Ardent National",
+    "expiring_premium_usd": 87000.0,
+    "reason_for_shopping": "Non-renewal issued by incumbent",
+    "prior_non_renewal": true,
     "missing_fields": [
       "statement of values"
     ],
-    "ambiguities": [],
+    "ambiguities": [
+      "Prior carrier issued a non-renewal for adverse losses."
+    ],
     "extraction_confidence": 0.9
   }
 }

@@ -1,42 +1,42 @@
 {
   "submission_id": "SUB-0030",
-  "content_hash": "90370dbb52b4cf27dedce2447c31c6861caa91e2589e15c9e8349ecb5660735c",
+  "content_hash": "29a15a407fa65284e8b6af31ffa6a6c69e9354f4f9c5d00d0aad8b9040cf9d1d",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Jared Hollis",
-      "agency_name": "Tri-State Insurance Services",
-      "email": "jared.hollis@tristate-ins.com",
+      "producer_name": "\"S. Okafor\"",
+      "agency_name": null,
+      "email": "s..okafor@latitudecommercial.com",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Stonebridge Logistics LLC",
+      "named_insured": "Ironwood Properties LLC",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "8591 Foundry Way",
-      "city": "Waco",
-      "state": "TX",
-      "zip_code": "96652",
+      "mailing_address": "9642 Industrial Parkway",
+      "city": "Greensboro",
+      "state": "NC",
+      "zip_code": "96154",
       "website": null,
-      "business_description": "Automotive component stamping, tier two supplier",
-      "naics_code": "332119",
+      "business_description": "Residential and light commercial re-roofing",
+      "naics_code": "238160",
       "sic_code": null,
-      "years_in_business": 2,
-      "annual_revenue_usd": 48000000.0,
-      "employee_count": 221
+      "years_in_business": 3,
+      "annual_revenue_usd": 31000000.0,
+      "employee_count": 111
     },
     "coverages_requested": [
       {
         "line_of_business": "COMMERCIAL GENERAL LIABILITY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 5000.0,
+        "deductible_usd": 10000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-09-01",
-    "expiration_date": "2027-09-01",
+    "effective_date": "2026-08-08",
+    "expiration_date": "2027-08-08",
     "locations": [],
     "total_insured_value_usd": null,
     "tiv_is_estimated": null,
@@ -44,50 +44,53 @@
       {
         "policy_year": "2021-2022",
         "line_of_business": "General Liability",
-        "claim_count": 4,
-        "paid_usd": 27303.0,
-        "incurred_usd": 30444.0
+        "claim_count": 2,
+        "paid_usd": 13940.0,
+        "incurred_usd": 17474.0
       },
       {
         "policy_year": "2022-2023",
-        "line_of_business": "General Liability",
-        "claim_count": 2,
-        "paid_usd": 70381.0,
-        "incurred_usd": 70656.0
+        "line_of_business": "Property",
+        "claim_count": 5,
+        "paid_usd": 7532.0,
+        "incurred_usd": 11929.0
       },
       {
         "policy_year": "2023-2024",
-        "line_of_business": "Property",
-        "claim_count": 4,
-        "paid_usd": 1926.0,
-        "incurred_usd": 2392.0
+        "line_of_business": "General Liability",
+        "claim_count": 6,
+        "paid_usd": 14601.0,
+        "incurred_usd": 15320.0
       },
       {
         "policy_year": "2024-2025",
         "line_of_business": "Property",
-        "claim_count": 6,
-        "paid_usd": 116980.0,
-        "incurred_usd": 117712.0
+        "claim_count": 3,
+        "paid_usd": 10061.0,
+        "incurred_usd": 13107.0
       },
       {
         "policy_year": "2025-2026",
-        "line_of_business": "General Liability",
-        "claim_count": 6,
-        "paid_usd": 34207.0,
-        "incurred_usd": 54939.0
+        "line_of_business": "Property",
+        "claim_count": 4,
+        "paid_usd": 13973.0,
+        "incurred_usd": 17528.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 276143.0,
+    "total_incurred_5yr_usd": 75358.0,
+    "open_claims": 3,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 37000.0,
-    "reason_for_shopping": "Renewal increase quoted at +27%",
-    "prior_non_renewal": false,
+    "incumbent_carrier": "Westbrook Mutual",
+    "expiring_premium_usd": 143500.0,
+    "reason_for_shopping": "Non-renewal issued by incumbent",
+    "prior_non_renewal": true,
     "missing_fields": [
       "statement of values"
     ],
-    "ambiguities": [],
+    "ambiguities": [
+      "Prior carrier issued a non-renewal for adverse losses."
+    ],
     "extraction_confidence": 0.9
   }
 }

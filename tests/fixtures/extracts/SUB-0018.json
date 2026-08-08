@@ -1,6 +1,6 @@
 {
   "submission_id": "SUB-0018",
-  "content_hash": "03525c209e11d098db7bdc2d352bed7d1469068c1a5ccd6ae5a9add8483aff35",
+  "content_hash": "4a8b393c551893d3c8cf810eb12e19c1d724851f6a7b54a81d9ef34e76fbd98b",
   "synthetic": true,
   "extract": {
     "broker": {
@@ -11,98 +11,92 @@
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Thornbury Services Inc.",
+      "named_insured": "Apex Associates LP",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "6780 Commerce Drive",
-      "city": "Savannah",
-      "state": "GA",
-      "zip_code": "95137",
+      "mailing_address": "1330 Warehouse Row",
+      "city": "Tucson",
+      "state": "AZ",
+      "zip_code": "77196",
       "website": null,
-      "business_description": "Garden style apartment complex, residential rental",
-      "naics_code": "531110",
+      "business_description": "Refrigerated warehousing and distribution",
+      "naics_code": "493110",
       "sic_code": null,
-      "years_in_business": 11,
-      "annual_revenue_usd": 4200000.0,
-      "employee_count": 18
+      "years_in_business": 2,
+      "annual_revenue_usd": 22400000.0,
+      "employee_count": 134
     },
     "coverages_requested": [
       {
         "line_of_business": "COMMERCIAL PROPERTY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 10000.0,
-        "notes": null
-      },
-      {
-        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
-        "limit_occurrence_usd": 1000000,
-        "limit_aggregate_usd": 2000000,
-        "deductible_usd": 10000.0,
+        "deductible_usd": 5000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-08-17",
-    "expiration_date": "2027-08-17",
+    "effective_date": "2026-11-02",
+    "expiration_date": "2027-11-02",
     "locations": [
       {
-        "address": "6780 Commerce Drive",
-        "city": "Savannah",
-        "construction_type": "Wood Frame",
-        "year_built": 1970,
-        "square_feet": 129000,
-        "building_value_usd": 3550000.0,
-        "contents_value_usd": 1175000.0,
-        "business_income_usd": 1350000.0,
+        "address": "1330 Warehouse Row",
+        "city": "Tucson",
+        "construction_type": "Non-Combustible",
+        "year_built": 1979,
+        "square_feet": 120000,
+        "building_value_usd": 1500000.0,
+        "contents_value_usd": 100000.0,
+        "business_income_usd": 150000.0,
         "sprinklered": false,
-        "state": "GA",
-        "zip_code": "95137"
+        "state": "AZ",
+        "zip_code": "77196"
       }
     ],
-    "total_insured_value_usd": 6075000.0,
+    "total_insured_value_usd": 1750000.0,
     "tiv_is_estimated": false,
     "loss_runs": [
       {
         "policy_year": "2021-2022",
         "line_of_business": "Property",
-        "claim_count": 2,
-        "paid_usd": 16108.0,
-        "incurred_usd": 21009.0
+        "claim_count": 1,
+        "paid_usd": 93838.0,
+        "incurred_usd": 101170.0
       },
       {
         "policy_year": "2022-2023",
-        "line_of_business": "Property",
+        "line_of_business": "General Liability",
         "claim_count": 6,
-        "paid_usd": 19645.0,
-        "incurred_usd": 24092.0
+        "paid_usd": 109294.0,
+        "incurred_usd": 145974.0
       },
       {
         "policy_year": "2023-2024",
-        "line_of_business": "Property",
-        "claim_count": 3,
-        "paid_usd": 89365.0,
-        "incurred_usd": 124549.0
+        "line_of_business": "General Liability",
+        "claim_count": 1,
+        "paid_usd": 124299.0,
+        "incurred_usd": 182427.0
       },
       {
         "policy_year": "2024-2025",
         "line_of_business": "General Liability",
-        "claim_count": 3,
-        "paid_usd": 124428.0,
-        "incurred_usd": 177344.0
+        "claim_count": 5,
+        "paid_usd": 340348.0,
+        "incurred_usd": 428973.0
       },
       {
         "policy_year": "2025-2026",
         "line_of_business": "General Liability",
-        "claim_count": 2,
-        "paid_usd": 86636.0,
-        "incurred_usd": 111679.0
+        "claim_count": 1,
+        "paid_usd": 428261.0,
+        "incurred_usd": 466344.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 458673.0,
+    "total_incurred_5yr_usd": 1324888.0,
+    "open_claims": 5,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 166000.0,
+    "incumbent_carrier": "Westbrook Mutual",
+    "expiring_premium_usd": 59500.0,
     "reason_for_shopping": "Non-renewal issued by incumbent",
     "prior_non_renewal": true,
     "missing_fields": [],

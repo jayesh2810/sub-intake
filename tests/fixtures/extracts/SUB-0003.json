@@ -1,109 +1,103 @@
 {
   "submission_id": "SUB-0003",
-  "content_hash": "9adcf7a94fc28f982812bc36f6123ffad457d5c200cefdb3c81bc30ecebc346a",
+  "content_hash": "1040c8aabba318fd3cb3b17d7de8fa78bfd42d4dbbbfd40b70b845f576075ec9",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Bill Trombley",
-      "agency_name": "Trombley & Sons Insurance",
-      "email": "bill.trombley@trombleyins.com",
+      "producer_name": "\"S. Okafor\"",
+      "agency_name": null,
+      "email": "s..okafor@latitudecommercial.com",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Wraysbury Fabrication Inc.",
+      "named_insured": "Ridgeway Company",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "2759 Commerce Drive",
-      "city": "Syracuse",
-      "state": "NY",
-      "zip_code": "54571",
+      "mailing_address": "7868 Commerce Drive",
+      "city": "Fresno",
+      "state": "CA",
+      "zip_code": "25119",
       "website": null,
-      "business_description": "Multi-tenant retail center, landlord operations",
-      "naics_code": "531120",
+      "business_description": "Industrial machinery and equipment distribution",
+      "naics_code": "423830",
       "sic_code": null,
-      "years_in_business": 2,
+      "years_in_business": 6,
       "annual_revenue_usd": 48000000.0,
-      "employee_count": 362
+      "employee_count": 320
     },
     "coverages_requested": [
       {
         "line_of_business": "COMMERCIAL PROPERTY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 25000.0,
-        "notes": null
-      },
-      {
-        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
-        "limit_occurrence_usd": 1000000,
-        "limit_aggregate_usd": 2000000,
-        "deductible_usd": 25000.0,
+        "deductible_usd": 10000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-08-17",
-    "expiration_date": "2027-08-17",
+    "effective_date": "2026-11-02",
+    "expiration_date": "2027-11-02",
     "locations": [
       {
-        "address": "2759 Commerce Drive",
-        "city": "Syracuse",
-        "construction_type": "Joisted Masonry",
-        "year_built": 2006,
-        "square_feet": 19000,
-        "building_value_usd": 6000000.0,
-        "contents_value_usd": 150000.0,
-        "business_income_usd": 1800000.0,
-        "sprinklered": true,
-        "state": "NY",
-        "zip_code": "54571"
+        "address": "7868 Commerce Drive",
+        "city": "Fresno",
+        "construction_type": "Non-Combustible",
+        "year_built": 1999,
+        "square_feet": 125000,
+        "building_value_usd": 2600000.0,
+        "contents_value_usd": 1625000.0,
+        "business_income_usd": 450000.0,
+        "sprinklered": false,
+        "state": "CA",
+        "zip_code": "25119"
       }
     ],
-    "total_insured_value_usd": 7950000.0,
+    "total_insured_value_usd": 4675000.0,
     "tiv_is_estimated": false,
     "loss_runs": [
       {
         "policy_year": "2021-2022",
         "line_of_business": "General Liability",
-        "claim_count": 5,
-        "paid_usd": 131766.0,
-        "incurred_usd": 176710.0
+        "claim_count": 2,
+        "paid_usd": 107861.0,
+        "incurred_usd": 123126.0
       },
       {
         "policy_year": "2022-2023",
         "line_of_business": "Property",
-        "claim_count": 1,
-        "paid_usd": 19021.0,
-        "incurred_usd": 20245.0
+        "claim_count": 5,
+        "paid_usd": 57249.0,
+        "incurred_usd": 79598.0
       },
       {
         "policy_year": "2023-2024",
-        "line_of_business": "General Liability",
-        "claim_count": 4,
-        "paid_usd": 47512.0,
-        "incurred_usd": 59874.0
+        "line_of_business": "Property",
+        "claim_count": 6,
+        "paid_usd": 107978.0,
+        "incurred_usd": 115094.0
       },
       {
         "policy_year": "2024-2025",
-        "line_of_business": "Property",
+        "line_of_business": "General Liability",
         "claim_count": 2,
-        "paid_usd": 69422.0,
-        "incurred_usd": 108325.0
+        "paid_usd": 63739.0,
+        "incurred_usd": 85870.0
       },
       {
         "policy_year": "2025-2026",
-        "line_of_business": "General Liability",
-        "claim_count": 6,
-        "paid_usd": 128941.0,
-        "incurred_usd": 182662.0
+        "line_of_business": "Property",
+        "claim_count": 5,
+        "paid_usd": 27869.0,
+        "incurred_usd": 34128.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 547816.0,
+    "total_incurred_5yr_usd": 437816.0,
+    "open_claims": 1,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 194500.0,
-    "reason_for_shopping": "Ongoing service and claims handling issues with incumbent",
+    "incumbent_carrier": "Pioneer Indemnity",
+    "expiring_premium_usd": 225500.0,
+    "reason_for_shopping": "Renewal increase quoted at +18%",
     "prior_non_renewal": false,
     "missing_fields": [],
     "ambiguities": [],

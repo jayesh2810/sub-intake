@@ -70,15 +70,29 @@ def evaluate(
     if resolved is None and business_description:
         resolved = naics.lookup(business_description)
 
+    # Which lines are in play. An unstated line list is treated as "possibly
+    # requested" rather than skipped, so an ambiguous submission is questioned
+    # rather than quietly cleared.
+    lobs = " ".join(lines_of_business or []).lower()
+    property_requested = not lobs or "propert" in lobs
+    liability_requested = not lobs or "liabilit" in lobs
+
     # --- completeness: without these we cannot evaluate at all ---------------
     completeness = g["submission_completeness"]
     present = {
         "naics_code": resolved.code if resolved else None,
         "state": state,
         "total_insured_value_usd": total_insured_value_usd,
+        "annual_revenue_usd": annual_revenue_usd,
     }
-    for field in completeness["required_for_evaluation"]:
-        if present.get(field) in (None, ""):
+    required = list(completeness["required_for_evaluation"])
+    by_line = completeness.get("required_by_line") or {}
+    if property_requested:
+        required += by_line.get("property", [])
+    if liability_requested:
+        required += by_line.get("liability", [])
+    for field in required:
+        if present.get(field) in (None, "") and field not in needed:
             needed.append(field)
     if completeness.get("loss_runs_required") and not loss_runs_provided:
         needed.append("carrier loss runs")
@@ -87,7 +101,8 @@ def evaluate(
     # capacity rules below still run on the figure - a number far above gross
     # capacity is disqualifying however soft it is - but the account cannot
     # clear completeness until confirmed values arrive.
-    if completeness.get("confirmed_values_required") and tiv_is_estimated:
+    if (completeness.get("confirmed_values_required")
+            and property_requested and tiv_is_estimated):
         needed.append("confirmed statement of values (TIV supplied is an estimate)")
 
     if needed:
@@ -144,11 +159,7 @@ def evaluate(
             )
 
     # --- capacity ------------------------------------------------------------
-    # Property capacity only bites if property is actually being requested. An
-    # unstated line list is treated as "possibly property" rather than skipped.
-    lobs = " ".join(lines_of_business or []).lower()
-    property_requested = not lobs or "propert" in lobs
-
+    # Property capacity only bites if property is actually being requested.
     if total_insured_value_usd is not None and property_requested:
         cap = g["capacity"]["property_tiv"]
         if total_insured_value_usd > cap["max_gross"]:

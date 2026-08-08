@@ -1,6 +1,6 @@
 {
   "submission_id": "SUB-0002",
-  "content_hash": "161a815ab4f932e1994b835989749fbf75172276bf6270bd1e84b0fa37919550",
+  "content_hash": "5c565d2e54c6fdd4e6fc4f82842c70483b9ebc635a3fa4d7f4283edf0b734e2f",
   "synthetic": true,
   "extract": {
     "broker": {
@@ -11,20 +11,20 @@
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Copper Basin Company",
+      "named_insured": "Osgood Manufacturing Co.",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "4156 Franklin Avenue",
-      "city": "Tucson",
-      "state": "AZ",
-      "zip_code": "61242",
+      "mailing_address": "6619 Franklin Avenue",
+      "city": "Green Bay",
+      "state": "WI",
+      "zip_code": "75078",
       "website": null,
-      "business_description": "Precision metal stamping and sheet metal fabrication",
-      "naics_code": "332119",
+      "business_description": "Residential and light commercial re-roofing",
+      "naics_code": "238160",
       "sic_code": null,
       "years_in_business": 3,
-      "annual_revenue_usd": 4200000.0,
-      "employee_count": 19
+      "annual_revenue_usd": 14500000.0,
+      "employee_count": 52
     },
     "coverages_requested": [
       {
@@ -42,68 +42,95 @@
         "notes": null
       }
     ],
-    "effective_date": "2026-12-07",
-    "expiration_date": "2027-12-07",
+    "effective_date": "2026-09-13",
+    "expiration_date": "2027-09-13",
     "locations": [
       {
-        "address": "4156 Franklin Avenue",
-        "city": "Tucson",
+        "address": "6619 Franklin Avenue",
+        "city": "Green Bay",
         "construction_type": "Joisted Masonry",
-        "year_built": 1999,
-        "square_feet": 26000,
+        "year_built": 1973,
+        "square_feet": 48000,
+        "building_value_usd": 1850000.0,
+        "contents_value_usd": 1375000.0,
+        "business_income_usd": 850000.0,
+        "sprinklered": false,
+        "state": "WI",
+        "zip_code": "75078"
+      },
+      {
+        "address": "2343 Franklin Avenue",
+        "city": "Green Bay",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1985,
+        "square_feet": 112000,
         "building_value_usd": 2050000.0,
-        "contents_value_usd": 3000000.0,
-        "business_income_usd": 1250000.0,
+        "contents_value_usd": 1300000.0,
+        "business_income_usd": 350000.0,
+        "sprinklered": false,
+        "state": "WI",
+        "zip_code": "82118"
+      },
+      {
+        "address": "1459 Beckett Road",
+        "city": "Green Bay",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1982,
+        "square_feet": 65000,
+        "building_value_usd": 1250000.0,
+        "contents_value_usd": 1650000.0,
+        "business_income_usd": 900000.0,
         "sprinklered": true,
-        "state": "AZ",
-        "zip_code": "61242"
+        "state": "WI",
+        "zip_code": "29830"
       }
     ],
-    "total_insured_value_usd": 6300000.0,
+    "total_insured_value_usd": 11575000.0,
     "tiv_is_estimated": false,
     "loss_runs": [
       {
         "policy_year": "2021-2022",
         "line_of_business": "Property",
-        "claim_count": 2,
-        "paid_usd": 8139.0,
-        "incurred_usd": 12855.0
+        "claim_count": 4,
+        "paid_usd": 1063.0,
+        "incurred_usd": 1108.0
       },
       {
         "policy_year": "2022-2023",
-        "line_of_business": "Property",
-        "claim_count": 2,
-        "paid_usd": 3576.0,
-        "incurred_usd": 4142.0
+        "line_of_business": "General Liability",
+        "claim_count": 4,
+        "paid_usd": 741.0,
+        "incurred_usd": 976.0
       },
       {
         "policy_year": "2023-2024",
         "line_of_business": "Property",
         "claim_count": 4,
-        "paid_usd": 5761.0,
-        "incurred_usd": 6179.0
+        "paid_usd": 1278.0,
+        "incurred_usd": 1498.0
       },
       {
         "policy_year": "2024-2025",
         "line_of_business": "Property",
-        "claim_count": 3,
-        "paid_usd": 3804.0,
-        "incurred_usd": 5338.0
+        "claim_count": 2,
+        "paid_usd": 1580.0,
+        "incurred_usd": 2521.0
       },
       {
         "policy_year": "2025-2026",
         "line_of_business": "Property",
         "claim_count": 4,
-        "paid_usd": 10706.0,
-        "incurred_usd": 13155.0
+        "paid_usd": 1214.0,
+        "incurred_usd": 1826.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 41669.0,
+    "total_incurred_5yr_usd": 7929.0,
+    "open_claims": 0,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 217500.0,
-    "reason_for_shopping": "Incumbent restricting coverage at renewal",
+    "incumbent_carrier": "Pioneer Indemnity",
+    "expiring_premium_usd": 56500.0,
+    "reason_for_shopping": "Ongoing service and claims handling issues with incumbent",
     "prior_non_renewal": false,
     "missing_fields": [],
     "ambiguities": [],

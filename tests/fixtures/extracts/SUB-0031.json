@@ -1,125 +1,128 @@
 {
   "submission_id": "SUB-0031",
-  "content_hash": "ef8340e0bbf9628381967f0bc3a3d4cc70b80a6128d1a1773f120ecede7380d9",
+  "content_hash": "6979b036df84d142a75b9e8321c5536c68d4e7e432639d639d0e8988d149b588",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Wes Nakamura",
-      "agency_name": "Pacific Union Brokerage",
-      "email": "wes.nakamura@pacunionbrokerage.com",
+      "producer_name": "Tonya Bell",
+      "agency_name": "Crestpoint Agency",
+      "email": "tonya.bell@crestpointagency.net",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Stonebridge Properties LLC",
+      "named_insured": "Copper Basin Logistics LLC",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "6521 Copper Creek Lane",
-      "city": "Modesto",
-      "state": "CA",
-      "zip_code": "37788",
+      "mailing_address": "7731 Warehouse Row",
+      "city": "Green Bay",
+      "state": "WI",
+      "zip_code": "65812",
       "website": null,
-      "business_description": "Civil and structural engineering consultancy",
-      "naics_code": "541330",
+      "business_description": "Full service casual dining restaurant",
+      "naics_code": "722511",
       "sic_code": null,
-      "years_in_business": 11,
-      "annual_revenue_usd": 14500000.0,
-      "employee_count": 80
+      "years_in_business": 18,
+      "annual_revenue_usd": 31000000.0,
+      "employee_count": 145
     },
     "coverages_requested": [
       {
         "line_of_business": "COMMERCIAL PROPERTY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 25000.0,
+        "deductible_usd": 50000.0,
         "notes": null
       },
       {
         "line_of_business": "COMMERCIAL GENERAL LIABILITY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 25000.0,
+        "deductible_usd": 50000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-09-30",
-    "expiration_date": "2027-09-30",
+    "effective_date": "2026-09-01",
+    "expiration_date": "2027-09-01",
     "locations": [
       {
-        "address": "6521 Copper Creek Lane",
-        "city": "Modesto",
-        "construction_type": "Fire Resistive",
-        "year_built": 1978,
-        "square_feet": 39000,
-        "building_value_usd": 3200000.0,
-        "contents_value_usd": 4200000.0,
-        "business_income_usd": 600000.0,
+        "address": "7731 Warehouse Row",
+        "city": "Green Bay",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1994,
+        "square_feet": 25000,
+        "building_value_usd": 2150000.0,
+        "contents_value_usd": 1250000.0,
+        "business_income_usd": 1000000.0,
         "sprinklered": true,
-        "state": "CA",
-        "zip_code": "37788"
+        "state": "WI",
+        "zip_code": "65812"
       },
       {
-        "address": "9308 Meadowbrook Court",
-        "city": "Modesto",
-        "construction_type": "Fire Resistive",
-        "year_built": 1977,
-        "square_feet": 96000,
-        "building_value_usd": 6400000.0,
-        "contents_value_usd": 3125000.0,
-        "business_income_usd": 900000.0,
-        "sprinklered": false,
-        "state": "CA",
-        "zip_code": "39620"
+        "address": "436 Prospect Road",
+        "city": "Green Bay",
+        "construction_type": "Joisted Masonry",
+        "year_built": 2011,
+        "square_feet": 90000,
+        "building_value_usd": 450000.0,
+        "contents_value_usd": 1725000.0,
+        "business_income_usd": 750000.0,
+        "sprinklered": true,
+        "state": "WI",
+        "zip_code": "16012"
       }
     ],
-    "total_insured_value_usd": 18425000.0,
+    "total_insured_value_usd": 7325000.0,
     "tiv_is_estimated": false,
     "loss_runs": [
       {
         "policy_year": "2021-2022",
-        "line_of_business": "Property",
+        "line_of_business": "General Liability",
         "claim_count": 4,
-        "paid_usd": 11886.0,
-        "incurred_usd": 19776.0
+        "paid_usd": 8632.0,
+        "incurred_usd": 9472.0
       },
       {
         "policy_year": "2022-2023",
-        "line_of_business": "General Liability",
+        "line_of_business": "Property",
         "claim_count": 3,
-        "paid_usd": 4059.0,
-        "incurred_usd": 5816.0
+        "paid_usd": 14281.0,
+        "incurred_usd": 18450.0
       },
       {
         "policy_year": "2023-2024",
         "line_of_business": "General Liability",
         "claim_count": 3,
-        "paid_usd": 14072.0,
-        "incurred_usd": 17772.0
+        "paid_usd": 4628.0,
+        "incurred_usd": 5634.0
       },
       {
         "policy_year": "2024-2025",
         "line_of_business": "General Liability",
-        "claim_count": 5,
-        "paid_usd": 14832.0,
-        "incurred_usd": 17350.0
+        "claim_count": 3,
+        "paid_usd": 3111.0,
+        "incurred_usd": 4193.0
       },
       {
         "policy_year": "2025-2026",
         "line_of_business": "General Liability",
-        "claim_count": 2,
-        "paid_usd": 24098.0,
-        "incurred_usd": 24806.0
+        "claim_count": 4,
+        "paid_usd": 21460.0,
+        "incurred_usd": 29258.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 85520.0,
+    "total_incurred_5yr_usd": 67007.0,
+    "open_claims": 2,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 153500.0,
-    "reason_for_shopping": "Ongoing service and claims handling issues with incumbent",
-    "prior_non_renewal": false,
+    "incumbent_carrier": "Continental Mutual Insurance",
+    "expiring_premium_usd": 102500.0,
+    "reason_for_shopping": "Non-renewal issued by incumbent",
+    "prior_non_renewal": true,
     "missing_fields": [],
-    "ambiguities": [],
+    "ambiguities": [
+      "Prior carrier issued a non-renewal for adverse losses."
+    ],
     "extraction_confidence": 0.9
   }
 }

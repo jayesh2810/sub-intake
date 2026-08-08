@@ -30,7 +30,7 @@ data/mailbox/*.eml
   7 route     queue, priority, drafted broker reply          deterministic + LLM
 ```
 
-Stages 1–4 are built. Each stage is idempotent, independently runnable and
+Stages 1–6 are built. Each stage is idempotent, independently runnable and
 persisted, so any one can be re-run without undoing the others.
 
 **Stage 3 is the only stage that calls a model.** Everything downstream is a
@@ -112,6 +112,68 @@ Precedence when several fire: `decline` > `pending_info` > `refer` > `accept`.
 A declined risk returns no information request — the file records the gap for
 audit, but there is nothing to ask for.
 
+What is required to evaluate depends on what is being quoted. A liability-only
+submission has no statement of values, so asking it for a TIV would hold the
+file open forever waiting on a document that was never going to exist.
+
+Licensing follows the premises rather than the mailing address. A holding
+company's post goes wherever the accountant is.
+
+Both this stage and the score read the calendar — a tight effective date is
+tight relative to something — so the date evaluated against is stored on every
+row and `--as-of` pins it.
+
+## Scoring
+
+Five components, each 0–100, combined as a weighted sum. Weights live in
+`rules/scoring.yaml`.
+
+| Component | Weight | Basis |
+|---|---|---|
+| Appetite fit | 0.35 | accept 100, refer 60, pending_info 40, decline 0 |
+| Premium value | 0.25 | log-scaled premium indication |
+| Winnability | 0.20 | broker hit ratio, adjusted for why they are shopping |
+| Urgency | 0.15 | days to effective date |
+| Completeness | 0.05 | extraction confidence, less penalties for what is missing |
+
+The total is exactly the sum of the weighted components — a reader who
+multiplies the printed numbers gets the printed answer, and a test fails if
+that stops being true. Every component carries the values it was computed
+from:
+
+```
+  score      78.1
+    premium proxy  ~$70,000   (triage indication only, not a rate)
+    appetite_fit    100.0 x 0.35 = 35.00   appetite outcome accept
+    premium_value    62.9 x 0.25 = 15.72   $70,000 indicated - expiring premium as stated
+    winnability      73.3 x 0.20 = 14.66   broker 31/84 bound, blended 34%, incumbent named +5
+    urgency          55.0 x 0.15 =  8.25   45 days to effective date
+    completeness     90.0 x 0.05 =  4.50   extraction confidence 90
+```
+
+**Premium is a triage proxy.** TIV × a rate per $100 by hazard grade, revenue ×
+a rate per $1,000. It exists to tell a $9,000 account from a $200,000 one well
+enough to sort a queue. It is not a rate, not a quote, and is labelled as an
+indication everywhere it surfaces. Where the broker states the expiring
+premium, that is used instead — a real number from a real market beats anything
+derived from a rate table.
+
+**Winnability is the encodable part of gut feel.** A broker's hit ratio is
+shrunk toward the book default by sample size, so four binds out of twelve
+reads as twelve tries rather than a 33% record, and a broker with no history
+scores the stated default exactly. The reason for shopping is classified from
+the broker's prose by keyword: a service complaint converts well, a
+non-renewal is a warning, price alone converts poorly.
+
+Two things are scored but kept off the worklist: risks outside appetite, and
+risks that belong to the broker who submitted them first. Both keep their full
+breakdown. A decline that scored well on everything except appetite is exactly
+the evidence you want when asking whether the guide is drawn too tight.
+
+Measured on the corpus, as of the Monday it was generated against: 50
+submissions produce 4 accept, 22 refer, 11 pending_info, 13 decline; 35 reach
+the worklist and 15 are held back. Every accept lands in the top five.
+
 ## Setup
 
 Python 3.10–3.12 and a Google AI Studio API key.
@@ -134,10 +196,16 @@ python -m intake.cli ingest        # read the mailbox
 python -m intake.cli parse         # PDF text and document types
 python -m intake.cli extract       # the only stage that spends quota
 python -m intake.cli clear         # duplicate detection
+python -m intake.cli assess        # appetite outcome and the rules that fired
+python -m intake.cli score         # the ranked worklist
 
 python -m intake.cli status        # where everything sits
-python -m intake.cli show SUB-0046 # one submission in detail
+python -m intake.cli show SUB-0043 # one submission in detail
 ```
+
+`assess` and `score` take `--as-of YYYY-MM-DD` to evaluate against a fixed
+date rather than today, which is what the corpus was generated against.
+Both take `--rebuild` to discard prior rows and re-run the whole mailbox.
 
 Stage 3 has controls for working against a daily quota:
 
@@ -204,6 +272,12 @@ when it is unfavourable.
   as a string, `Fri, 31 Jul` precedes `Mon, 27 Jul`. Clearance decides who owns
   a risk by who submitted first, so getting this wrong would hand accounts to
   the wrong agency silently.
+- **Silence is not a zero.** A packet that says nothing about open claims
+  yields `None`, not `0` — otherwise the guide would clear a refer threshold
+  on a number nobody supplied.
+- **Re-running a stage is not a state change.** Landing on the status already
+  held is not written to the audit trail, so retuning the weights fifty times
+  does not bury the transitions that did happen.
 
 ## Tests
 
@@ -227,7 +301,7 @@ src/intake/
   appetite.py            rules engine - deterministic, no model
   naics.py               class code resolution
   pipeline/
-    ingest.py parse.py extract.py clearance.py
+    ingest.py parse.py extract.py clearance.py assess.py score.py
   agent/
     crew.py tools.py config/{agents,tasks}.yaml
   rules/
@@ -239,7 +313,7 @@ scripts/
   generate_mailbox.py    synthetic corpus generator
   synthesize_extracts.py development scaffolding, not the extractor
 tests/
-  unit/                  rules, cache, clearance, normalisation
+  unit/                  rules, cache, clearance, normalisation, scoring
   integration/           full corpus, replayed from fixtures
   fixtures/extracts/     recorded extraction responses
 data/mailbox/            generated .eml with real PDF attachments
@@ -257,6 +331,14 @@ outside appetite, three image-only PDFs with no text layer, three duplicate
 pairs written differently by different brokers, and two businesses that share a
 name but are not the same risk.
 
+It also has to avoid breaking things by accident. Insured names are rejected if
+they come within fuzzy-matching distance of one already used, because an
+unplanted near-collision would make the clearance precision figure meaningless
+— a flag on that pair would be neither a hit nor a clean miss. Exposure is
+sized for the carrier the guide describes: values that routinely cleared the
+$10m net line would make "refer for facultative support" the ordinary answer,
+which is not what a small carrier's Monday looks like.
+
 Forty-nine of the fifty extracts are currently `fixture:synthetic` —
 regex-parsed from the generated corpus rather than read by the model, because
 the free-tier quota is twenty requests a day. That provenance is recorded in
@@ -268,6 +350,12 @@ extraction. Re-running `extract` replaces them as quota allows.
 - The appetite guide is a working sketch, not a real underwriting manual.
 - Loss experience is assessed as incurred against revenue, a proxy used because
   a full premium history is not in these packets.
+- The premium proxy sorts a queue and nothing else. Its rate table is the right
+  order of magnitude and no more than that.
+- Winnability needs bind history a real carrier will not have on day one.
+  Stages 1–6 work without it; that component sharpens once outcomes are logged.
+- Appetite is evaluated against a single state. A risk with premises in several
+  states is judged on the first one listed.
 - No OCR. Unreadable documents are detected and flagged, not recovered.
 - No real mailbox integration — `.eml` files on disk, so IMAP or Graph drops in
   behind stage 1 without touching anything downstream.

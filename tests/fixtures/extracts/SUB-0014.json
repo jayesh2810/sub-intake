@@ -1,48 +1,76 @@
 {
   "submission_id": "SUB-0014",
-  "content_hash": "2bf73c842c6ebb8ecf48351c766b65b94116cc91e1a6c34128f675ec699a7f23",
+  "content_hash": "94505a9c97bb29018d86469695133f6faf45bec3930da3832034089e164f640b",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Anna Kowalczyk",
-      "agency_name": "Northgate Risk Advisors",
-      "email": "anna.kowalczyk@northgaterisk.com",
+      "producer_name": "Devanshi Patel",
+      "agency_name": "Harborline Insurance Brokers",
+      "email": "devanshi.patel@harborlinebrokers.com",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Vanguard Fabrication Inc.",
+      "named_insured": "Elderfield Holdings LLC",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "7404 Franklin Avenue",
-      "city": "Racine",
-      "state": "WI",
-      "zip_code": "50896",
+      "mailing_address": "3946 Sycamore Street",
+      "city": "Joplin",
+      "state": "MO",
+      "zip_code": "42382",
       "website": null,
-      "business_description": "Ground-up multifamily residential construction",
-      "naics_code": "236116",
+      "business_description": "Precision metal stamping and sheet metal fabrication",
+      "naics_code": "332119",
       "sic_code": null,
       "years_in_business": 3,
       "annual_revenue_usd": null,
-      "employee_count": 104
+      "employee_count": 124
     },
     "coverages_requested": [
       {
-        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
+        "line_of_business": "COMMERCIAL PROPERTY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
         "deductible_usd": 10000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-08-11",
-    "expiration_date": "2027-08-11",
-    "locations": [],
-    "total_insured_value_usd": null,
-    "tiv_is_estimated": null,
+    "effective_date": "2026-12-07",
+    "expiration_date": "2027-12-07",
+    "locations": [
+      {
+        "address": "3946 Sycamore Street",
+        "city": "Joplin",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1969,
+        "square_feet": 111000,
+        "building_value_usd": 3650000.0,
+        "contents_value_usd": 275000.0,
+        "business_income_usd": 0.0,
+        "sprinklered": false,
+        "state": "MO",
+        "zip_code": "42382"
+      },
+      {
+        "address": "8264 Foundry Way",
+        "city": "Joplin",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1994,
+        "square_feet": 26000,
+        "building_value_usd": 1500000.0,
+        "contents_value_usd": 825000.0,
+        "business_income_usd": 1050000.0,
+        "sprinklered": false,
+        "state": "MO",
+        "zip_code": "94825"
+      }
+    ],
+    "total_insured_value_usd": 7300000.0,
+    "tiv_is_estimated": true,
     "loss_runs": [],
     "notable_claims": [],
     "total_incurred_5yr_usd": null,
+    "open_claims": null,
     "loss_runs_provided": false,
     "incumbent_carrier": null,
     "expiring_premium_usd": null,
@@ -50,10 +78,11 @@
     "prior_non_renewal": false,
     "missing_fields": [
       "annual revenue",
-      "carrier loss runs",
-      "statement of values"
+      "carrier loss runs"
     ],
-    "ambiguities": [],
-    "extraction_confidence": 0.55
+    "ambiguities": [
+      "Total insured value is an owner estimate, appraisal pending."
+    ],
+    "extraction_confidence": 0.4
   }
 }

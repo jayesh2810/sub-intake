@@ -21,22 +21,32 @@ premium_value:
   # not be meaningfully apart; $50k and $500k should be.
   floor_usd: 2500
   ceiling_usd: 500000
+  # If the broker states the expiring premium, that is a real number from a
+  # real market and beats anything we can derive from a rate table. The proxy
+  # below is the fallback, not the preference.
+  prefer_expiring_premium: true
 
 # Rough premium indication used ONLY to sort the queue. Not a rate, not a
 # quote, and never to be shown as one.
 premium_proxy:
+  # Cents per $100 of TIV. Deliberately blunt, but it has to be the right
+  # order of magnitude: at a tenth of these rates every property risk in the
+  # book prices near the floor and the component stops separating anything.
   property_rate_per_100_tiv:
-    1: 0.030
-    2: 0.045
-    3: 0.065
-    4: 0.095
-    5: 0.140
+    1: 0.150
+    2: 0.220
+    3: 0.350
+    4: 0.550
+    5: 0.850
   gl_rate_per_1000_revenue:
     1: 0.80
     2: 1.40
     3: 2.60
     4: 4.50
     5: 7.50
+  # Used when the class could not be resolved. Middle of the table, so an
+  # unclassified risk is neither flattered nor buried.
+  default_hazard_grade: 3
   # Applied when neither TIV nor revenue is known, so an unpriceable
   # submission does not silently sort to the bottom of the list.
   unknown_exposure_usd: 15000
@@ -46,12 +56,29 @@ winnability:
   # underwriter knows without being able to articulate it.
   base_from_hit_ratio: true
   no_history_default: 45        # a broker we have never seen
+  hit_ratio_at_100: 0.50        # binding half of what you send is exceptional
+  # Four wins out of twelve is not a 33% hit ratio, it is a small sample. The
+  # observed ratio is blended with the no-history default, weighted as though
+  # every broker arrived with this many prior submissions already on the book.
+  # At zero history the blend returns no_history_default exactly.
+  shrinkage_prior_submissions: 20
   shopping_reason_adjustment:
     price: 0                    # shopping on price alone, converts poorly
     service: 12                 # unhappy with the incumbent, converts well
     coverage: 8
     non_renewal: -15            # they were thrown off, ask why
     unknown: 0
+  # Brokers write the reason in prose, so it is classified by keyword. First
+  # category with a match wins, which is why non_renewal is listed before
+  # price - "non-renewal at renewal" must not read as a rate increase.
+  shopping_reason_keywords:
+    non_renewal: [non-renewal, nonrenewal, non renewal, not renewing,
+                  declined to renew, cancelled, cancellation]
+    service: [service, claims handling, responsiveness, unresponsive,
+              slow to respond, poor claims]
+    coverage: [coverage, restricting, restriction, exclusion, terms,
+               sublimit, reduced limits]
+    price: [price, pricing, premium, increase, rate, cost, "%", expensive]
   incumbent_known_bonus: 5      # we can see what we are competing against
 
 urgency:
@@ -63,6 +90,9 @@ urgency:
     - {within_days: 120, score: 30}
   beyond_score: 15
   unknown_score: 40             # no effective date stated
+  # An effective date already in the past is not a stale submission, it is a
+  # missed one. It outranks everything.
+  lapsed_score: 100
 
 completeness:
   # Can the underwriter actually work this today?
@@ -71,6 +101,7 @@ completeness:
   estimated_values_penalty: 15
   needs_ocr_penalty: 30
 
-# Declined risks score zero and drop off the worklist. They stay in the
-# database, queryable and auditable, but they do not consume attention.
+# Declines and risks that belong to another broker are scored, stored and
+# queryable, but they do not consume attention on the worklist.
 suppress_declines: true
+suppress_duplicates: true

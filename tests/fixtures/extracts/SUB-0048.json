@@ -1,114 +1,106 @@
 {
   "submission_id": "SUB-0048",
-  "content_hash": "ecda5b6cd387ba8b47ff516eba64c2dfc8d350627c3f8099f9b822f59412fa94",
+  "content_hash": "80dfa68f26a8057f6074c0e491583fab13467d81815ecdb0b659cc19e55342ab",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Priya Raghunathan",
-      "agency_name": "Meridian Brokerage Group",
-      "email": "priya.raghunathan@meridianbg.com",
+      "producer_name": "Marcus Whitfield",
+      "agency_name": "Keystone Risk Partners",
+      "email": "marcus.whitfield@keystone-risk.com",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Westmarch Partners LP",
+      "named_insured": "Ridgeway Co.",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "6731 Industrial Pkwy",
-      "city": "Mesa",
-      "state": "AZ",
-      "zip_code": "59226",
+      "mailing_address": "7868 Commerce Dr",
+      "city": "Fresno",
+      "state": "CA",
+      "zip_code": "25119",
       "website": null,
-      "business_description": "Mid-rise apartment building, residential rental",
-      "naics_code": null,
+      "business_description": "Industrial machinery and equipment distribution",
+      "naics_code": "423830",
       "sic_code": null,
-      "years_in_business": 11,
-      "annual_revenue_usd": 76000000.0,
-      "employee_count": 602
+      "years_in_business": 6,
+      "annual_revenue_usd": 48000000.0,
+      "employee_count": 320
     },
     "coverages_requested": [
       {
         "line_of_business": "COMMERCIAL PROPERTY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 25000.0,
-        "notes": null
-      },
-      {
-        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
-        "limit_occurrence_usd": 1000000,
-        "limit_aggregate_usd": 2000000,
-        "deductible_usd": 25000.0,
+        "deductible_usd": 10000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-10-16",
-    "expiration_date": "2027-10-16",
+    "effective_date": "2026-11-02",
+    "expiration_date": "2027-11-02",
     "locations": [
       {
-        "address": "6731 Industrial Parkway",
-        "city": "Mesa",
-        "construction_type": "Joisted Masonry",
-        "year_built": 1970,
-        "square_feet": 124000,
-        "building_value_usd": 8400000.0,
-        "contents_value_usd": 525000.0,
-        "business_income_usd": 800000.0,
-        "sprinklered": true,
-        "state": "AZ",
-        "zip_code": "59226"
+        "address": "7868 Commerce Drive",
+        "city": "Fresno",
+        "construction_type": "Non-Combustible",
+        "year_built": 1999,
+        "square_feet": 125000,
+        "building_value_usd": 2600000.0,
+        "contents_value_usd": 1625000.0,
+        "business_income_usd": 450000.0,
+        "sprinklered": false,
+        "state": "CA",
+        "zip_code": "25119"
       }
     ],
-    "total_insured_value_usd": 9700000.0,
+    "total_insured_value_usd": 4700000.0,
     "tiv_is_estimated": false,
     "loss_runs": [
       {
         "policy_year": "2021-2022",
         "line_of_business": "General Liability",
-        "claim_count": 3,
-        "paid_usd": 81981.0,
-        "incurred_usd": 114028.0
+        "claim_count": 2,
+        "paid_usd": 107861.0,
+        "incurred_usd": 123126.0
       },
       {
         "policy_year": "2022-2023",
         "line_of_business": "Property",
-        "claim_count": 1,
-        "paid_usd": 85204.0,
-        "incurred_usd": 91578.0
+        "claim_count": 5,
+        "paid_usd": 57249.0,
+        "incurred_usd": 79598.0
       },
       {
         "policy_year": "2023-2024",
         "line_of_business": "Property",
-        "claim_count": 4,
-        "paid_usd": 285426.0,
-        "incurred_usd": 322069.0
+        "claim_count": 6,
+        "paid_usd": 107978.0,
+        "incurred_usd": 115094.0
       },
       {
         "policy_year": "2024-2025",
         "line_of_business": "General Liability",
-        "claim_count": 4,
-        "paid_usd": 190042.0,
-        "incurred_usd": 207488.0
+        "claim_count": 2,
+        "paid_usd": 63739.0,
+        "incurred_usd": 85870.0
       },
       {
         "policy_year": "2025-2026",
-        "line_of_business": "General Liability",
-        "claim_count": 4,
-        "paid_usd": 57581.0,
-        "incurred_usd": 88168.0
+        "line_of_business": "Property",
+        "claim_count": 5,
+        "paid_usd": 27869.0,
+        "incurred_usd": 34128.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 823331.0,
+    "total_incurred_5yr_usd": 437816.0,
+    "open_claims": 1,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 215500.0,
-    "reason_for_shopping": "Ongoing service and claims handling issues with incumbent",
+    "incumbent_carrier": "Pioneer Indemnity",
+    "expiring_premium_usd": 225500.0,
+    "reason_for_shopping": "Renewal increase quoted at +18%",
     "prior_non_renewal": false,
-    "missing_fields": [
-      "NAICS code"
-    ],
+    "missing_fields": [],
     "ambiguities": [],
-    "extraction_confidence": 0.85
+    "extraction_confidence": 0.9
   }
 }

@@ -22,6 +22,7 @@ from email.message import EmailMessage
 from pathlib import Path
 
 import yaml
+from rapidfuzz import fuzz
 from reportlab.lib.pagesizes import LETTER
 from reportlab.lib.units import inch
 from reportlab.pdfgen import canvas
@@ -70,7 +71,12 @@ CLASSES = [
     ("531110", "Apartments", "Mid-rise apartment building, residential rental", "Joisted Masonry"),
 ]
 
-STATES = ["OH", "IN", "MI", "PA", "NC", "GA", "TX", "AZ", "MO", "WI", "CA", "NY"]
+# Licensed states only. The unlicensed pair is drawn from separately, by the
+# one flavour that is meant to be declined for it - if CA and NY sat in this
+# list too, a quarter of the ordinary submissions would fail licensing by
+# accident and the decline rate would say more about the generator than the
+# appetite guide.
+STATES = ["OH", "IN", "MI", "PA", "NC", "GA", "TX", "AZ", "MO", "WI"]
 UNLICENSED = {"CA", "NY"}  # not on the appetite guide's licensed list
 
 CITIES = {
@@ -292,6 +298,22 @@ def loss_run_lines(s: dict) -> list[str]:
 # Submission synthesis
 # --------------------------------------------------------------------------
 
+# Wide enough that no unplanted pair lands near the matcher's threshold. Not
+# exact equality: "Halloway Manufacturing Co." and "Calloway Manufacturing Co."
+# are different strings and one letter apart, and a corpus containing both
+# cannot be used to measure a fuzzy matcher's precision - a flag on that pair
+# would be neither a hit nor a clean miss.
+NAME_DISTINCT_BELOW = 85
+
+
+def _name_is_distinct(candidate: str, used: set[str]) -> bool:
+    return all(
+        max(fuzz.token_sort_ratio(candidate, other),
+            fuzz.token_set_ratio(candidate, other)) < NAME_DISTINCT_BELOW
+        for other in used
+    )
+
+
 def make_submission(
     rng: random.Random, idx: int, flavour: str, used_names: set[str] | None = None
 ) -> dict:
@@ -309,7 +331,7 @@ def make_submission(
     used = used_names if used_names is not None else set()
     for _ in range(400):
         insured = f"{rng.choice(NAME_PARTS_A)} {rng.choice(NAME_PARTS_B)}"
-        if insured not in used:
+        if _name_is_distinct(insured, used):
             break
     else:
         insured = f"{rng.choice(NAME_PARTS_A)} {rng.choice(NAME_PARTS_B)} {idx}"
@@ -320,10 +342,14 @@ def make_submission(
     employees = max(4, int(revenue / rng.uniform(120_000, 320_000)))
     years = rng.choice([2, 3, 6, 11, 18, 28, 35])
 
+    # Exposure sized for the carrier the appetite guide describes: a $10m net
+    # line, single-site manufacturers and distributors. Values that routinely
+    # cleared net capacity would make "refer for facultative support" the
+    # ordinary answer, which is not what a small carrier's Monday looks like.
     n_locs = rng.choice([1, 1, 1, 2, 2, 3])
     locations = []
     for _ in range(n_locs):
-        building = rng.randrange(400_000, 9_000_000, 50_000)
+        building = rng.randrange(300_000, 4_000_000, 50_000)
         locations.append({
             "address": f"{rng.randrange(100, 9900)} {rng.choice(STREETS)}",
             "city": city, "state": state, "zip": f"{rng.randrange(10000, 99999)}",
@@ -332,8 +358,8 @@ def make_submission(
             "sqft": rng.randrange(6_000, 140_000, 1000),
             "sprinklered": rng.choice(["Yes", "No"]),
             "building": building,
-            "contents": rng.randrange(150_000, 5_000_000, 25_000),
-            "bi": rng.randrange(0, 2_500_000, 50_000),
+            "contents": rng.randrange(100_000, 2_000_000, 25_000),
+            "bi": rng.randrange(0, 1_200_000, 50_000),
         })
     tiv = sum(l["building"] + l["contents"] + l["bi"] for l in locations)
     if flavour == "over_capacity":
@@ -540,20 +566,38 @@ def main() -> None:
     # and address are deliberately abbreviated so clearance has to normalise
     # rather than string-compare.
     ABBREV = [("Manufacturing", "Mfg."), ("Company", "Co."), ("Industries", "Inds."),
+              ("Associates", "Assoc."), ("Enterprises", "Ent."), ("Holdings", "Hldgs."),
+              ("International", "Intl."), ("Brothers", "Bros."), ("Group", "Grp."),
+              ("Services", "Svcs."), ("Distributors", "Dist."),
               ("Parkway", "Pkwy"), ("Drive", "Dr"), ("Road", "Rd"), ("Avenue", "Ave"),
-              ("Street", "St"), ("Court", "Ct"), ("Lane", "Ln")]
+              ("Street", "St"), ("Court", "Ct"), ("Lane", "Ln"),
+              ("Boulevard", "Blvd"), ("Terrace", "Ter"), ("Circle", "Cir"),
+              ("Place", "Pl"), ("Trail", "Trl")]
+
+    def rewritten(text: str) -> str:
+        for long, short in ABBREV:
+            text = text.replace(long, short)
+        return text
+
     next_idx = args.count - planted + 1
-    originals = rng.sample(subs, args.duplicates)
+    # Only risks whose name or address actually abbreviates. A duplicate that
+    # came out byte identical would prove nothing: clearance would match it on
+    # a plain string compare and the normaliser would never be exercised.
+    rewritable = [s for s in subs
+                  if rewritten(s["insured"]) != s["insured"]
+                  or rewritten(s["address"]) != s["address"]]
+    if len(rewritable) < args.duplicates:
+        raise SystemExit(
+            f"only {len(rewritable)} of {len(subs)} names or addresses abbreviate; "
+            f"cannot plant {args.duplicates} duplicates that need normalising")
+    originals = rng.sample(rewritable, args.duplicates)
     for orig in originals:
         dup = dict(orig)
         dup["idx"] = next_idx; next_idx += 1
         other = [b for b in BROKERS if b != orig["broker"]]
         dup["broker"] = rng.choice(other)
-        name, addr = dup["insured"], dup["address"]
-        for long, short in ABBREV:
-            name = name.replace(long, short)
-            addr = addr.replace(long, short)
-        dup["insured"], dup["address"] = name, addr
+        dup["insured"] = rewritten(dup["insured"])
+        dup["address"] = rewritten(dup["address"])
         dup["flavour"] = "duplicate"
         dup["tiv"] = int(round(dup["tiv"], -5))  # broker rounds it
         dup["submitted"] = orig["submitted"] + timedelta(days=1)

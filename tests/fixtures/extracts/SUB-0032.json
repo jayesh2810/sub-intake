@@ -1,75 +1,49 @@
 {
   "submission_id": "SUB-0032",
-  "content_hash": "32b619547a279e9e4d66e55edd352e6e79398bb76b7259b4d8af1885bff4a70d",
+  "content_hash": "3443608f454df00c79754b397255854218669fb21f878f8372aa623cb3a82128",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Hannah Fiedler",
-      "agency_name": "Copperline Brokers",
-      "email": "hannah.fiedler@copperlinebrokers.com",
+      "producer_name": "Ollie Brennan",
+      "agency_name": "Brennan Risk Services",
+      "email": "ollie.brennan@brennanrisk.com",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Ridgeway Properties LLC",
+      "named_insured": "Apex Group Inc.",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "3927 Beckett Road",
-      "city": "Fresno",
-      "state": "CA",
-      "zip_code": "69239",
+      "mailing_address": "1877 Industrial Parkway",
+      "city": "Grand Rapids",
+      "state": "MI",
+      "zip_code": "16081",
       "website": null,
-      "business_description": "Precision metal stamping and sheet metal fabrication",
-      "naics_code": "332119",
+      "business_description": "Ground-up multifamily residential construction",
+      "naics_code": "236116",
       "sic_code": null,
       "years_in_business": 2,
       "annual_revenue_usd": null,
-      "employee_count": 131
+      "employee_count": 209
     },
     "coverages_requested": [
       {
-        "line_of_business": "COMMERCIAL PROPERTY",
+        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 25000.0,
+        "deductible_usd": 50000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-10-16",
-    "expiration_date": "2027-10-16",
-    "locations": [
-      {
-        "address": "3927 Beckett Road",
-        "city": "Fresno",
-        "construction_type": "Joisted Masonry",
-        "year_built": 1990,
-        "square_feet": 45000,
-        "building_value_usd": 2200000.0,
-        "contents_value_usd": 2725000.0,
-        "business_income_usd": 1700000.0,
-        "sprinklered": true,
-        "state": "CA",
-        "zip_code": "69239"
-      },
-      {
-        "address": "1581 Foundry Way",
-        "city": "Fresno",
-        "construction_type": "Joisted Masonry",
-        "year_built": 2018,
-        "square_feet": 82000,
-        "building_value_usd": 2500000.0,
-        "contents_value_usd": 3300000.0,
-        "business_income_usd": 2200000.0,
-        "sprinklered": true,
-        "state": "CA",
-        "zip_code": "81893"
-      }
-    ],
-    "total_insured_value_usd": 14625000.0,
-    "tiv_is_estimated": true,
+    "effective_date": "2026-08-08",
+    "expiration_date": "2027-08-08",
+    "locations": [],
+    "total_insured_value_usd": null,
+    "tiv_is_estimated": null,
     "loss_runs": [],
     "notable_claims": [],
     "total_incurred_5yr_usd": null,
+    "open_claims": null,
     "loss_runs_provided": false,
     "incumbent_carrier": null,
     "expiring_premium_usd": null,
@@ -77,11 +51,10 @@
     "prior_non_renewal": false,
     "missing_fields": [
       "annual revenue",
-      "carrier loss runs"
+      "carrier loss runs",
+      "statement of values"
     ],
-    "ambiguities": [
-      "Total insured value is an owner estimate, appraisal pending."
-    ],
-    "extraction_confidence": 0.4
+    "ambiguities": [],
+    "extraction_confidence": 0.55
   }
 }

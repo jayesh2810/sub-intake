@@ -106,13 +106,20 @@ CREATE TABLE IF NOT EXISTS clearance (
 );
 CREATE INDEX IF NOT EXISTS ix_clearance_name ON clearance(normalised_name);
 
+-- as_of is stored on both of these because two rules read the calendar:
+-- appetite refers a tight effective date, and the score ranks on days
+-- remaining. Re-running next week legitimately gives a different answer, so
+-- the date the answer was computed against has to travel with it.
 CREATE TABLE IF NOT EXISTS decisions (
     submission_id   TEXT PRIMARY KEY REFERENCES submissions(id) ON DELETE CASCADE,
     outcome         TEXT NOT NULL,
     fired_rules_json TEXT NOT NULL,
+    information_required_json TEXT,
+    blocking_json   TEXT,
     queue           TEXT,
     priority        INTEGER,
     guide_version   TEXT,
+    as_of           TEXT,
     created_at      TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
@@ -120,7 +127,11 @@ CREATE TABLE IF NOT EXISTS scores (
     submission_id   TEXT PRIMARY KEY REFERENCES submissions(id) ON DELETE CASCADE,
     total           REAL NOT NULL,
     components_json TEXT NOT NULL,
+    estimated_premium_usd REAL,
+    suppressed      INTEGER NOT NULL DEFAULT 0,
+    suppressed_because TEXT,
     weights_version TEXT,
+    as_of           TEXT,
     created_at      TEXT NOT NULL DEFAULT (datetime('now'))
 );
 CREATE INDEX IF NOT EXISTS ix_scores_total ON scores(total DESC);
@@ -200,13 +211,21 @@ def log_event(
 def set_status(
     conn: sqlite3.Connection, submission_id: str, status: str, actor: str = "system"
 ) -> None:
-    """Move a submission to a new state and record the transition."""
+    """Move a submission to a new state and record the transition.
+
+    Re-running a stage is normal and must stay cheap, so landing on the state
+    already held is not a transition and is not logged. An audit trail that
+    records "scored -> scored" every time the weights are retuned buries the
+    transitions that did happen.
+    """
     if status not in ALL_STATES:
         raise ValueError(f"Unknown status '{status}'. Valid: {', '.join(ALL_STATES)}")
     row = conn.execute(
         "SELECT status FROM submissions WHERE id = ?", (submission_id,)
     ).fetchone()
     previous = row["status"] if row else None
+    if previous == status:
+        return
     conn.execute(
         "UPDATE submissions SET status = ?, updated_at = datetime('now') WHERE id = ?",
         (status, submission_id),

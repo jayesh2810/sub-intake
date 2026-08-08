@@ -1,30 +1,30 @@
 {
   "submission_id": "SUB-0013",
-  "content_hash": "edf5090afa71dc1c2cdcdc9bde52ca67e63fe486cda426b0911423a0e4247a3d",
+  "content_hash": "f13283e109caeb73d12c8870e5bc122a79ec2f2bbbfb63781afad85b3ae41761",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Bill Trombley",
-      "agency_name": "Trombley & Sons Insurance",
-      "email": "bill.trombley@trombleyins.com",
+      "producer_name": "Anna Kowalczyk",
+      "agency_name": "Northgate Risk Advisors",
+      "email": "anna.kowalczyk@northgaterisk.com",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Marchwood Associates LP",
+      "named_insured": "Vanguard Fabrication Inc.",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "7486 Prospect Road",
-      "city": "Dayton",
-      "state": "OH",
-      "zip_code": "28162",
+      "mailing_address": "7404 Franklin Avenue",
+      "city": "Racine",
+      "state": "WI",
+      "zip_code": "50896",
       "website": null,
-      "business_description": "Mid-rise apartment building, residential rental",
-      "naics_code": "531110",
+      "business_description": "Ground-up multifamily residential construction",
+      "naics_code": "236116",
       "sic_code": null,
-      "years_in_business": 2,
+      "years_in_business": 3,
       "annual_revenue_usd": 14500000.0,
-      "employee_count": 54
+      "employee_count": 104
     },
     "coverages_requested": [
       {
@@ -35,8 +35,8 @@
         "notes": null
       }
     ],
-    "effective_date": "2026-09-30",
-    "expiration_date": "2027-09-30",
+    "effective_date": "2026-08-11",
+    "expiration_date": "2027-08-11",
     "locations": [],
     "total_insured_value_usd": null,
     "tiv_is_estimated": null,
@@ -44,52 +44,51 @@
       {
         "policy_year": "2021-2022",
         "line_of_business": "General Liability",
-        "claim_count": 4,
-        "paid_usd": 2774.0,
-        "incurred_usd": 3599.0
+        "claim_count": 1,
+        "paid_usd": 7529.0,
+        "incurred_usd": 9175.0
       },
       {
         "policy_year": "2022-2023",
         "line_of_business": "Property",
-        "claim_count": 2,
-        "paid_usd": 15254.0,
-        "incurred_usd": 23974.0
+        "claim_count": 1,
+        "paid_usd": 938.0,
+        "incurred_usd": 1028.0
       },
       {
         "policy_year": "2023-2024",
-        "line_of_business": "General Liability",
+        "line_of_business": "Property",
         "claim_count": 5,
-        "paid_usd": 24743.0,
-        "incurred_usd": 38878.0
+        "paid_usd": 7542.0,
+        "incurred_usd": 7792.0
       },
       {
         "policy_year": "2024-2025",
-        "line_of_business": "Property",
-        "claim_count": 3,
-        "paid_usd": 18538.0,
-        "incurred_usd": 26358.0
+        "line_of_business": "General Liability",
+        "claim_count": 2,
+        "paid_usd": 5629.0,
+        "incurred_usd": 6618.0
       },
       {
         "policy_year": "2025-2026",
-        "line_of_business": "Property",
-        "claim_count": 1,
-        "paid_usd": 19520.0,
-        "incurred_usd": 21693.0
+        "line_of_business": "General Liability",
+        "claim_count": 6,
+        "paid_usd": 7237.0,
+        "incurred_usd": 7992.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 114502.0,
+    "total_incurred_5yr_usd": 32605.0,
+    "open_claims": 4,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 87000.0,
-    "reason_for_shopping": "Non-renewal issued by incumbent",
-    "prior_non_renewal": true,
+    "incumbent_carrier": "Ardent National",
+    "expiring_premium_usd": 84500.0,
+    "reason_for_shopping": "Renewal increase quoted at +18%",
+    "prior_non_renewal": false,
     "missing_fields": [
       "statement of values"
     ],
-    "ambiguities": [
-      "Prior carrier issued a non-renewal for adverse losses."
-    ],
+    "ambiguities": [],
     "extraction_confidence": 0.9
   }
 }

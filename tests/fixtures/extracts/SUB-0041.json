@@ -1,69 +1,70 @@
 {
   "submission_id": "SUB-0041",
-  "content_hash": "adf24e2d60af1490c24dcd15809c779e9978079fcd27b82a3ced44360dcb67b1",
+  "content_hash": "92d8dffb768f8274d02de92774b74c0e157b903d832c951c9c5c1fdafacab2e3",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Ollie Brennan",
-      "agency_name": "Brennan Risk Services",
-      "email": "ollie.brennan@brennanrisk.com",
+      "producer_name": "Bill Trombley",
+      "agency_name": "Trombley & Sons Insurance",
+      "email": "bill.trombley@trombleyins.com",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Ambleside Works Inc.",
+      "named_insured": "Cedar Hollow Works Inc.",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "4109 Warehouse Row",
-      "city": "Green Bay",
-      "state": "WI",
-      "zip_code": "59989",
+      "mailing_address": "441 Old Mill Road",
+      "city": "Akron",
+      "state": "OH",
+      "zip_code": "28272",
       "website": null,
-      "business_description": "Garden style apartment complex, residential rental",
-      "naics_code": "531110",
+      "business_description": "Multi-physician outpatient medical practice",
+      "naics_code": "621111",
       "sic_code": null,
-      "years_in_business": 2,
+      "years_in_business": 11,
       "annual_revenue_usd": null,
-      "employee_count": 242
+      "employee_count": 66
     },
     "coverages_requested": [
       {
         "line_of_business": "COMMERCIAL PROPERTY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 25000.0,
+        "deductible_usd": 50000.0,
         "notes": null
       },
       {
         "line_of_business": "COMMERCIAL GENERAL LIABILITY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 25000.0,
+        "deductible_usd": 50000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-08-11",
-    "expiration_date": "2027-08-11",
+    "effective_date": "2026-11-02",
+    "expiration_date": "2027-11-02",
     "locations": [
       {
-        "address": "4109 Warehouse Row",
-        "city": "Green Bay",
-        "construction_type": "Wood Frame",
-        "year_built": 2004,
-        "square_feet": 21000,
-        "building_value_usd": 4950000.0,
-        "contents_value_usd": 825000.0,
-        "business_income_usd": 2300000.0,
+        "address": "441 Old Mill Road",
+        "city": "Akron",
+        "construction_type": "Fire Resistive",
+        "year_built": 1994,
+        "square_feet": 107000,
+        "building_value_usd": 3500000.0,
+        "contents_value_usd": 225000.0,
+        "business_income_usd": 50000.0,
         "sprinklered": false,
-        "state": "WI",
-        "zip_code": "59989"
+        "state": "OH",
+        "zip_code": "28272"
       }
     ],
-    "total_insured_value_usd": 8075000.0,
+    "total_insured_value_usd": 3775000.0,
     "tiv_is_estimated": true,
     "loss_runs": [],
     "notable_claims": [],
     "total_incurred_5yr_usd": null,
+    "open_claims": null,
     "loss_runs_provided": false,
     "incumbent_carrier": null,
     "expiring_premium_usd": null,

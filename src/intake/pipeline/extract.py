@@ -89,6 +89,20 @@ def save_fixture(conn: sqlite3.Connection, submission_id: str,
     return path
 
 
+def _already_stored(
+    conn: sqlite3.Connection, submission_id: str, extract: SubmissionExtract
+) -> bool:
+    """True if the stored extract is this one, against the current packet."""
+    row = conn.execute(
+        "SELECT content_hash, payload_json FROM extracts WHERE submission_id = ?",
+        (submission_id,),
+    ).fetchone()
+    if row is None or row["content_hash"] != packet_hash(conn, submission_id):
+        return False
+    return (SubmissionExtract.model_validate_json(row["payload_json"])
+            == extract)
+
+
 def load_fixture(submission_id: str) -> Optional[dict]:
     path = FIXTURES_DIR / f"{submission_id}.json"
     if not path.is_file():
@@ -154,9 +168,14 @@ def run(
     if only:
         ids = list(only)
     else:
+        # Anything with documents, not just anything sitting at 'parsed'. A
+        # submission that has moved on to cleared or scored is still eligible:
+        # the cache decides whether it costs anything, and a stage that
+        # refuses to re-run once its successor has run is not re-runnable.
         ids = [r["id"] for r in conn.execute(
-            "SELECT id FROM submissions WHERE status IN ('parsed','extracted') "
-            "ORDER BY id")]
+            "SELECT s.id FROM submissions s WHERE EXISTS "
+            "(SELECT 1 FROM documents d WHERE d.submission_id = s.id) "
+            "ORDER BY s.id")]
 
     hits, misses = [], []
     for sid in ids:
@@ -180,11 +199,18 @@ def run(
             if fixture is None:
                 failed.append({"submission_id": sid, "error": "no fixture recorded"})
                 continue
+            replayed = SubmissionExtract.model_validate(fixture["extract"])
+            # A recorded fixture is a copy of a row we already hold. Writing it
+            # back over the original would replace a real model call with
+            # "fixture:model" and zero tokens - the only record of what the
+            # extraction actually cost, overwritten by its own recording.
+            if _already_stored(conn, sid, replayed):
+                hits.append(sid)
+                continue
             # Provenance is kept so a synthesised extract is never mistaken for
             # a real model response, here or anywhere downstream.
             origin = "fixture:synthetic" if fixture.get("synthetic") else "fixture:model"
-            store(conn, sid, SubmissionExtract.model_validate(fixture["extract"]),
-                  model=origin)
+            store(conn, sid, replayed, model=origin)
             extracted.append(sid)
         return {"cached": len(hits), "extracted": len(extracted),
                 "tokens": 0, "failed": failed, "source": "fixtures"}

@@ -37,11 +37,17 @@ operations:
   min_years_in_business: 3   # below this, refer
 
 submission_completeness:
-  # Absent any of these we cannot evaluate appetite at all.
+  # Absent any of these we cannot evaluate appetite at all, whatever is being
+  # asked for.
   required_for_evaluation:
     - naics_code
     - state
-    - total_insured_value_usd
+  # A liability-only submission has no statement of values, so demanding a TIV
+  # would hold it open forever asking the broker for a document that was never
+  # going to exist. A line that is not stated is treated as possibly
+  # requested, same as for capacity.
+  required_by_line:
+    property: [total_insured_value_usd]
   loss_runs_required: true
   confirmed_values_required: true   # an estimated TIV does not clear completeness
   max_days_to_effective: 15  # tighter than this, refer for handling

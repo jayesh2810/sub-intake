@@ -1,30 +1,30 @@
 {
   "submission_id": "SUB-0005",
-  "content_hash": "457a3d9500ef09a8e4a16241757bed68652124ea0660d044a34df1bed01fd8cd",
+  "content_hash": "9404d6ba7776f77e11f2239ddfa43006c05c1df9751cc1bcfa583b83597dcd61",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Tonya Bell",
-      "agency_name": "Crestpoint Agency",
-      "email": "tonya.bell@crestpointagency.net",
+      "producer_name": "Wes Nakamura",
+      "agency_name": "Pacific Union Brokerage",
+      "email": "wes.nakamura@pacunionbrokerage.com",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Harbor Point Services Inc.",
+      "named_insured": "Ambleside Industries Inc.",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "2885 Beckett Road",
-      "city": "Modesto",
-      "state": "CA",
-      "zip_code": "13610",
+      "mailing_address": "8727 Meadowbrook Court",
+      "city": "Racine",
+      "state": "WI",
+      "zip_code": "28251",
       "website": null,
-      "business_description": "Multi-tenant retail center, landlord operations",
-      "naics_code": "531120",
+      "business_description": "Residential and light commercial re-roofing",
+      "naics_code": "238160",
       "sic_code": null,
-      "years_in_business": 28,
-      "annual_revenue_usd": 48000000.0,
-      "employee_count": 225
+      "years_in_business": 35,
+      "annual_revenue_usd": 8900000.0,
+      "employee_count": 71
     },
     "coverages_requested": [
       {
@@ -33,69 +33,103 @@
         "limit_aggregate_usd": 2000000,
         "deductible_usd": 50000.0,
         "notes": null
+      },
+      {
+        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 50000.0,
+        "notes": null
       }
     ],
-    "effective_date": "2026-09-13",
-    "expiration_date": "2027-09-13",
+    "effective_date": "2026-11-02",
+    "expiration_date": "2027-11-02",
     "locations": [
       {
-        "address": "2885 Beckett Road",
-        "city": "Modesto",
+        "address": "8727 Meadowbrook Court",
+        "city": "Racine",
         "construction_type": "Joisted Masonry",
-        "year_built": 1977,
-        "square_feet": 125000,
-        "building_value_usd": 2400000.0,
-        "contents_value_usd": 4050000.0,
-        "business_income_usd": 1900000.0,
+        "year_built": 1995,
+        "square_feet": 55000,
+        "building_value_usd": 950000.0,
+        "contents_value_usd": 175000.0,
+        "business_income_usd": 400000.0,
         "sprinklered": true,
-        "state": "CA",
-        "zip_code": "13610"
+        "state": "WI",
+        "zip_code": "28251"
+      },
+      {
+        "address": "4899 Sycamore Street",
+        "city": "Racine",
+        "construction_type": "Joisted Masonry",
+        "year_built": 2016,
+        "square_feet": 89000,
+        "building_value_usd": 1650000.0,
+        "contents_value_usd": 1825000.0,
+        "business_income_usd": 650000.0,
+        "sprinklered": false,
+        "state": "WI",
+        "zip_code": "41527"
+      },
+      {
+        "address": "1097 Meadowbrook Court",
+        "city": "Racine",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1997,
+        "square_feet": 138000,
+        "building_value_usd": 1100000.0,
+        "contents_value_usd": 1700000.0,
+        "business_income_usd": 200000.0,
+        "sprinklered": false,
+        "state": "WI",
+        "zip_code": "56371"
       }
     ],
-    "total_insured_value_usd": 8350000.0,
+    "total_insured_value_usd": 8650000.0,
     "tiv_is_estimated": false,
     "loss_runs": [
       {
         "policy_year": "2021-2022",
-        "line_of_business": "Property",
-        "claim_count": 4,
-        "paid_usd": 992805.0,
-        "incurred_usd": 998176.0
+        "line_of_business": "General Liability",
+        "claim_count": 5,
+        "paid_usd": 172350.0,
+        "incurred_usd": 193635.0
       },
       {
         "policy_year": "2022-2023",
         "line_of_business": "Property",
-        "claim_count": 2,
-        "paid_usd": 145647.0,
-        "incurred_usd": 238298.0
+        "claim_count": 3,
+        "paid_usd": 70322.0,
+        "incurred_usd": 80559.0
       },
       {
         "policy_year": "2023-2024",
-        "line_of_business": "Property",
-        "claim_count": 3,
-        "paid_usd": 20741.0,
-        "incurred_usd": 25912.0
+        "line_of_business": "General Liability",
+        "claim_count": 1,
+        "paid_usd": 1649.0,
+        "incurred_usd": 1730.0
       },
       {
         "policy_year": "2024-2025",
-        "line_of_business": "General Liability",
-        "claim_count": 3,
-        "paid_usd": 1444407.0,
-        "incurred_usd": 1766338.0
+        "line_of_business": "Property",
+        "claim_count": 2,
+        "paid_usd": 237863.0,
+        "incurred_usd": 351598.0
       },
       {
         "policy_year": "2025-2026",
         "line_of_business": "Property",
         "claim_count": 1,
-        "paid_usd": 1139408.0,
-        "incurred_usd": 1181951.0
+        "paid_usd": 60893.0,
+        "incurred_usd": 75824.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 4210675.0,
+    "total_incurred_5yr_usd": 703346.0,
+    "open_claims": 4,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 51000.0,
+    "incumbent_carrier": "Great Lakes Casualty",
+    "expiring_premium_usd": 174500.0,
     "reason_for_shopping": "Non-renewal issued by incumbent",
     "prior_non_renewal": true,
     "missing_fields": [],

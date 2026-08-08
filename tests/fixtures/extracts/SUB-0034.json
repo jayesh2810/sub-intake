@@ -1,30 +1,30 @@
 {
   "submission_id": "SUB-0034",
-  "content_hash": "8987ecda60b2295951dc0c05006a7900e2a730b3312e72456c29a3cda1b1d26c",
+  "content_hash": "78a6bf0a8156fb8e969f44b4c3121d525b35566701880367d47bd31e2062380c",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Ollie Brennan",
-      "agency_name": "Brennan Risk Services",
-      "email": "ollie.brennan@brennanrisk.com",
+      "producer_name": "Hannah Fiedler",
+      "agency_name": "Copperline Brokers",
+      "email": "hannah.fiedler@copperlinebrokers.com",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Apex Group Inc.",
+      "named_insured": "Quarry Hill Logistics LLC",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "1877 Industrial Parkway",
-      "city": "Fresno",
-      "state": "CA",
-      "zip_code": "16081",
+      "mailing_address": "4132 Franklin Avenue",
+      "city": "Utica",
+      "state": "NY",
+      "zip_code": "60771",
       "website": null,
-      "business_description": "Ground-up multifamily residential construction",
-      "naics_code": "236116",
+      "business_description": "Garden style apartment complex, residential rental",
+      "naics_code": "531110",
       "sic_code": null,
-      "years_in_business": 2,
-      "annual_revenue_usd": 48000000.0,
-      "employee_count": 209
+      "years_in_business": 18,
+      "annual_revenue_usd": 1800000.0,
+      "employee_count": 6
     },
     "coverages_requested": [
       {
@@ -35,8 +35,8 @@
         "notes": null
       }
     ],
-    "effective_date": "2026-08-08",
-    "expiration_date": "2027-08-08",
+    "effective_date": "2026-09-01",
+    "expiration_date": "2027-09-01",
     "locations": [],
     "total_insured_value_usd": null,
     "tiv_is_estimated": null,
@@ -44,52 +44,51 @@
       {
         "policy_year": "2021-2022",
         "line_of_business": "Property",
-        "claim_count": 3,
-        "paid_usd": 25305.0,
-        "incurred_usd": 26672.0
+        "claim_count": 5,
+        "paid_usd": 229.0,
+        "incurred_usd": 348.0
       },
       {
         "policy_year": "2022-2023",
-        "line_of_business": "Property",
+        "line_of_business": "General Liability",
         "claim_count": 3,
-        "paid_usd": 28815.0,
-        "incurred_usd": 34935.0
+        "paid_usd": 1657.0,
+        "incurred_usd": 2037.0
       },
       {
         "policy_year": "2023-2024",
         "line_of_business": "General Liability",
-        "claim_count": 3,
-        "paid_usd": 11418.0,
-        "incurred_usd": 16943.0
+        "claim_count": 4,
+        "paid_usd": 1148.0,
+        "incurred_usd": 1689.0
       },
       {
         "policy_year": "2024-2025",
         "line_of_business": "Property",
         "claim_count": 3,
-        "paid_usd": 2458.0,
-        "incurred_usd": 4043.0
+        "paid_usd": 1460.0,
+        "incurred_usd": 1733.0
       },
       {
         "policy_year": "2025-2026",
-        "line_of_business": "Property",
+        "line_of_business": "General Liability",
         "claim_count": 4,
-        "paid_usd": 30929.0,
-        "incurred_usd": 37399.0
+        "paid_usd": 563.0,
+        "incurred_usd": 638.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 119992.0,
+    "total_incurred_5yr_usd": 6445.0,
+    "open_claims": 2,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 35000.0,
-    "reason_for_shopping": "Non-renewal issued by incumbent",
-    "prior_non_renewal": true,
+    "incumbent_carrier": "Pioneer Indemnity",
+    "expiring_premium_usd": 40000.0,
+    "reason_for_shopping": "Renewal increase quoted at +34%",
+    "prior_non_renewal": false,
     "missing_fields": [
       "statement of values"
     ],
-    "ambiguities": [
-      "Prior carrier issued a non-renewal for adverse losses."
-    ],
+    "ambiguities": [],
     "extraction_confidence": 0.9
   }
 }

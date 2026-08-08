@@ -1,6 +1,6 @@
 {
   "submission_id": "SUB-0007",
-  "content_hash": "374fc08669d31fc7eff3abeeec45b7bb2c6f9349f114879bda7901200f4ff21a",
+  "content_hash": "a1f3e57c8a4f09fe9e0ed77cc4fbf94c989ccca06c73c40e4ddcbcf7cb803acf",
   "synthetic": true,
   "extract": {
     "broker": {
@@ -11,117 +11,125 @@
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Redstone Associates LP",
+      "named_insured": "Northfield Holdings LLC",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "2442 Sierra Ridge Drive",
-      "city": "Modesto",
-      "state": "CA",
-      "zip_code": "27990",
+      "mailing_address": "6751 Beckett Road",
+      "city": "Charlotte",
+      "state": "NC",
+      "zip_code": "80333",
       "website": null,
-      "business_description": "Commercial plumbing and HVAC installation and service",
-      "naics_code": "238220",
+      "business_description": "Ground-up multifamily residential construction",
+      "naics_code": "236116",
       "sic_code": null,
-      "years_in_business": 28,
+      "years_in_business": 35,
       "annual_revenue_usd": 8900000.0,
-      "employee_count": 28
+      "employee_count": 31
     },
     "coverages_requested": [
       {
         "line_of_business": "COMMERCIAL PROPERTY",
         "limit_occurrence_usd": 1000000,
         "limit_aggregate_usd": 2000000,
-        "deductible_usd": 10000.0,
+        "deductible_usd": 50000.0,
+        "notes": null
+      },
+      {
+        "line_of_business": "COMMERCIAL GENERAL LIABILITY",
+        "limit_occurrence_usd": 1000000,
+        "limit_aggregate_usd": 2000000,
+        "deductible_usd": 50000.0,
         "notes": null
       }
     ],
-    "effective_date": "2026-09-01",
-    "expiration_date": "2027-09-01",
+    "effective_date": "2026-08-24",
+    "expiration_date": "2027-08-24",
     "locations": [
       {
-        "address": "2442 Sierra Ridge Drive",
-        "city": "Modesto",
-        "construction_type": "Joisted Masonry",
-        "year_built": 1997,
-        "square_feet": 62000,
-        "building_value_usd": 5050000.0,
-        "contents_value_usd": 2675000.0,
-        "business_income_usd": 1550000.0,
-        "sprinklered": true,
-        "state": "CA",
-        "zip_code": "27990"
-      },
-      {
-        "address": "3765 Beckett Road",
-        "city": "Modesto",
+        "address": "6751 Beckett Road",
+        "city": "Charlotte",
         "construction_type": "Joisted Masonry",
         "year_built": 2000,
-        "square_feet": 109000,
-        "building_value_usd": 2450000.0,
-        "contents_value_usd": 2825000.0,
-        "business_income_usd": 600000.0,
+        "square_feet": 132000,
+        "building_value_usd": 1950000.0,
+        "contents_value_usd": 375000.0,
+        "business_income_usd": 400000.0,
         "sprinklered": false,
-        "state": "CA",
-        "zip_code": "66560"
+        "state": "NC",
+        "zip_code": "80333"
       },
       {
-        "address": "5318 Commerce Drive",
-        "city": "Modesto",
+        "address": "3103 Franklin Avenue",
+        "city": "Charlotte",
         "construction_type": "Joisted Masonry",
-        "year_built": 1969,
-        "square_feet": 92000,
-        "building_value_usd": 4950000.0,
-        "contents_value_usd": 2950000.0,
-        "business_income_usd": 2250000.0,
+        "year_built": 1985,
+        "square_feet": 10000,
+        "building_value_usd": 650000.0,
+        "contents_value_usd": 925000.0,
+        "business_income_usd": 100000.0,
+        "sprinklered": true,
+        "state": "NC",
+        "zip_code": "19491"
+      },
+      {
+        "address": "1191 Sierra Ridge Drive",
+        "city": "Charlotte",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1997,
+        "square_feet": 8000,
+        "building_value_usd": 1700000.0,
+        "contents_value_usd": 1850000.0,
+        "business_income_usd": 650000.0,
         "sprinklered": false,
-        "state": "CA",
-        "zip_code": "57966"
+        "state": "NC",
+        "zip_code": "25948"
       }
     ],
-    "total_insured_value_usd": 25300000.0,
+    "total_insured_value_usd": 8600000.0,
     "tiv_is_estimated": false,
     "loss_runs": [
       {
         "policy_year": "2021-2022",
-        "line_of_business": "Property",
-        "claim_count": 1,
-        "paid_usd": 51649.0,
-        "incurred_usd": 73135.0
+        "line_of_business": "General Liability",
+        "claim_count": 6,
+        "paid_usd": 127263.0,
+        "incurred_usd": 176265.0
       },
       {
         "policy_year": "2022-2023",
         "line_of_business": "Property",
-        "claim_count": 2,
-        "paid_usd": 168422.0,
-        "incurred_usd": 237825.0
+        "claim_count": 3,
+        "paid_usd": 181378.0,
+        "incurred_usd": 233052.0
       },
       {
         "policy_year": "2023-2024",
         "line_of_business": "Property",
-        "claim_count": 4,
-        "paid_usd": 26253.0,
-        "incurred_usd": 27934.0
+        "claim_count": 3,
+        "paid_usd": 177884.0,
+        "incurred_usd": 240775.0
       },
       {
         "policy_year": "2024-2025",
-        "line_of_business": "General Liability",
-        "claim_count": 4,
-        "paid_usd": 150008.0,
-        "incurred_usd": 227372.0
+        "line_of_business": "Property",
+        "claim_count": 3,
+        "paid_usd": 39997.0,
+        "incurred_usd": 65060.0
       },
       {
         "policy_year": "2025-2026",
-        "line_of_business": "General Liability",
+        "line_of_business": "Property",
         "claim_count": 6,
-        "paid_usd": 41346.0,
-        "incurred_usd": 56575.0
+        "paid_usd": 36101.0,
+        "incurred_usd": 45000.0
       }
     ],
     "notable_claims": [],
-    "total_incurred_5yr_usd": 622841.0,
+    "total_incurred_5yr_usd": 760152.0,
+    "open_claims": 5,
     "loss_runs_provided": true,
-    "incumbent_carrier": null,
-    "expiring_premium_usd": 36500.0,
+    "incumbent_carrier": "Continental Mutual Insurance",
+    "expiring_premium_usd": 186500.0,
     "reason_for_shopping": "Non-renewal issued by incumbent",
     "prior_non_renewal": true,
     "missing_fields": [],

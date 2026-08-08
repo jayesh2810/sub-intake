@@ -88,6 +88,22 @@ def test_set_status_records_the_transition(conn):
     assert '"to": "extracted"' in rows[1]["detail"]
 
 
+def test_landing_on_the_state_already_held_is_not_a_transition(conn):
+    """Stages are re-run constantly. 'scored -> scored' every time the weights
+    are retuned would bury the transitions that actually happened."""
+    _submission(conn)
+    db.set_status(conn, "SUB-0001", "scored")
+    db.set_status(conn, "SUB-0001", "scored")
+    db.set_status(conn, "SUB-0001", "scored")
+    rows = conn.execute(
+        "SELECT detail FROM events WHERE submission_id=? AND event_type='status_changed'",
+        ("SUB-0001",)).fetchall()
+    assert len(rows) == 1
+    assert conn.execute(
+        "SELECT status FROM submissions WHERE id=?", ("SUB-0001",)
+    ).fetchone()["status"] == "scored"
+
+
 def test_events_capture_the_actor(conn):
     _submission(conn)
     db.set_status(conn, "SUB-0001", "declined", actor="jbhadane")

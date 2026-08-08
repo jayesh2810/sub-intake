@@ -1,30 +1,30 @@
 {
   "submission_id": "SUB-0044",
-  "content_hash": "ddefdcfe0084ebc60a730bdf00b32aad5f86e3ecaabf166291f2d48614f0d635",
+  "content_hash": "fe91dbb52984ba52ea34864343c212bebeae8623add8cff1cf0ec4960d75e8f1",
   "synthetic": true,
   "extract": {
     "broker": {
-      "producer_name": "Rey Delgado",
-      "agency_name": "Delgado Insurance Group",
-      "email": "rey.delgado@delgadoins.com",
+      "producer_name": "Devanshi Patel",
+      "agency_name": "Harborline Insurance Brokers",
+      "email": "devanshi.patel@harborlinebrokers.com",
       "phone": null,
       "submitted_date": null
     },
     "insured": {
-      "named_insured": "Wraysbury Logistics LLC",
+      "named_insured": "Tallgrass Associates LP",
       "dba": null,
       "entity_type": null,
-      "mailing_address": "8495 Sycamore Street",
-      "city": "Racine",
-      "state": "WI",
-      "zip_code": "60223",
+      "mailing_address": "7146 Franklin Avenue",
+      "city": "Greensboro",
+      "state": "NC",
+      "zip_code": "70849",
       "website": null,
-      "business_description": "Ground-up multifamily residential construction",
-      "naics_code": "236116",
+      "business_description": "Precision metal stamping and sheet metal fabrication",
+      "naics_code": "332119",
       "sic_code": null,
-      "years_in_business": 6,
+      "years_in_business": 11,
       "annual_revenue_usd": null,
-      "employee_count": 177
+      "employee_count": 98
     },
     "coverages_requested": [
       {
@@ -35,28 +35,42 @@
         "notes": null
       }
     ],
-    "effective_date": "2026-09-13",
-    "expiration_date": "2027-09-13",
+    "effective_date": "2026-09-01",
+    "expiration_date": "2027-09-01",
     "locations": [
       {
-        "address": "8495 Sycamore Street",
-        "city": "Racine",
+        "address": "7146 Franklin Avenue",
+        "city": "Greensboro",
         "construction_type": "Joisted Masonry",
-        "year_built": 2005,
-        "square_feet": 107000,
-        "building_value_usd": 2800000.0,
-        "contents_value_usd": 2400000.0,
-        "business_income_usd": 500000.0,
-        "sprinklered": true,
-        "state": "WI",
-        "zip_code": "60223"
+        "year_built": 1990,
+        "square_feet": 16000,
+        "building_value_usd": 3600000.0,
+        "contents_value_usd": 1525000.0,
+        "business_income_usd": 0.0,
+        "sprinklered": false,
+        "state": "NC",
+        "zip_code": "70849"
+      },
+      {
+        "address": "8705 Old Mill Road",
+        "city": "Greensboro",
+        "construction_type": "Joisted Masonry",
+        "year_built": 1994,
+        "square_feet": 101000,
+        "building_value_usd": 700000.0,
+        "contents_value_usd": 1875000.0,
+        "business_income_usd": 900000.0,
+        "sprinklered": false,
+        "state": "NC",
+        "zip_code": "22971"
       }
     ],
-    "total_insured_value_usd": 5700000.0,
+    "total_insured_value_usd": 8600000.0,
     "tiv_is_estimated": true,
     "loss_runs": [],
     "notable_claims": [],
     "total_incurred_5yr_usd": null,
+    "open_claims": null,
     "loss_runs_provided": false,
     "incumbent_carrier": null,
     "expiring_premium_usd": null,
